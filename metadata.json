@@ -1,0 +1,6 @@
+{
+  "name": "Premium AI Kundli Report",
+  "description": "An interactive digital booklet providing premium Vedic Jyotish Kundli calculations, birth nakshatras, Panchabhoota elements, dasha charts, and protective remedies driven by Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

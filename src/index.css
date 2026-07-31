@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .page-bg {
+    @apply bg-[#FCFAF5] dark:bg-slate-900;
+  }
+
+  .page-text {
+    @apply text-slate-800 dark:text-slate-200;
+  }
+
+  .card-bg {
+    @apply bg-white dark:bg-slate-800/30;
+  }
+
+  .card-bg-secondary {
+    @apply bg-slate-50 dark:bg-slate-800/20;
+  }
+
+  .border-default {
+    @apply border-[#EBE4D5] dark:border-slate-700;
+  }
+
+  .border-light {
+    @apply border-[#EBE4D5]/60 dark:border-slate-700/60;
+  }
+
+  .text-muted {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .sidebar-bg {
+    @apply bg-white/95 dark:bg-slate-900/95;
+  }
+
+  .sidebar-header-bg {
+    @apply bg-slate-50/60 dark:bg-slate-800/60;
+  }
+
+  .sidebar-item-hover {
+    @apply hover:bg-slate-100 dark:hover:bg-slate-800;
+  }
+
+  .sidebar-item-text {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+
+  .shadow-soft {
+    @apply shadow-sm dark:shadow-black/20;
+  }
+
+  .shadow-book {
+    @apply shadow-[0_15px_40px_#00000066] dark:shadow-black/60;
+  }
+}
+
+@media print {
+  .dark * {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* Scrollbar styles for dark mode */
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+
+@keyframes bookZoom {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes glowZoom {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.animate-book-zoom {
+  animation: bookZoom 4s ease-in-out infinite;
+}
+
+.animate-glow-zoom {
+  animation: glowZoom 4s ease-in-out infinite;
+}

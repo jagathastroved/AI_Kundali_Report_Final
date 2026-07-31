@@ -1,0 +1,496 @@
+{
+    "name": "Jagathratchagan",
+    "pages": {
+        "page1_big3_detail": {
+            "personality": {
+                "bigThree": {
+                    "sun": {
+                        "sign": "Sagittarius",
+                        "description": "As a Sagittarius Sun, your core self is driven by a thirst for knowledge and a strong desire for exploration. You thrive in environments that challenge your intellect and offer opportunities for higher learning, which aligns with your life purpose of expanding horizons and seeking fortune through wisdom. Your optimistic outlook and adventurous spirit inspire those around you, and you are naturally drawn to philosophies that promote growth and enlightenment. Embracing your Sagittarian nature allows you to manifest abundance and fulfillment in all your endeavors."
+                    },
+                    "moon": {
+                        "sign": "Leo",
+                        "description": "Your Moon in Leo signifies a rich emotional world filled with creativity and a strong desire for self-expression. You instinctively seek out opportunities to showcase your talents, which fuels your intellect and inspires those around you. Your emotional needs revolve around recognition and appreciation, making it essential for you to engage in creative pursuits that allow your vibrant personality to shine. This powerful combination of creativity and emotional depth enhances your ability to connect with others on a profound level."
+                    },
+                    "ascendant": {
+                        "sign": "Aries",
+                        "description": "With Aries as your Ascendant, you present an energetic and confident demeanor to the world. Your physical presence is dynamic, often leaving a strong first impression of assertiveness and initiative, traits enhanced by Mars as your chart ruler. You have a pioneering spirit that drives you to take charge and lead, and your Krittika nakshatra influence adds a layer of determination and focus to your approach. This vibrant energy not only attracts attention but also inspires others to follow your lead."
+                    }
+                }
+            }
+        },
+        "page2_elemental_balance": {
+            "page_type": "elemental_balance",
+            "title": "Your dominant elements are Air and Earth",
+            "pie_chart": {
+                "Fire": 0.0,
+                "Earth": 30.0,
+                "Air": 40.0,
+                "Water": 20.0,
+                "Ether": 10.0
+            },
+            "element_cards": [
+                {
+                    "name": "Air",
+                    "percent": 40.0,
+                    "description": "According to your birth chart, you are a person with the dominant air element. As a result, you will have a lot of intelligence and variability.",
+                    "color": "#F4A623"
+                },
+                {
+                    "name": "Earth",
+                    "percent": 30.0,
+                    "description": "As per your birth chart, you are an earth element dominant person. As a result of this, you will have a lot of stability, practicality, and a grounded approach to everything you do.",
+                    "color": "#2A9D8F"
+                }
+            ]
+        },
+        "page3_dominant_chakra": {
+            "chakraAnalysis": {
+                "dominantChakra": {
+                    "name": "Swadhisthana",
+                    "description": "Having Swadhisthana as your dominant chakra means you are naturally attuned to creativity, pleasure, and emotional flow. This manifests in your personality as a vibrant and expressive individual who thrives on artistic endeavors and emotional connections. You likely find joy in exploring new ideas and experiences, which enhances your ability to engage with life on a deeper level. One key strength this chakra provides you is an innate capacity to inspire others through your creative expressions.",
+                    "remedy": "To maintain balance in your Swadhisthana chakra, immerse yourself in creative arts, dance, and water therapy. Engaging in these activities allows you to release emotions and embrace the flow of creativity, helping to keep your energy vibrant and alive. Movement, especially through dance, can also help you connect with your body and release any blockages, enhancing your overall emotional well-being. Additionally, gently developing your Muladhara chakra can provide you with a stronger foundation, ensuring you feel secure as you explore your creative impulses."
+                }
+            }
+        },
+        "page4_atmakaraka": {
+            "atmakaraka": {
+                "planetName": "Moon (☽)",
+                "description": "Moon is your Atmakaraka, the planet representing your soul's focal aspirations.",
+                "soulDesireText": "With Moon being your Atmakaraka, your core soul desire revolves around emotional fulfilment, nurturing, and inner peace. This placement enriches you with deep empathy, allowing you to connect profoundly with others, and your nurturing instinct makes you a comforting presence for those around you. Your emotional intelligence is heightened, enabling you to navigate complex feelings with grace and understanding. However, you may find yourself facing lessons around emotional dependency, mood swings, and attachment, which are growth areas for you to develop. Embracing these challenges will lead you towards greater emotional resilience and inner tranquility."
+            }
+        },
+        "page5_kundali_chart": {
+            "page_type": "kundli_chart",
+            "title": "Here's your kundli chart",
+            "chart_type": "D1",
+            "chart": {
+                "Aries": [
+                    "Lagna"
+                ],
+                "Taurus": [
+                    "Saturn"
+                ],
+                "Gemini": [
+                    "Jupiter",
+                    "Rahu"
+                ],
+                "Cancer": [],
+                "Leo": [
+                    "Moon"
+                ],
+                "Virgo": [],
+                "Libra": [],
+                "Scorpio": [],
+                "Sagittarius": [
+                    "Sun",
+                    "Venus",
+                    "Ketu"
+                ],
+                "Capricorn": [
+                    "Mercury"
+                ],
+                "Aquarius": [
+                    "Mars"
+                ],
+                "Pisces": []
+            },
+            "planet_positions": [
+                {
+                    "planet": "Sun",
+                    "sign": "Sagittarius",
+                    "degree": "19°56'06\"",
+                    "house": 9
+                },
+                {
+                    "planet": "Moon",
+                    "sign": "Leo",
+                    "degree": "26°13'18\"",
+                    "house": 5
+                },
+                {
+                    "planet": "Mars",
+                    "sign": "Aquarius",
+                    "degree": "25°27'54\"",
+                    "house": 11
+                },
+                {
+                    "planet": "Mercury",
+                    "sign": "Capricorn",
+                    "degree": "06°48'43\"",
+                    "house": 10
+                },
+                {
+                    "planet": "Jupiter",
+                    "sign": "Gemini",
+                    "degree": "16°19'49\"",
+                    "house": 3
+                },
+                {
+                    "planet": "Venus",
+                    "sign": "Sagittarius",
+                    "degree": "17°31'07\"",
+                    "house": 9
+                },
+                {
+                    "planet": "Saturn",
+                    "sign": "Taurus",
+                    "degree": "15°14'08\"",
+                    "house": 2
+                },
+                {
+                    "planet": "Rahu",
+                    "sign": "Gemini",
+                    "degree": "02°17'53\"",
+                    "house": 3
+                },
+                {
+                    "planet": "Ketu",
+                    "sign": "Sagittarius",
+                    "degree": "02°17'53\"",
+                    "house": 9
+                },
+                {
+                    "planet": "Lagna",
+                    "sign": "Aries",
+                    "degree": "29°33'32\"",
+                    "house": 1
+                }
+            ]
+        },
+        "page6_dasha": {
+            "summaryText": "Jagathratchagan, as you enter your Rahu Maha Dasha from September 5, 2025, to September 5, 2043, you will feel a surge of ambition and a desire to explore unconventional paths. With the Rahu Antar Dasha lasting from September 5, 2025, to May 18, 2028, this period will amplify your drive and may bring opportunities for foreign connections or innovative ventures. Right now, you are encouraged to embrace your aspirations, but be mindful of the intensity that Rahu can bring into your life.",
+            "dashaTimeline": [
+                {
+                    "levelName": "Maha Dasha",
+                    "planetName": "Rahu",
+                    "startDate": "5-9-2025 0:09",
+                    "endDate": "5-9-2043 12:09"
+                },
+                {
+                    "levelName": "Antar Dasha",
+                    "planetName": "Rahu",
+                    "startDate": "5-9-2025 0:09",
+                    "endDate": "18-5-2028 4:21"
+                },
+                {
+                    "levelName": "Pratyantar Dasha",
+                    "planetName": "Saturn",
+                    "startDate": "11-6-2026 10:08",
+                    "endDate": "14-11-2026 13:36"
+                },
+                {
+                    "levelName": "Sookshma Dasha",
+                    "planetName": "Saturn",
+                    "startDate": "11-6-2026 10:08",
+                    "endDate": "6-7-2026 3:29"
+                },
+                {
+                    "levelName": "Prana Dasha",
+                    "planetName": "Rahu",
+                    "startDate": "29-6-2026 3:22",
+                    "endDate": "2-7-2026 20:22"
+                }
+            ]
+        },
+        "page7_chart_stellium": {
+            "page_number": 10,
+            "page_type": "kundali_chart_stellium",
+            "lagnaChart": {
+                "title": "Your Lagna Kundli Chart",
+                "stelliumQuestion": "What repeating pattern of your nature does Vedic Astrology reveal?",
+                "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your Kundli. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
+                "chart": {
+                    "type": "north_indian",
+                    "lagna_sign": "Aries",
+                    "lagna_house": 1,
+                    "houses": [
+                        {
+                            "house": 1,
+                            "sign": "Aries",
+                            "planets": [
+                                "As"
+                            ],
+                            "position": {
+                                "row": 1,
+                                "col": 1,
+                                "label_pos": "top-left"
+                            }
+                        },
+                        {
+                            "house": 2,
+                            "sign": "Taurus",
+                            "planets": [
+                                "Sa"
+                            ],
+                            "position": {
+                                "row": 0,
+                                "col": 1,
+                                "label_pos": "top"
+                            }
+                        },
+                        {
+                            "house": 3,
+                            "sign": "Gemini",
+                            "planets": [
+                                "Ju",
+                                "Ra"
+                            ],
+                            "position": {
+                                "row": 0,
+                                "col": 2,
+                                "label_pos": "top"
+                            }
+                        },
+                        {
+                            "house": 4,
+                            "sign": "Cancer",
+                            "planets": [],
+                            "position": {
+                                "row": 1,
+                                "col": 3,
+                                "label_pos": "top-right"
+                            }
+                        },
+                        {
+                            "house": 5,
+                            "sign": "Leo",
+                            "planets": [
+                                "Mo"
+                            ],
+                            "position": {
+                                "row": 2,
+                                "col": 3,
+                                "label_pos": "right"
+                            }
+                        },
+                        {
+                            "house": 6,
+                            "sign": "Virgo",
+                            "planets": [],
+                            "position": {
+                                "row": 3,
+                                "col": 3,
+                                "label_pos": "bottom-right"
+                            }
+                        },
+                        {
+                            "house": 7,
+                            "sign": "Libra",
+                            "planets": [],
+                            "position": {
+                                "row": 3,
+                                "col": 2,
+                                "label_pos": "bottom"
+                            }
+                        },
+                        {
+                            "house": 8,
+                            "sign": "Scorpio",
+                            "planets": [],
+                            "position": {
+                                "row": 3,
+                                "col": 1,
+                                "label_pos": "bottom"
+                            }
+                        },
+                        {
+                            "house": 9,
+                            "sign": "Sagittarius",
+                            "planets": [
+                                "Su",
+                                "Ve",
+                                "Ke"
+                            ],
+                            "position": {
+                                "row": 3,
+                                "col": 0,
+                                "label_pos": "bottom-left"
+                            }
+                        },
+                        {
+                            "house": 10,
+                            "sign": "Capricorn",
+                            "planets": [
+                                "Me"
+                            ],
+                            "position": {
+                                "row": 2,
+                                "col": 0,
+                                "label_pos": "left"
+                            }
+                        },
+                        {
+                            "house": 11,
+                            "sign": "Aquarius",
+                            "planets": [
+                                "Ma"
+                            ],
+                            "position": {
+                                "row": 1,
+                                "col": 0,
+                                "label_pos": "left"
+                            }
+                        },
+                        {
+                            "house": 12,
+                            "sign": "Pisces",
+                            "planets": [],
+                            "position": {
+                                "row": 0,
+                                "col": 0,
+                                "label_pos": "top-left"
+                            }
+                        }
+                    ]
+                },
+                "stelliumDesc2": "With your stellium in the 9 house, your life is deeply enriched by themes of dharma, higher learning, and spiritual beliefs. The presence of the Sun illuminates your path as a spiritual seeker and teacher, while Venus enhances your appreciation for beauty and harmony in philosophical pursuits. Ketu adds a layer of depth, encouraging you to delve into transformative experiences that expand your understanding of life. Together, these energies create a powerful drive for long journeys, both physically and intellectually, as you strive to embody the wisdom of a philosopher.",
+                "stelliumDesc3": "You naturally excel at guiding others on their spiritual journeys and have a talent for sharing profound insights that inspire growth. Pay attention to opportunities for higher education and spiritual practices that resonate with your soul, as these will enhance your sense of purpose. Embrace your role as a teacher and seeker, for your unique gift lies in the ability to connect deeply with others through shared wisdom and transformative experiences."
+            }
+        },
+        "page8_planets_1": {
+            "planets": [
+                {
+                    "planet": "Sun",
+                    "sanskrit_name": "Surya (Sun)",
+                    "nakshatra": "Purvashada",
+                    "sign": "Sagittarius",
+                    "house": 9,
+                    "is_retrograde": false,
+                    "description": "Surya is like a sacred figure. It represents smart thinking and an open-minded attitude. Surya is often known as the one who gives life. Surya is very important for spiritual life on Earth.",
+                    "personal_insight": "Surya rules your 5th and 12th houses and is placed in your 9th house. This indicates that your creative expressions and spiritual pursuits are likely to be prominent in your life, providing you with a unique perspective on higher knowledge and wisdom. With Surya in the 9th house, you may find opportunities for travel and educational pursuits that expand your horizons; consider engaging in studies or activities that deepen your understanding of philosophy or spirituality to harness this energy."
+                },
+                {
+                    "planet": "Moon",
+                    "sanskrit_name": "Chandra (Moon)",
+                    "nakshatra": "PurvaPhalguni",
+                    "sign": "Leo",
+                    "house": 5,
+                    "is_retrograde": false,
+                    "description": "Chandra is a sattvic or a spiritual planet. It brings feelings of trust, honesty, calmness, and joy. It shows the kindness of the Goddess, the divine Mother. Chandra represents female qualities, giving beauty and charm. In human relationships, Chandra is like the Mother.",
+                    "personal_insight": "Chandra (Moon) rules your 4th house and is placed in your 5th house. This influence suggests that your emotional well-being and nurturing instincts are closely tied to your creative expression and relationships with children. With Chandra in your 5th house, you may find joy and fulfillment through creative pursuits or activities involving children; consider engaging in hobbies that allow you to express your emotions and creativity more freely."
+                },
+                {
+                    "planet": "Mars",
+                    "sanskrit_name": "Mangal (Mars)",
+                    "nakshatra": "Purvabhadra",
+                    "sign": "Aquarius",
+                    "house": 11,
+                    "is_retrograde": false,
+                    "description": "Mars, also known as Kuja meaning 'born from the Earth,' is the child of Mata Prithvi. It represents taking action with a purpose. Mars is all about power, strength, bravery, and being bold. It shows how well we can be forceful in life. Mars also controls our strong, outward feelings. It rules the zodiac signs Aries and Scorpio.",
+                    "personal_insight": "Mars rules your 1st and 8th houses and is placed in your 11th house. This combination enhances your personal drive and ambition while also bringing transformative experiences related to friendships and social networks. With Mars in the 11th house, you have the potential to manifest your goals through collaboration and assertive communication, so consider reaching out to your network for support on a project you're passionate about."
+                }
+            ]
+        },
+        "page8_planets_2": {
+            "planets": [
+                {
+                    "planet": "Mercury",
+                    "sanskrit_name": "Buddh (Mercury)",
+                    "nakshatra": "Uttarashada",
+                    "sign": "Capricorn",
+                    "house": 10,
+                    "is_retrograde": false,
+                    "description": "Budha is the Sanskrit name for Mercury. It stands for intelligence or awareness and is linked to 'buddhi,' which is the mind's ability to tell what's real from what's not. Budha controls how well a person does in school, how well they can do math, use language, and speak clearly. Budha is the most changeable planet and can take on the qualities of other planets it's connected to.",
+                    "personal_insight": "Buddh (Mercury) rules your 3rd and 6th houses and is placed in your 10th house. This combination enhances your communication skills and analytical abilities, making you an effective problem solver in your career. With Mercury in the 10th house, you have the potential to excel in professional environments that require strategic thinking and adaptability; consider leveraging your skills in networking to open new opportunities for advancement."
+                },
+                {
+                    "planet": "Jupiter",
+                    "sanskrit_name": "Brihaspati (Jupiter)",
+                    "nakshatra": "Ardra",
+                    "sign": "Gemini",
+                    "house": 3,
+                    "is_retrograde": false,
+                    "description": "Brihaspati, known as Jupiter in English, is the planet of wisdom. In Sanskrit, it's called 'Devaguru,' meaning the spiritual teacher or guide. Brihaspati is known for being helpful and generous, and it's associated with creativity. It represents our commitment and devotion, pointing to our spiritual purpose in life. Like all planets, Brihaspati's energies can be imbalanced and need proper balancing for true harmony.",
+                    "personal_insight": "Brihaspati (Jupiter) rules your 9th and 12th houses and is placed in your 3rd house. This positioning enhances your communication skills, allowing you to share your knowledge and wisdom effectively. You may find opportunities for learning and teaching, especially in areas related to philosophy or spirituality. Focus on networking and building connections, as these could lead to insightful collaborations."
+                },
+                {
+                    "planet": "Venus",
+                    "sanskrit_name": "Shukra (Venus)",
+                    "nakshatra": "Purvashada",
+                    "sign": "Sagittarius",
+                    "house": 9,
+                    "is_retrograde": false,
+                    "description": "Shukra, known as Venus in English, means bright light and warmth in Sanskrit. Shukra represents our feelings of love and our desire for beauty and harmony in life. It inspires us towards what is good, beautiful, and pure. Shukra provides the energy to move and inspire others, making a person peaceful, loving, and understanding.",
+                    "personal_insight": "Venus rules your 2nd and 7th houses and is placed in your 9th house. This combination enhances your ability to create harmonious relationships and build financial stability through partnerships. The placement in house 9 signifies a strong connection to higher learning and spiritual growth, encouraging you to seek wisdom and expand your horizons. Focus on exploring educational opportunities or travel that enriches your understanding of the world."
+                }
+            ]
+        },
+        "page8_planets_3": {
+            "planets": [
+                {
+                    "planet": "Saturn",
+                    "sanskrit_name": "Shani (Saturn)",
+                    "nakshatra": "Rohini",
+                    "sign": "Taurus",
+                    "house": 2,
+                    "is_retrograde": false,
+                    "description": "Shani, also known as Saturn, is the child of the Lord Sun. Shani represents the challenges of darkness, death, and sadness that we must overcome to find true enlightenment. In Sanskrit, Shani means 'the slow mover,' as it takes about two and a half years to pass through each zodiac sign. Shani rules over the zodiac signs Capricorn and Aquarius.",
+                    "personal_insight": "Saturn rules your 10th and 11th houses and is placed in your 2nd house. This placement indicates a strong potential for building financial stability and establishing a solid foundation in your life. Your professional and social networks can greatly influence your resources, so focus on nurturing these connections. Consider setting clear financial goals and exploring new income opportunities to enhance your prosperity."
+                },
+                {
+                    "planet": "Rahu",
+                    "sanskrit_name": "Rahu",
+                    "nakshatra": "Mrigasira",
+                    "sign": "Gemini",
+                    "house": 3,
+                    "is_retrograde": false,
+                    "description": "Rahu, although not an actual planet, is a significant shadow planet in Vedic astrology. It represents the north node of the Moon and is known as the 'Dragons Head'. Rahu is the point where the Moon moves north across the ecliptic (the path of the sun).",
+                    "personal_insight": "Rahu rules your 6th and 3rd houses and is placed in your 3rd house. This indicates a strong focus on communication and overcoming obstacles in your daily life. With this placement, you may find yourself driven to express your ideas and thoughts more clearly, making it an excellent time to engage in writing or public speaking. Embrace opportunities to network and share your insights, as they can lead to significant advancements in your personal and professional relationships."
+                },
+                {
+                    "planet": "Ketu",
+                    "sanskrit_name": "Ketu",
+                    "nakshatra": "Moola",
+                    "sign": "Sagittarius",
+                    "house": 9,
+                    "is_retrograde": false,
+                    "description": "Ketu, which means 'a flag', can strengthen the effects of powerful planets it's connected to. It represents the Moon's south node and is known as 'the dragons tail'. Western astrologers link Ketu with Saturn. Being the shadow of the Sun, Ketu can overshadow or hide the Sun.",
+                    "personal_insight": "Ketu rules your 1st and 8th houses and is placed in your 9th house. This indicates a strong focus on your personal identity and transformation, while also highlighting your spiritual beliefs and philosophical pursuits. With Ketu in the 9th house, you may find that your quest for knowledge and understanding is deepened; consider exploring new spiritual practices or philosophies that resonate with you to enhance your personal growth."
+                }
+            ]
+        },
+        "page9_yogakaraka": {
+            "planetaryStrengths": {
+                "yogaKaraka": {
+                    "title": "Yogakaraka",
+                    "planets": [
+                        "Mars"
+                    ],
+                    "content": "Yogakaraka planets in your kundli are Mars. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life."
+                },
+                "benefics": {
+                    "title": "Benefic",
+                    "planets": [
+                        "Sun",
+                        "Moon",
+                        "Mars",
+                        "Jupiter"
+                    ],
+                    "content": "Favorable planets in your kundli are Sun, Moon, Mars, Jupiter. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life."
+                },
+                "malefics": {
+                    "title": "Malefic",
+                    "planets": [
+                        "Mercury",
+                        "Venus",
+                        "Rahu",
+                        "Ketu"
+                    ],
+                    "content": "On the other hand, malefic planets in your kundli are Mercury, Venus, Rahu, Ketu. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life."
+                }
+            }
+        },
+        "page10_nakshatra": {
+            "birthStar": {
+                "nkName": "PurvaPhalguni",
+                "zodiacSign": "Leo ",
+                "associatedDeity": "Bhaga",
+                "description": "Hello PurvaPhalguni Nakshatra! You were born between 13°20' to 26°40' Leo. With Venus as your ruling planet, your essence is deeply intertwined with creativity, romance, and generosity. Bhaga, the presiding deity, blesses you with a sense of enjoyment and a flair for aesthetics, represented by the symbol of a hammock, which signifies rest and relaxation. This nakshatra embodies a love for beauty and a strong inclination towards pleasure and social connections.",
+                "strengths": "As a PurvaPhalguni native, your emotional nature is warm and inviting, making you a source of joy for those around you. Your strengths lie in your creativity and charm, allowing you to connect easily with others. Being part of the Manushya gana, you possess a relatable and approachable demeanor, while the Mridu quality enhances your gentle and nurturing traits. Your pursuit of Kama as a purushartha drives you to seek love, happiness, and fulfillment in your relationships.",
+                "weaknesses": "Your greatest strength is your ability to create meaningful bonds through your charm and creativity. You excel in bringing people together and fostering a sense of community. However, you may sometimes struggle with being overly indulgent or avoiding responsibilities in favor of pleasure. It's important to recognize this tendency and find a balance between enjoyment and duty, ensuring that your relationships remain healthy and fulfilling."
+            }
+        }
+    },
+    "errors": null
+}

@@ -1,0 +1,476 @@
+{
+    "birthDetails": {
+        "name": "Jagathratchagan",
+        "datetime_local": "2002-01-04T14:20:00",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "country": "India",
+        "ayanamsa": "LAHIRI",
+        "house_system": "WHOLE_SIGN"
+    },
+    "page4_atmakaraka": {
+        "atmakaraka": {
+            "planetName": "Moon (☽)",
+            "description": "Moon is your Atmakaraka, the planet representing your soul's focal aspirations.",
+            "soulDesireText": "With Moon being your Atmakaraka, your core soul desire revolves around emotional fulfilment, nurturing, and inner peace. This placement enriches you with deep empathy, allowing you to connect profoundly with others, and your nurturing instinct makes you a comforting presence for those around you. Your emotional intelligence is heightened, enabling you to navigate complex feelings with grace and understanding. However, you may find yourself facing lessons around emotional dependency, mood swings, and attachment, which are growth areas for you to develop. Embracing these challenges will lead you towards greater emotional resilience and inner tranquility."
+        }
+    },
+    "birthStar": {
+        "nkName": "Shravana",
+        "zodiacSign": "Capricorn (Makara)",
+        "rulingPlanet": "Moon (Chandra)",
+        "associatedDeity": "Lord Vishnu (The Preserver)",
+        "description": "Hello, Shravan Nakshatra! You were born in the sign of Capricorn, ruled by the Moon. Shravana is symbolized by three footprints, signifying Lord Vishnu's strides spanning the three worlds. This bestows you with an insatiable quest for knowledge and the powerful gift of active listening. You have a warm, receptive aura, and your natural intelligence helps you organize plans and achieve major spiritual and material success.",
+        "strengths": "Intellectually versatile, highly principled, fantastic listener, empathetic leader, respected in society, spiritual nature, and seeks persistent truth.",
+        "weaknesses": "Can be excessively generous to a fault, sometimes hyper-sensitive to criticism, or experience occasional periods of restless solitude."
+    },
+    "personality": {
+        "bigThree": {
+            "sun": {
+                "sign": "Aquarius (Kumbha)",
+                "description": "Embodying an Aquarius Sun, your soul is innovative and humanitarian. You believe strongly in individuality and the betterment of society. Your strength lies in your visionary outlook and your ability to think unconventionally, always aiming to make a meaningful difference."
+            },
+            "moon": {
+                "sign": "Capricorn (Makara)",
+                "description": "With your Moon in Capricorn, you seek emotional stability through structure, responsibility, and realistic ambition. Your mind works in highly practical ways. Emotional satisfaction comes from building long-lived projects and taking care of families."
+            },
+            "ascendant": {
+                "sign": "Taurus (Vrishabha)",
+                "description": "Having Taurus as your rising sign, you present a calm, patient, and highly steadfast composure to the world. Your outer persona is grounded and stable, showing an appreciation for high-quality craft, nature, and peaceful harmony."
+            }
+        }
+    },
+    "elementAnalysis": {
+        "dominant": "Ether",
+        "description": "The universe is composed of Five Great Elements (Pancha Maha Bhoota). Your specific astrological profile represents your dynamic interaction with these forces.",
+        "ratios": [
+            {
+                "name": "Ether",
+                "percentage": 38,
+                "description": "Vast expanse of knowledge, highly receptive, spiritual incline, curiosity for abstract ideas, and intuitive wisdom."
+            },
+            {
+                "name": "Air",
+                "percentage": 31,
+                "description": "Intellectual depth, versatile communication skills, dynamic adaptability, and progressive thinker."
+            },
+            {
+                "name": "Water",
+                "percentage": 23,
+                "description": "Deep emotional emotional intelligence, high intuition, creative expression, and nurturing tendencies."
+            },
+            {
+                "name": "Fire",
+                "percentage": 8,
+                "description": "Tempered willpower, deliberate action, focused goals, and warmth without impulsive aggression."
+            },
+            {
+                "name": "Earth",
+                "percentage": 0,
+                "description": "Relies heavily on mental structures and spiritual anchors rather than heavy static physical ties, giving massive freedom."
+            }
+        ]
+    },
+    "chakraAnalysis": {
+        "dominantChakra": {
+            "name": "Vishuddha",
+            "sanskritName": "Throat Chakra",
+            "description": "The Vishuddha chakra is highly dominant within you! This endows you with a profound connection to communication, artistic expression, and receptive wisdom. You are here to learn active listening and guide others to speak their absolute truth.",
+            "remedy": "Practice active throat chanting or singing, and express your creative insights without fear of judgment."
+        }
+    },
+    "planetaryStrengths": {
+        "yogakaraka": [
+            "Saturn (Shani)"
+        ],
+        "benefics": [
+            "Saturn",
+            "Sun",
+            "Mercury"
+        ],
+        "malefics": [
+            "Jupiter",
+            "Moon",
+            "Venus",
+            "Mars"
+        ],
+        "planets": {
+            "sun": {
+                "name": "Surya (Sun)",
+                "sanskritName": "Surya",
+                "sign": "Aquarius",
+                "degree": "19°08'21\"",
+                "house": 10,
+                "nakshatra": "Shatabhisha",
+                "isBenefic": true,
+                "status": "Benefic",
+                "description": "The Sun occupies your 10th house of career and public visibility. For a Taurus Rising, the Sun is highly favorable. It rules the 4th house of stability and self-contentment, positioning you as an influential and respected leader in your field.",
+                "remediation": "Offer water to the morning sun in a copper vessel, and recite the Gayatri mantra regularly."
+            },
+            "moon": {
+                "name": "Chandra (Moon)",
+                "sanskritName": "Chandra",
+                "sign": "Capricorn",
+                "degree": "14°59'11\"",
+                "house": 9,
+                "nakshatra": "Shravana",
+                "isBenefic": false,
+                "status": "Malefic",
+                "description": "The Moon occupies your 9th house, governing your Higher Beliefs and Faith. Because the Moon rules your 3rd house of mental efforts, it introduces strong sensitivity. It may lead you to seek multiple paths simultaneously.",
+                "remediation": "Worship the divine mother aspects or keep a fast on full moon nights (Purnima)."
+            },
+            "mercury": {
+                "name": "Budha (Mercury)",
+                "sanskritName": "Budh",
+                "sign": "Aquarius",
+                "degree": "15°45'39\"",
+                "house": 10,
+                "nakshatra": "Shatabhisha",
+                "isBenefic": true,
+                "status": "Benefic",
+                "description": "Mercury is parked in your 10th house alongside the Sun, creating a powerful Budhaditya Yoga. Since Mercury rules your 2nd (wealth) and 5th (intellect) houses, this positions you with elite skills in communications, speaking, and research.",
+                "remediation": "Support green environmental project works and feed grass to cows on Wednesdays."
+            },
+            "jupiter": {
+                "name": "Brihaspati (Jupiter)",
+                "sanskritName": "Guru",
+                "sign": "Aries",
+                "degree": "09°15'12\"",
+                "house": 12,
+                "nakshatra": "Ashwini",
+                "isBenefic": false,
+                "status": "Malefic",
+                "description": "Jupiter resides in your 12th house (isolation, spirituality). Since Jupiter governs the 8th (transformations) and 11th (gains) houses for Taurus, its status here suggests potential spiritual expenditures or unexpected financial turns.",
+                "remediation": "Listen to spiritual guides, donate yellow items to educational organizations, and study higher philosophies."
+            },
+            "venus": {
+                "name": "Shukra (Venus)",
+                "sanskritName": "Shukra",
+                "sign": "Capricorn",
+                "degree": "23°32'06\"",
+                "house": 9,
+                "nakshatra": "Dhanishtha",
+                "isBenefic": true,
+                "status": "Benefic",
+                "description": "Venus resides in your 9th house of dharma and higher learnings. As the ruling Ascendant planet of your entire chart (Taurus), this placement is highly protective, bringing deep refine, aesthetic appreciation, and noble guides.",
+                "remediation": "Maintain general personal neatness, respect female teachers and peers, and chant Venus mantras on Fridays."
+            },
+            "mars": {
+                "name": "Mangala (Mars)",
+                "sanskritName": "Mangal",
+                "sign": "Pisces",
+                "degree": "21°27'11\"",
+                "house": 11,
+                "nakshatra": "Revati",
+                "isBenefic": false,
+                "status": "Malefic",
+                "description": "Mars sits in your 11th house of community networks and profits. While it can produce sudden spikes of income, it rules your 12th and 7th houses, occasionally creating active friction with close friends or colleagues.",
+                "remediation": "Chant Hanuman Chalisa or Kartikeya mantras, and practice gentle exercises."
+            },
+            "saturn": {
+                "name": "Shani (Saturn)",
+                "sanskritName": "Shani",
+                "sign": "Aries",
+                "degree": "18°44'31\"",
+                "house": 12,
+                "nakshatra": "Bharani",
+                "isBenefic": true,
+                "status": "Yogakaraka",
+                "description": "Saturn occupies your 12th house. As Saturn rules the 9th and 10th houses for Taurus Rising, it represents a classic Yogakaraka. It indicates major spiritual breakthroughs and accomplishments stemming from foreign journeys or quiet introspection.",
+                "remediation": "Provide charity to the elderly, avoid pride, and light a sesame oil lamp under a Peepal tree on Saturdays."
+            },
+            "rahu": {
+                "name": "Rahu (North Node)",
+                "sanskritName": "Rahu",
+                "sign": "Cancer",
+                "degree": "07°54'49\"",
+                "house": 3,
+                "nakshatra": "Pushya",
+                "isBenefic": true,
+                "status": "Benefic",
+                "description": "Rahu is located in your 3rd house. This gives you fierce drive, supreme writing and communication capacity, and an intuitive knack for understanding mass psychology. You are extremely resourceful.",
+                "remediation": "Feed birds and avoid getting locked into paranoid habits of over-worrying."
+            },
+            "ketu": {
+                "name": "Ketu (South Node)",
+                "sanskritName": "Ketu",
+                "sign": "Capricorn",
+                "degree": "07°54'49\"",
+                "house": 9,
+                "nakshatra": "Uttara Shadha",
+                "isBenefic": false,
+                "status": "Malefic",
+                "description": "Ketu sits in your 9th house of deep spirituality and fatherly relationships. It creates highly independent views regarding dogma. You seek Direct Gnosis rather than following mainstream systems.",
+                "remediation": "Donate warm blanketing items to those in need, and meditate on abstract formless truths."
+            }
+        }
+    },
+    "atmakaraka": {
+        "planetName": "Venus (Shukra)",
+        "description": "Venus/Shukra is your Atmakaraka, the planet representing your soul's focal aspirations.",
+        "soulDesireText": "With Venus as your Atmakaraka, your soul deeply craves beauty, pristine balance, and pure unconditional love. On the earthly planes, this manifests as fine artistic refinement and deep respect for relationships. However, you must occasionally practice detachment from luxury and physical appearances to prevent karmic binding."
+    },
+    "page5_kundali_chart": {
+        "chart": {
+            "Aquarius": [
+                "Rahu"
+            ],
+            "Aries": [],
+            "Cancer": [],
+            "Capricorn": [],
+            "Gemini": [
+                "Jupiter"
+            ],
+            "Leo": [
+                "Ketu"
+            ],
+            "Libra": [],
+            "Pisces": [
+                "Saturn"
+            ],
+            "Sagittarius": [
+                "Sun",
+                "Mars",
+                "Mercury",
+                "Venus"
+            ],
+            "Scorpio": [],
+            "Taurus": [
+                "Moon"
+            ],
+            "Virgo": [
+                "Lagna"
+            ]
+        },
+        "planet_positions": [
+            {
+                "planet": "Sun",
+                "sign": "Sagittarius",
+                "degree": "16°06'47\"",
+                "house": 4
+            },
+            {
+                "planet": "Moon",
+                "sign": "Taurus",
+                "degree": "09°03'48\"",
+                "house": 9
+            },
+            {
+                "planet": "Mars",
+                "sign": "Sagittarius",
+                "degree": "18°17'26\"",
+                "house": 4
+            },
+            {
+                "planet": "Mercury",
+                "sign": "Sagittarius",
+                "degree": "04°04'49\"",
+                "house": 4
+            },
+            {
+                "planet": "Jupiter",
+                "sign": "Gemini",
+                "degree": "27°09'56\"",
+                "house": 10
+            },
+            {
+                "planet": "Venus",
+                "sign": "Sagittarius",
+                "degree": "14°41'46\"",
+                "house": 4
+            },
+            {
+                "planet": "Saturn",
+                "sign": "Pisces",
+                "degree": "01°55'55\"",
+                "house": 7
+            },
+            {
+                "planet": "Rahu",
+                "sign": "Aquarius",
+                "degree": "17°57'39\"",
+                "house": 6
+            },
+            {
+                "planet": "Ketu",
+                "sign": "Leo",
+                "degree": "17°57'39\"",
+                "house": 12
+            },
+            {
+                "planet": "Lagna",
+                "sign": "Virgo",
+                "degree": "13°53'56\"",
+                "house": 1
+            }
+        ]
+    },
+    "page7_chart_stellium": {
+        "stelliumQuestion": "What repeating pattern of your nature does Vedic Astrology reveal?",
+        "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your Kundli. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
+        "stelliumDesc2": "With your stellium in the 9 house, your life is deeply enriched by themes of dharma, higher learning, and spiritual beliefs. The presence of the Sun illuminates your path as a spiritual seeker and teacher, while Venus enhances your appreciation for beauty and harmony in philosophical pursuits. Ketu adds a layer of depth, encouraging you to delve into transformative experiences that expand your understanding of life. Together, these energies create a powerful drive for long journeys, both physically and intellectually, as you strive to embody the wisdom of a philosopher.",
+        "stelliumDesc3": "You naturally excel at guiding others on their spiritual journeys and have a talent for sharing profound insights that inspire growth. Pay attention to opportunities for higher education and spiritual practices that resonate with your soul, as these will enhance your sense of purpose. Embrace your role as a teacher and seeker, for your unique gift lies in the ability to connect deeply with others through shared wisdom and transformative experiences."
+    },
+    "page3_dominant_chakra": {
+        "chakraAnalysis": {
+            "dominantChakra": {
+                "name": "Swadhisthana",
+                "description": "Having Swadhisthana as your dominant chakra means that creativity, pleasure, and emotional flow are central to your personality. You likely express yourself through artistic endeavors and have a natural flair for embracing the joys of life, which makes your interactions vibrant and engaging. This chakra empowers you to connect deeply with your emotions and the emotions of others, allowing you to create meaningful experiences and relationships.",
+                "remedy": "To maintain balance in your Swadhisthana, engage in creative arts, dance, and water therapy. These activities resonate deeply with your chakra, helping to enhance your emotional flow and stimulate your creative spirit. Movement, especially through dance, allows you to express your emotions physically, while water therapy can soothe and refresh your energy. Additionally, gently developing your Muladhara chakra will provide you with more stability, enhancing your overall creative expression."
+            }
+        }
+    },
+    "page9_yogakaraka": {
+        "planetaryStrengths": {
+            "benefics": {
+                "content": "Favorable planets in your kundli are Mercury, Venus. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life.",
+                "planets": [
+                    "Mercury",
+                    "Venus"
+                ],
+                "title": "Benefic"
+            },
+            "malefics": {
+                "content": "On the other hand, malefic planets in your kundli are Mars, Moon, Jupiter. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life.",
+                "planets": [
+                    "Mars",
+                    "Moon",
+                    "Jupiter"
+                ],
+                "title": "Malefic"
+            },
+            "yogaKaraka": {
+                "content": "Yogakaraka planets in your kundli are Mercury. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life.",
+                "planets": [
+                    "Mercury"
+                ],
+                "title": "Yogakaraka"
+            }
+        }
+    },
+    "page8_planets_1": {
+        "planets": [
+            {
+                "planet": "Sun",
+                "sanskrit_name": "Surya (Sun)",
+                "degree": "16°06'47\"",
+                "nakshatra": "Purvashada",
+                "sign": "Sagittarius",
+                "house": 4,
+                "description": "Your Sun in Sagittarius in the 4th house gives you a warm, generous, and optimistic foundation. You naturally seek truth and wisdom within your home and family life, radiating a strong sense of purpose."
+            },
+            {
+                "planet": "Moon",
+                "sanskrit_name": "Chandra (Moon)",
+                "degree": "09°03'48\"",
+                "nakshatra": "Krittika",
+                "sign": "Taurus",
+                "house": 9,
+                "description": "With an exalted Moon in Taurus in the 9th house, your emotional stability is closely tied to your beliefs and higher learning. You find deep comfort and emotional grounding through philosophy, spirituality, or long-distance travel."
+            },
+            {
+                "planet": "Mars",
+                "sanskrit_name": "Mangal (Mars)",
+                "degree": "18°17'26\"",
+                "nakshatra": "Purvashada",
+                "sign": "Sagittarius",
+                "house": 4,
+                "description": "Mars in Sagittarius in the 4th house makes you highly protective of your home and beliefs. Your fiery energy is directed towards establishing a secure foundation, though you must guard against domestic arguments over ideologies."
+            }
+        ]
+    },
+    "page8_planets_2": {
+        "planets": [
+            {
+                "planet": "Mercury",
+                "sanskrit_name": "Buddh (Mercury)",
+                "degree": "04°04'49\"",
+                "nakshatra": "Moola",
+                "sign": "Sagittarius",
+                "house": 4,
+                "description": "Mercury here blesses you with an inquisitive mind regarding your roots and heritage. You are an excellent communicator within your family and possess a natural talent for real estate, education, or writing from home."
+            },
+            {
+                "planet": "Jupiter",
+                "sanskrit_name": "Brihaspati (Jupiter)",
+                "degree": "27°09'56\"",
+                "nakshatra": "Punarvasu",
+                "sign": "Gemini",
+                "house": 10,
+                "description": "Jupiter in Gemini in the 10th house indicates a career involving communication, teaching, or consulting. You are seen as a wise and knowledgeable authority figure, capable of managing multiple professional pursuits simultaneously."
+            },
+            {
+                "planet": "Venus",
+                "sanskrit_name": "Shukra (Venus)",
+                "degree": "14°41'46\"",
+                "nakshatra": "Purvashada",
+                "sign": "Sagittarius",
+                "house": 4,
+                "description": "Venus gracing your 4th house brings a desire for a beautiful, harmonious, and culturally rich home environment. You seek peace and comfort in your private life and have a natural affinity for interior design or hosting."
+            }
+        ]
+    },
+    "page8_planets_3": {
+        "planets": [
+            {
+                "planet": "Saturn",
+                "sanskrit_name": "Shani (Saturn)",
+                "degree": "01°55'55\"",
+                "nakshatra": "Purvabhadra",
+                "sign": "Pisces",
+                "house": 7,
+                "description": "Saturn in Pisces in the 7th house brings serious, committed, and mature lessons regarding partnerships. You may experience delays in marriage or business partnerships, but when they form, they are built on deep spiritual or karmic foundations."
+            },
+            {
+                "planet": "Rahu",
+                "sanskrit_name": "Rahu",
+                "degree": "17°57'39\"",
+                "nakshatra": "Shatabhisha",
+                "sign": "Aquarius",
+                "house": 6,
+                "description": "Rahu in the 6th house is an excellent placement for overcoming obstacles, enemies, and diseases. You have an unconventional approach to solving daily problems and may excel in fields related to medicine, technology, or law."
+            },
+            {
+                "planet": "Ketu",
+                "sanskrit_name": "Ketu",
+                "degree": "17°57'39\"",
+                "nakshatra": "PurvaPhalguni",
+                "sign": "Leo",
+                "house": 12,
+                "description": "Ketu in the 12th house is a powerful indicator of spiritual liberation (Moksha) and deep subconscious intuition. You may feel detached from worldly pleasures and possess a natural inclination towards meditation, isolation, or foreign lands."
+            }
+        ]
+    },
+    "dashaTimeline": [
+        {
+            "levelName": "Maha Dasha",
+            "planetName": "Rahu",
+            "startDate": "5-9-2025 0:09",
+            "endDate": "5-9-2043 12:09"
+        },
+        {
+            "levelName": "Antar Dasha",
+            "planetName": "Rahu",
+            "startDate": "5-9-2025 0:09",
+            "endDate": "18-5-2028 4:21"
+        },
+        {
+            "levelName": "Pratyantar Dasha",
+            "planetName": "Saturn",
+            "startDate": "11-6-2026 10:08",
+            "endDate": "14-11-2026 13:36"
+        },
+        {
+            "levelName": "Sookshma Dasha",
+            "planetName": "Saturn",
+            "startDate": "11-6-2026 10:08",
+            "endDate": "6-7-2026 3:29"
+        },
+        {
+            "levelName": "Prana Dasha",
+            "planetName": "Rahu",
+            "startDate": "29-6-2026 3:22",
+            "endDate": "2-7-2026 20:22"
+        }
+    ]
+}

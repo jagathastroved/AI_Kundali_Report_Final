@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:match*",
+      "destination": "https://astropedia-ai.astroved.com/kundali-report/api/:match*"
+    }
+  ]
+}
