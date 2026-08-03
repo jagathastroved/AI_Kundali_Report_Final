@@ -38,15 +38,15 @@
   }
 
   .sidebar-bg {
-    @apply bg-white/95 dark:bg-slate-900/95;
+    @apply bg-white dark:bg-slate-900;
   }
 
   .sidebar-header-bg {
-    @apply bg-slate-50/60 dark:bg-slate-800/60;
+    @apply bg-slate-50 dark:bg-slate-900;
   }
 
   .sidebar-item-hover {
-    @apply hover:bg-slate-100 dark:hover:bg-slate-800;
+    @apply hover:bg-slate-200 dark:hover:bg-slate-700;
   }
 
   .sidebar-item-text {
@@ -69,17 +69,31 @@
   }
 }
 
-/* Scrollbar styles for dark mode */
-.dark ::-webkit-scrollbar-track {
-  background: #1e293b;
+/* Custom Scrollbar Styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* slate-300 for light mode */
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* slate-400 */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #475569; /* slate-600 for dark mode */
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #64748b; /* slate-500 */
 }
 
 

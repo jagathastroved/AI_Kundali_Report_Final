@@ -54,7 +54,7 @@ export default function DownloadPdfButton({
                     onclone: (_document, clonedElement) => {
                         // 1. FORCE LIGHT MODE: Remove dark class so text colors revert to black/gray
                         _document.documentElement.classList.remove('dark');
-                        
+
                         // 2. FIX GRADIENT TEXTS: html2canvas renders background-clip: text as solid blocks
                         const gradientTexts = clonedElement.querySelectorAll('.bg-clip-text') as NodeListOf<HTMLElement>;
                         gradientTexts.forEach(el => {
@@ -66,7 +66,7 @@ export default function DownloadPdfButton({
                         titleGradients.forEach(el => {
                             el.style.color = '#FBBF24'; // Fallback amber for titles
                         });
-                        
+
                         // 3. FIX CUT-OFF TEXT: Remove truncate and fix line-height
                         const truncates = clonedElement.querySelectorAll('.truncate') as NodeListOf<HTMLElement>;
                         truncates.forEach(el => {
@@ -79,14 +79,14 @@ export default function DownloadPdfButton({
                             el.classList.remove('leading-none');
                             el.style.lineHeight = '1.25';
                         });
-                        
+
                         // 4. FIX LAGNA CHART OVERLAPS: Adjust foreignObject text alignment
                         const foreignObjects = clonedElement.querySelectorAll('foreignObject div') as NodeListOf<HTMLElement>;
                         foreignObjects.forEach(el => {
                             el.style.justifyContent = 'flex-start';
                             el.style.paddingTop = '4px';
                         });
-                        
+
                         // 5. FIX CORS IMAGES: html2canvas fails to load cdn.astroved.com images due to missing CORS headers
                         const images = clonedElement.querySelectorAll('img');
                         images.forEach((img) => {

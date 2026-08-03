@@ -2,7 +2,7 @@ import React from 'react';
 import { useReport } from '../context/ReportContext';
 
 import { Star, Compass, Sparkles, Globe2, Clock, RefreshCw } from 'lucide-react';
-export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => void }> = () => {
+export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => void, isPdf?: boolean }> = ({ isPdf }) => {
   const { reportData: data } = useReport();
   if (!data) return null;
 
@@ -20,12 +20,17 @@ export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => 
       </div>
 
       {/* User Name Pill */}
-      <div className="inline-flex items-center px-4 py-2 rounded-full card-bg-secondary border border-default shadow-soft mt-4">
-        <div className="w-2 h-2 rounded-full bg-emerald-400 mr-2 animate-pulse" />
-        <span className="page-text font-bold text-sm">
-          Prepared exclusively for <span className="text-indigo-600 dark:text-indigo-400"> {data?.birthDetails?.name?.charAt(0).toUpperCase() + data?.birthDetails?.name?.slice(1).toLowerCase()}</span>
-        </span>
-      </div>
+      {!isPdf && (
+        <div className="inline-flex items-center text-center px-4 py-2 rounded-2xl md:rounded-full card-bg-secondary border border-default shadow-soft mt-4 max-w-full">
+          <div className="w-2 h-2 rounded-full bg-emerald-400 mr-2 shrink-0 animate-pulse" />
+          <span className="page-text font-bold text-sm leading-tight">
+            Prepared exclusively for{' '}
+            <span className="text-indigo-600 dark:text-indigo-400">
+              {data?.birthDetails?.name?.charAt(0).toUpperCase() + data?.birthDetails?.name?.slice(1).toLowerCase()}
+            </span>
+          </span>
+        </div>
+      )}
 
       {/* Introductory Text */}
       <p className="page-text text-[14.5px] max-w-lg mx-auto text-justify leading-relaxed font-medium">

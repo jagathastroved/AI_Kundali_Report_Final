@@ -471,7 +471,7 @@ export const KundliReportBook: React.FC = () => {
             </div>
 
             <div className="space-y-6 text-slate-800 leading-relaxed text-base font-normal">
-              <Page.Component pageIdx={index} setPage={() => { }} />
+              <Page.Component pageIdx={index} setPage={() => { }} isPdf={true} />
             </div>
           </div>
         ))}
@@ -479,4 +479,3 @@ export const KundliReportBook: React.FC = () => {
     </div>
   );
 };
-

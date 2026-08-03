@@ -36,21 +36,69 @@ const SouthChartCell = ({ planets, isAsc = false, num, onMouseMove, onMouseLeave
   </div>
 );
 
-const NorthChartCell = ({ x, y, width, height, num, planets, isAsc = false, onMouseMove, onMouseLeave }: { x: number, y: number, width: number, height: number, num: string, planets: string[], isAsc?: boolean, onMouseMove: (e: React.MouseEvent) => void, onMouseLeave: () => void }) => (
-  <foreignObject x={x} y={y} width={width} height={height} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} className="cursor-pointer group">
-    <div className="flex flex-col items-center justify-center w-full h-full text-center leading-none overflow-visible rounded-xl transition-colors duration-200 hover:bg-indigo-50/40">
-      <span className="text-[10px] font-medium text-muted mb-1">{num}</span>
-      <div className="flex flex-col items-center justify-center mt-0.5 space-y-[1px]">
-        {planets.map((p: string, i: number) => (
-          <span key={i} className="text-[10px] font-semibold page-text tracking-tight leading-tight">{p}</span>
-        ))}
-      </div>
-      {isAsc && <span className="text-[8px] font-bold text-indigo-500 uppercase mt-1 tracking-widest">Lagna</span>}
-    </div>
-  </foreignObject>
-);
+const NorthChartCell = ({ x, y, width, height, num, planets, isAsc = false, isPdf = false, onMouseMove, onMouseLeave }: { x: number, y: number, width: number, height: number, num: string, planets: string[], isAsc?: boolean, isPdf?: boolean, onMouseMove: (e: React.MouseEvent) => void, onMouseLeave: () => void }) => {
+  if (isPdf) {
+    const cx = x + width / 2;
+    const cy = y + height / 2;
+    
+    // Calculate dynamic vertical positions based on number of planets to center the stack
+    const numY = cy - (planets.length * 6) - (isAsc ? 8 : 0) - 10;
 
-export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) => void }> = ({ pageIdx, setPage }) => {
+    return (
+      <g onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} className="cursor-pointer group hover:opacity-80 transition-opacity">
+        {/* Invisible rect for hover/event area */}
+        <rect x={x} y={y} width={width} height={height} fill="transparent" />
+        
+        {/* House Number */}
+        <text x={cx} y={numY} textAnchor="middle" dominantBaseline="middle" className="text-[10px] font-medium fill-slate-400 dark:fill-slate-500">{num}</text>
+        
+        {/* Planets Stack */}
+        {planets.map((p: string, i: number) => (
+          <text 
+            key={i} 
+            x={cx} 
+            y={cy - (planets.length * 6) + (i * 12) + 2} 
+            textAnchor="middle" 
+            dominantBaseline="middle" 
+            className="text-[10px] font-semibold fill-slate-800 dark:fill-slate-200 tracking-tight"
+          >
+            {p}
+          </text>
+        ))}
+        
+        {/* Ascendant/Lagna Label */}
+        {isAsc && (
+          <text 
+            x={cx} 
+            y={cy + (planets.length * 6) + 10} 
+            textAnchor="middle" 
+            dominantBaseline="middle" 
+            className="text-[8px] font-bold fill-indigo-500 uppercase tracking-widest"
+          >
+            Lagna
+          </text>
+        )}
+      </g>
+    );
+  }
+
+  // Original on-screen component
+  return (
+    <foreignObject x={x} y={y} width={width} height={height} onMouseMove={onMouseMove} onMouseLeave={onMouseLeave} className="cursor-pointer group">
+      <div className="flex flex-col items-center justify-center w-full h-full text-center leading-none overflow-visible rounded-xl transition-colors duration-200 hover:bg-indigo-50/40">
+        <span className="text-[10px] font-medium text-muted mb-1">{num}</span>
+        <div className="flex flex-col items-center justify-center mt-0.5 space-y-[1px]">
+          {planets.map((p: string, i: number) => (
+            <span key={i} className="text-[10px] font-semibold page-text tracking-tight leading-tight">{p}</span>
+          ))}
+        </div>
+        {isAsc && <span className="text-[8px] font-bold text-indigo-500 uppercase mt-1 tracking-widest">Lagna</span>}
+      </div>
+    </foreignObject>
+  );
+};
+
+export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) => void, isPdf?: boolean }> = ({ pageIdx, setPage, isPdf }) => {
   const { reportData: data, birthDetails } = useReport();
 
   const findPageByType = (obj: any, type: string): any => {
@@ -144,27 +192,35 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
         </div>
 
         {/* Select Chart Style togglers */}
-        <div className="flex card-bg p-1.5 rounded-2xl shadow-inner">
-          <button
-            onClick={() => setChartType('north')}
-            className={`px-4 py-1.5 rounded-xl text-[11px] font-bold tracking-widest uppercase transition-all ${chartType === 'north' ? 'card-bg text-indigo-600 shadow-soft ring-1 ring-slate-200/50' : 'text-muted hover:page-text'
-              }`}
-          >
-            North
-          </button>
-          <button
-            onClick={() => setChartType('south')}
-            className={`px-4 py-1.5 rounded-xl text-[11px] font-bold tracking-widest uppercase transition-all ${chartType === 'south' ? 'card-bg text-indigo-600 shadow-soft ring-1 ring-slate-200/50' : 'text-muted hover:page-text'
-              }`}
-          >
-            South
-          </button>
-        </div>
+        {!isPdf && (
+          <div className="flex relative p-1.5 rounded-full bg-slate-100/60 dark:bg-slate-800/60 backdrop-blur-md shadow-inner border border-slate-200/60 dark:border-slate-700/60 transition-colors">
+            <button
+              onClick={() => setChartType('north')}
+              className={`relative z-10 px-6 py-2 rounded-full text-[11px] font-bold tracking-widest uppercase transition-all duration-300 overflow-hidden ${chartType === 'north' ? 'text-white shadow-[0_4px_12px_rgba(99,102,241,0.4)]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
+            >
+              {chartType === 'north' && (
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 -z-10 rounded-full" />
+              )}
+              North
+            </button>
+            <button
+              onClick={() => setChartType('south')}
+              className={`relative z-10 px-6 py-2 rounded-full text-[11px] font-bold tracking-widest uppercase transition-all duration-300 overflow-hidden ${chartType === 'south' ? 'text-white shadow-[0_4px_12px_rgba(99,102,241,0.4)]' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
+            >
+              {chartType === 'south' && (
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 -z-10 rounded-full" />
+              )}
+              South
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Interactive Graphic Kundli Chart Wrapper */}
-      <div className="flex justify-center py-4 min-h-[340px] items-center">
-        {chartType === 'north' ? (
+      <div className={`flex justify-center py-4 min-h-[340px] items-center ${isPdf ? 'flex-row flex-wrap gap-8' : ''}`}>
+        {(chartType === 'north' || isPdf) && (
           // High Fidelity North Indian Diamond Chart SVG representation
           <svg width="300" height="300" viewBox="0 0 300 300" className="text-slate-800 dark:text-slate-400">
             {/* Background Box */}
@@ -189,13 +245,16 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
                   num={String(signNum)}
                   planets={getPlanetsForHouse(houseNum)}
                   isAsc={houseNum === 1}
+                  isPdf={isPdf}
                   onMouseMove={(e) => handleMouseMove(e, getPlanetsForHouse(houseNum), String(houseNum))}
                   onMouseLeave={handleMouseLeave}
                 />
               );
             })}
           </svg>
-        ) : (
+        )}
+        
+        {(chartType === 'south' || isPdf) && (
           <div className="grid grid-cols-4 grid-rows-4 gap-px bg-slate-800 dark:bg-slate-500 w-full aspect-square max-w-[340px] h-[340px] border border-slate-800 dark:border-slate-500 rounded-xl shadow-soft mx-auto overflow-hidden text-center font-sans relative">
             {/* Row 1 */}
             <SouthChartCell planets={getPlanetsForSign('Pisces')} isAsc={isAsc('Pisces')} num="12" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Pisces'), "12")} onMouseLeave={handleMouseLeave} />
