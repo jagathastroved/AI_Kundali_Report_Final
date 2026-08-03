@@ -25,10 +25,6 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
     });
   }, []);
 
-  const handleBookNow = () => {
-    setIsProcessing(true);
-    window.location.href = 'https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report';
-  };
 
   const name = birthDetails?.name || 'You';
   const featureItems = [
@@ -140,27 +136,26 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
         </div>
 
         {/* CTA Button */}
-        <button
-          onClick={handleBookNow}
-          disabled={isProcessing}
-          className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50"
-        >
-          <div className="absolute inset-0 opacity-20 mix-blend-overlay"></div>
-          {isProcessing ? (
-            <>
-              <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin text-white relative z-10" />
-              <span className="relative z-10">Processing...</span>
-            </>
-          ) : (
-            <>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
-              <span className="relative z-10">
-                Unlock Complete Report for {currentSymbol} {currentPrice.toFixed(2)}
-              </span>
-            </>
-          )}
-        </button>
-
+        <a href='https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report' target='_blank' className="block">
+          <button
+            className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50"
+          >
+            <div className="absolute inset-0 opacity-20 mix-blend-overlay"></div>
+            {isProcessing ? (
+              <>
+                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin text-white relative z-10" />
+                <span className="relative z-10">Processing...</span>
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
+                <span className="relative z-10">
+                  Unlock Complete Report for {currentSymbol} {currentPrice.toFixed(2)}
+                </span>
+              </>
+            )}
+          </button>
+        </a>
         {/* View Sample Report Button */}
         <a
           href="https://www.astroved.com/reacthome/reports/Sample%20Detailed%20Kundli%20Premium%20Report.pdf"

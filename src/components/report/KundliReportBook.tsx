@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useReport } from '../../context/ReportContext';
 import { useTheme } from '../../context/ThemeContext';
 import { KundliReportData, PlanetPosition } from '../../types';
-import { ArrowLeft, ArrowRight, BookOpen, Compass, RefreshCw, Moon, Sun, Monitor } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, Compass, RefreshCw, Moon, Sun, Monitor, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useParams, useNavigate, Navigate, Outlet, useLocation } from 'react-router-dom';
 import { PAGE_TITLES } from '../ui/SharedElements';
+import DownloadPdfButton from '../ui/DownloadPdfButton';
+import * as Pages from '../../pages';
 
 
 
@@ -266,14 +268,21 @@ export const KundliReportBook: React.FC = () => {
           })}
         </div>
 
-        {/* Exit booklet back to start form */}
-        <div className="p-4 border-t border-default sidebar-header-bg flex justify-center">
+        {/* Sidebar Actions */}
+        <div className="p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
+          <DownloadPdfButton
+            filename="Kundli_Report.pdf"
+            targetIds={Array.from({ length: PAGE_TITLES.length }, (_, i) => `pdf-page-${i}`)}
+          />
+
           <button
             onClick={handleResetReport}
-            className="text-xs font-normal text-muted hover:text-orange-500 hover:text-orange-600 flex items-center space-x-1.5 transition-colors focus:outline-none"
+            className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
           >
-            <RefreshCw size={12} />
-            <span>Enter Different Details</span>
+            <RefreshCw size={16} />
+            <span className="text-[11px] font-extrabold tracking-widest uppercase">
+              Enter Different Details
+            </span>
           </button>
         </div>
       </aside>
@@ -412,6 +421,49 @@ export const KundliReportBook: React.FC = () => {
           </div>
         </section>
       </main>
+
+      {/* Hidden Container for PDF Generation - Contains all pages */}
+      <div className="pdf-export-container absolute left-[-9999px] top-0 w-[800px] bg-white h-[1px] overflow-visible">
+        {[
+          { Component: Pages.WelcomePage, title: PAGE_TITLES[0] },
+          { Component: Pages.BirthStarPage, title: PAGE_TITLES[1] },
+          { Component: Pages.CorePersonalityPage, title: PAGE_TITLES[2] },
+          { Component: Pages.BigThreeSignsPage, title: PAGE_TITLES[3] },
+          { Component: Pages.FiveGreatElementsPage, title: PAGE_TITLES[4] },
+          { Component: Pages.LagnaChartPage, title: PAGE_TITLES[5] },
+          { Component: Pages.ReportFeaturesPage, title: PAGE_TITLES[6] },
+          { Component: Pages.KarmicChakraPage, title: PAGE_TITLES[7] },
+          { Component: Pages.PlanetaryStrengthsPage, title: PAGE_TITLES[8] },
+          { Component: Pages.PlanetaryProfilesPage, title: PAGE_TITLES[9] },
+          { Component: Pages.AtmakarakaPage, title: PAGE_TITLES[10] },
+          { Component: Pages.DashaWheelPage, title: PAGE_TITLES[11] },
+          { Component: Pages.PremiumDeliverablesPage, title: PAGE_TITLES[12] },
+        ].map((Page, index) => (
+          <div key={index} id={`pdf-page-${index}`} className="w-full bg-[#FFFFFF] p-10 select-text text-slate-900 border border-slate-100 mb-8" style={{ minHeight: '1122px' }}>
+            {/* Header inside the booklet page */}
+            <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100 relative">
+              <div className="flex-1 flex justify-start">
+                <img src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg" alt="Astroved-logo" className="h-8 w-auto object-contain" />
+              </div>
+              <div className="flex-[2] sm:flex-none flex flex-col items-center justify-center text-center px-2">
+                <div className="flex items-center mb-1 text-orange-500 opacity-80">
+                  <div className="w-6 h-px bg-gradient-to-r from-transparent to-orange-500 mr-2"></div>
+                  <Compass size={14} className="animate-spin" style={{ animationDuration: '25s' }} />
+                  <div className="w-6 h-px bg-gradient-to-l from-transparent to-orange-500 ml-2"></div>
+                </div>
+                <span className="text-xs font-black text-slate-800 tracking-[0.2em] uppercase text-center break-words">
+                  {Page.title}
+                </span>
+              </div>
+              <div className="flex-1"></div>
+            </div>
+
+            <div className="space-y-6 text-slate-800 leading-relaxed text-base font-normal">
+              <Page.Component pageIdx={index} setPage={() => { }} />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

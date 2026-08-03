@@ -181,11 +181,12 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
             {/* Displaying houses using foreignObject for perfect flexbox alignment */}
             {northHousesCoords.map((c, i) => {
               const houseNum = i + 1;
+              const signNum = ((lagnaSignIndex + houseNum - 2) % 12) + 1;
               return (
                 <NorthChartCell
                   key={houseNum}
                   x={c.x} y={c.y} width={c.w} height={c.h}
-                  num={String(houseNum)}
+                  num={String(signNum)}
                   planets={getPlanetsForHouse(houseNum)}
                   isAsc={houseNum === 1}
                   onMouseMove={(e) => handleMouseMove(e, getPlanetsForHouse(houseNum), String(houseNum))}
@@ -197,28 +198,28 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
         ) : (
           <div className="grid grid-cols-4 grid-rows-4 gap-px bg-slate-800 dark:bg-slate-500 w-full aspect-square max-w-[340px] h-[340px] border border-slate-800 dark:border-slate-500 rounded-xl shadow-soft mx-auto overflow-hidden text-center font-sans relative">
             {/* Row 1 */}
-            <SouthChartCell planets={getPlanetsForSign('Pisces')} isAsc={isAsc('Pisces')} num={getHouseNumForSign('Pisces')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Pisces'), getHouseNumForSign('Pisces'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Aries')} isAsc={isAsc('Aries')} num={getHouseNumForSign('Aries')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Aries'), getHouseNumForSign('Aries'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Taurus')} isAsc={isAsc('Taurus')} num={getHouseNumForSign('Taurus')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Taurus'), getHouseNumForSign('Taurus'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Gemini')} isAsc={isAsc('Gemini')} num={getHouseNumForSign('Gemini')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Gemini'), getHouseNumForSign('Gemini'))} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Pisces')} isAsc={isAsc('Pisces')} num="12" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Pisces'), "12")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Aries')} isAsc={isAsc('Aries')} num="1" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Aries'), "1")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Taurus')} isAsc={isAsc('Taurus')} num="2" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Taurus'), "2")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Gemini')} isAsc={isAsc('Gemini')} num="3" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Gemini'), "3")} onMouseLeave={handleMouseLeave} />
 
             {/* Row 2 */}
-            <SouthChartCell planets={getPlanetsForSign('Aquarius')} isAsc={isAsc('Aquarius')} num={getHouseNumForSign('Aquarius')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Aquarius'), getHouseNumForSign('Aquarius'))} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Aquarius')} isAsc={isAsc('Aquarius')} num="11" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Aquarius'), "11")} onMouseLeave={handleMouseLeave} />
             <div className="col-span-2 row-span-2 card-bg relative flex flex-col items-center justify-center">
               <h3 className="text-xl font-bold page-text tracking-tight">Birth Chart</h3>
               <p className="text-xs font-semibold text-muted uppercase tracking-widest mt-1">Rasi Chart</p>
             </div>
-            <SouthChartCell planets={getPlanetsForSign('Cancer')} isAsc={isAsc('Cancer')} num={getHouseNumForSign('Cancer')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Cancer'), getHouseNumForSign('Cancer'))} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Cancer')} isAsc={isAsc('Cancer')} num="4" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Cancer'), "4")} onMouseLeave={handleMouseLeave} />
 
             {/* Row 3 */}
-            <SouthChartCell planets={getPlanetsForSign('Capricorn')} isAsc={isAsc('Capricorn')} num={getHouseNumForSign('Capricorn')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Capricorn'), getHouseNumForSign('Capricorn'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Leo')} isAsc={isAsc('Leo')} num={getHouseNumForSign('Leo')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Leo'), getHouseNumForSign('Leo'))} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Capricorn')} isAsc={isAsc('Capricorn')} num="10" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Capricorn'), "10")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Leo')} isAsc={isAsc('Leo')} num="5" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Leo'), "5")} onMouseLeave={handleMouseLeave} />
 
             {/* Row 4 */}
-            <SouthChartCell planets={getPlanetsForSign('Sagittarius')} isAsc={isAsc('Sagittarius')} num={getHouseNumForSign('Sagittarius')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Sagittarius'), getHouseNumForSign('Sagittarius'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Scorpio')} isAsc={isAsc('Scorpio')} num={getHouseNumForSign('Scorpio')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Scorpio'), getHouseNumForSign('Scorpio'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Libra')} isAsc={isAsc('Libra')} num={getHouseNumForSign('Libra')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Libra'), getHouseNumForSign('Libra'))} onMouseLeave={handleMouseLeave} />
-            <SouthChartCell planets={getPlanetsForSign('Virgo')} isAsc={isAsc('Virgo')} num={getHouseNumForSign('Virgo')} onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Virgo'), getHouseNumForSign('Virgo'))} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Sagittarius')} isAsc={isAsc('Sagittarius')} num="9" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Sagittarius'), "9")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Scorpio')} isAsc={isAsc('Scorpio')} num="8" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Scorpio'), "8")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Libra')} isAsc={isAsc('Libra')} num="7" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Libra'), "7")} onMouseLeave={handleMouseLeave} />
+            <SouthChartCell planets={getPlanetsForSign('Virgo')} isAsc={isAsc('Virgo')} num="6" onMouseMove={(e) => handleMouseMove(e, getPlanetsForSign('Virgo'), "6")} onMouseLeave={handleMouseLeave} />
           </div>
         )}
       </div>
