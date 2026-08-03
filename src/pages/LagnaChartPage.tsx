@@ -246,7 +246,7 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
                   planets={getPlanetsForHouse(houseNum)}
                   isAsc={houseNum === 1}
                   isPdf={isPdf}
-                  onMouseMove={(e) => handleMouseMove(e, getPlanetsForHouse(houseNum), String(houseNum))}
+                  onMouseMove={(e) => handleMouseMove(e, getPlanetsForHouse(houseNum), String(signNum))}
                   onMouseLeave={handleMouseLeave}
                 />
               );

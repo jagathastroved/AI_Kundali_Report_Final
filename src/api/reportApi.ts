@@ -16,11 +16,11 @@ export interface ReportApiRequest {
 }
 
 export const fetchReportFull = async (payload: ReportApiRequest) => {
-  // const baseUrl = import.meta.env.VITE_API_URL;
-  const baseUrl = '';
+  const baseUrl = import.meta.env.VITE_API_URL;
+  // const baseUrl = '';
 
   const url = `${baseUrl}/api/v1/report/full`;
-  console.log("payload", payload)
+  // console.log("payload", payload)
   try {
     const response = await axios.post(url, payload, {
       headers: {
@@ -29,7 +29,7 @@ export const fetchReportFull = async (payload: ReportApiRequest) => {
       }
     });
 
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('API failed.', error);

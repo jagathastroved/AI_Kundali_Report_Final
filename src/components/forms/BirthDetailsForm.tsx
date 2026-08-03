@@ -203,7 +203,7 @@ export const BirthDetailsForm: React.FC = () => {
       house_system: 'WHOLE_SIGN'
     };
 
-    console.log('Sending birth data to API:', apiPayload);
+    // console.log('Sending birth data to API:', apiPayload);
     navigate('/generating');
 
     const minLoadingTime = new Promise(resolve => setTimeout(resolve, 6000));
