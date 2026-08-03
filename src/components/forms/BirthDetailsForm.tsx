@@ -229,7 +229,7 @@ export const BirthDetailsForm: React.FC = () => {
       await submitBirthDetails(birthData, null, apiError);
     } else {
       await submitBirthDetails(birthData, apiResponseData);
-      navigate('/report/welcome');
+      navigate('/report/welcome', { replace: true });
     }
   };
 

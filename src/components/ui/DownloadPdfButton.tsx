@@ -89,6 +89,7 @@ export default function DownloadPdfButton({
     className = '',
 }: DownloadPdfButtonProps) {
     const [isDownloading, setIsDownloading] = useState(false);
+    const [downloadProgress, setDownloadProgress] = useState(0);
 
     const handleDownload = async () => {
         const idsToDownload = targetIds || (targetId ? [targetId] : []);
@@ -100,10 +101,13 @@ export default function DownloadPdfButton({
 
         try {
             setIsDownloading(true);
+            setDownloadProgress(0);
 
             let pdf: jsPDF | null = null;
 
             for (let i = 0; i < idsToDownload.length; i++) {
+                setDownloadProgress(Math.round((i / idsToDownload.length) * 100));
+                
                 const id = idsToDownload[i];
                 const element = document.getElementById(id);
 
@@ -273,6 +277,7 @@ export default function DownloadPdfButton({
         } catch (error) {
             console.error('Error generating PDF:', error);
         } finally {
+            setDownloadProgress(100);
             setIsDownloading(false);
         }
     };
@@ -292,7 +297,7 @@ export default function DownloadPdfButton({
             )}
 
             <span className="relative z-10 text-[10px] sm:text-[11px] font-extrabold tracking-wide sm:tracking-[0.1em] uppercase drop-shadow-sm whitespace-nowrap">
-                {isDownloading ? 'Generating PDF...' : 'Download Report'}
+                {isDownloading ? `Generating PDF... ${downloadProgress}%` : 'Download Report'}
             </span>
         </button>
     );
