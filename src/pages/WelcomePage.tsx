@@ -16,7 +16,7 @@ export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => 
         <h2 className="text-[14px] md:text-base font-bold page-text tracking-[0.2em] uppercase">
           Namaste {data?.birthDetails?.name}
         </h2>
-        <div className="w-16 h-1 bg-linear-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-2" />
+        <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-2" />
       </div>
 
       {/* User Name Pill */}

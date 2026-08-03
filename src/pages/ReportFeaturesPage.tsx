@@ -108,7 +108,7 @@ export const ReportFeaturesPage: React.FC<{ pageIdx: number, setPage: (idx: numb
           className="w-full block relative group overflow-hidden bg-slate-900 text-white font-bold text-[15px] sm:text-lg py-4 sm:py-5 rounded-2xl shadow-xl flex items-center justify-center gap-2 sm:gap-3 transition-transform hover:-translate-y-1 active:scale-95"
         >
           {/* Animated gradient background for button */}
-          <div className="absolute inset-0 bg-linear-to-r from-orange-500 via-rose-500 to-indigo-500 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-rose-500 to-indigo-500 opacity-90 group-hover:opacity-100 transition-opacity"></div>
 
           <span className="relative z-10 tracking-wide flex items-center justify-center gap-1.5 sm:gap-2 w-full px-1">
             <span className="text-center leading-tight">Get Your Kundli Report</span>

@@ -17,7 +17,7 @@ export const KarmicChakraPage: React.FC<{ pageIdx: number, setPage: (idx: number
         <h2 className="text-2xl md:text-3xl font-semibold page-text tracking-tight leading-tight max-w-xl mx-auto">
           Stored Karma & Dominant Chakra
         </h2>
-        <div className="w-16 h-1 bg-linear-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-4" />
+        <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-4" />
       </div>
 
       <div className="px-2">
@@ -39,7 +39,7 @@ export const KarmicChakraPage: React.FC<{ pageIdx: number, setPage: (idx: number
       <div className="space-y-5 pt-4 font-sans px-1">
 
         {/* Dominant Chakra Insight */}
-        <div className="p-6 rounded-3xl bg-linear-to-r from-indigo-50/80 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-indigo-900/40 hover:dark:to-slate-800/40 transition-all duration-300 border border-indigo-100 shadow-soft relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-4 group hover:shadow-soft transition-shadow">
+        <div className="p-6 rounded-3xl bg-gradient-to-r from-indigo-50/80 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-indigo-900/40 hover:dark:to-slate-800/40 transition-all duration-300 border border-indigo-100 shadow-soft relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-4 group hover:shadow-soft transition-shadow">
           <div className="absolute top-0 left-0 w-2 h-full bg-indigo-400" />
           <div className="w-16 h-16 flex-shrink-0 rounded-full overflow-hidden border-2 border-indigo-200 shadow-soft ml-2 bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center p-2 group-hover:scale-105 transition-transform">
             <img src={chakrasImage} alt="Dominant Chakra" className="w-full h-full object-contain" />
@@ -58,7 +58,7 @@ export const KarmicChakraPage: React.FC<{ pageIdx: number, setPage: (idx: number
         </div>
 
         {/* Spiritual Remedy */}
-        <div className="p-6 rounded-3xl bg-linear-to-r from-emerald-50/80 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-emerald-900/40 hover:dark:to-slate-800/40 transition-all duration-300 border border-emerald-100 shadow-soft relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-4 group hover:shadow-soft transition-shadow">
+        <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-50/80 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-emerald-900/40 hover:dark:to-slate-800/40 transition-all duration-300 border border-emerald-100 shadow-soft relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-4 group hover:shadow-soft transition-shadow">
           <div className="absolute top-0 left-0 w-2 h-full bg-emerald-400" />
           <div className="w-16 h-16 flex-shrink-0 rounded-full border-2 border-emerald-200 shadow-soft ml-2 bg-emerald-50 flex items-center justify-center group-hover:scale-105 transition-transform text-emerald-600">
             <Shield size={24} />

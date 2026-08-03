@@ -129,11 +129,11 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
         <h2 className="text-2xl md:text-3xl font-semibold page-text tracking-tight leading-tight max-w-xl mx-auto">
           Your Lagna Kundli Chart
         </h2>
-        <div className="w-16 h-1 bg-linear-to-r from-indigo-400 to-indigo-600 mx-auto rounded-full mt-4" />
+        <div className="w-16 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600 mx-auto rounded-full mt-4" />
       </div>
 
       {/* Review birth details summary indicators inside booklet */}
-      <div className="p-4 sm:p-5 bg-linear-to-r from-slate-50 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-slate-900/40 hover:dark:to-slate-800/40 transition-all duration-300 rounded-3xl flex flex-col sm:flex-row justify-between items-center text-xs font-normal border border-default shadow-soft mx-1 gap-4">
+      <div className="p-4 sm:p-5 bg-gradient-to-r from-slate-50 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-slate-900/40 hover:dark:to-slate-800/40 transition-all duration-300 rounded-3xl flex flex-col sm:flex-row justify-between items-center text-xs font-normal border border-default shadow-soft mx-1 gap-4">
         <div className="space-y-1 page-text text-center sm:text-left">
           <div className="font-medium text-[14px]">Birth: <span className="text-indigo-600 font-bold">{birthDetails?.name}</span> <span className="text-muted capitalize">({birthDetails?.gender})</span></div>
           <div className="text-[12px] text-muted flex flex-col sm:flex-row gap-1 sm:gap-3">
@@ -226,7 +226,7 @@ export const LagnaChartPage: React.FC<{ pageIdx: number, setPage: (idx: number) 
 
       {/* Premium Content Card (Stellium Information) */}
       <div className="p-6 sm:p-8 rounded-3xl card-bg border border-default shadow-soft relative overflow-hidden group font-sans mx-1">
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-indigo-400 to-indigo-600" />
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-400 to-indigo-600" />
 
         <div className="space-y-5 sm:space-y-6">
           {stellium?.stelliumQuestion && (

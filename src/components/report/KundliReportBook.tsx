@@ -188,7 +188,11 @@ export const KundliReportBook: React.FC = () => {
 
   useEffect(() => {
     handleScrollToTop();
-  }, [location.pathname]);
+    const sidebarItem = document.getElementById(`sidebar-nav-item-${currentPage}`);
+    if (sidebarItem) {
+      sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [location.pathname, currentPage]);
 
   if (!reportData) return <Navigate to="/" replace />;
 
@@ -220,6 +224,13 @@ export const KundliReportBook: React.FC = () => {
           </div>
           <div className="flex items-center space-x-2">
             <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-indigo-900/30 text-indigo-600 dark:text-yellow-400 hover:scale-110 active:scale-95 transition-all duration-300 shadow-sm border border-indigo-100 dark:border-slate-700/60"
+              title="Toggle Theme"
+            >
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+            <button
               onClick={() => setIsSidebarOpen(false)}
               className="text-muted hover:text-slate-800 dark:hover:text-slate-200 p-1 transition-colors"
             >
@@ -236,6 +247,7 @@ export const KundliReportBook: React.FC = () => {
             return (
               <button
                 key={idx}
+                id={`sidebar-nav-item-${idx}`}
                 onClick={() => {
                   setPage(idx);
                   handleScrollToTop();
@@ -303,7 +315,7 @@ export const KundliReportBook: React.FC = () => {
         {/* Floating Theme Toggle Button */}
         <button
           onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-          className="absolute top-4 right-4 md:right-8 z-50 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-[0_0_15px_rgba(250,204,21,0.15)] rounded-full transition-all duration-500 hover:scale-110 group flex items-center justify-center overflow-hidden"
+          className="hidden lg:flex absolute top-4 right-4 md:right-8 z-50 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-[0_0_15px_rgba(250,204,21,0.15)] rounded-full transition-all duration-500 hover:scale-110 group items-center justify-center overflow-hidden"
           title="Toggle Theme"
         >
           <div className="relative flex items-center justify-center w-6 h-6">
@@ -362,7 +374,7 @@ export const KundliReportBook: React.FC = () => {
                 {/* Center Section Title */}
                 <div className="flex-[2] sm:flex-none flex flex-col items-center justify-center text-center px-2">
                   <div className="flex items-center space-x-3 text-slate-400">
-                    <div className="hidden sm:block w-6 h-px bg-linear-to-r from-transparent to-[#FE7950] mr-2"></div>
+                    <div className="hidden sm:block w-6 h-px bg-gradient-to-r from-transparent to-[#FE7950] mr-2"></div>
                     <Compass size={14} className="animate-spin" style={{ animationDuration: '25s' }} />
                     <div className="hidden sm:block w-6 h-px bg-gradient-to-l from-transparent to-[#FE7950] ml-2"></div>
                   </div>
@@ -383,7 +395,7 @@ export const KundliReportBook: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.35, ease: 'easeOut' }}
-                  className="space-y-6 page-text leading-relaxed text-sm md:text-base font-normal selection:bg-orange-100"
+                  className="space-y-6 page-text leading-relaxed text-sm md:text-base font-normal selection:bg-orange-100 selection:text-slate-900"
                 >
                   <Outlet />
                 </motion.div>

@@ -44,7 +44,7 @@ export const PlanetaryStrengthsPage: React.FC<{ pageIdx: number, setPage: (idx: 
         <h2 className="text-2xl md:text-3xl font-semibold page-text tracking-tight leading-tight max-w-xl mx-auto">
           Planetary Shield Strengths
         </h2>
-        <div className="w-16 h-1 bg-linear-to-r from-emerald-400 to-indigo-500 mx-auto rounded-full mt-4" />
+        <div className="w-16 h-1 bg-gradient-to-r from-emerald-400 to-indigo-500 mx-auto rounded-full mt-4" />
       </div>
 
       <p className="page-text text-[14px] leading-relaxed font-medium max-w-xl mx-auto px-4">

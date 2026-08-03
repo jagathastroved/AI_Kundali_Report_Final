@@ -18,7 +18,7 @@ export const BigThreeSignsPage: React.FC<{ pageIdx: number, setPage: (idx: numbe
         <h2 className="text-2xl md:text-3xl font-semibold page-text tracking-tight leading-tight max-w-xl mx-auto">
           The three most influential and important signs for you
         </h2>
-        <div className="w-16 h-1 bg-linear-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-4" />
+        <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-indigo-500 mx-auto rounded-full mt-4" />
       </div>
 
       {/* Three big signs columns grid */}
@@ -37,7 +37,7 @@ export const BigThreeSignsPage: React.FC<{ pageIdx: number, setPage: (idx: numbe
 
         {/* Lagna (Rising Card) */}
         <div className="relative p-6 rounded-3xl bg-gradient-to-b from-rose-50 to-white dark:from-slate-800/20 dark:to-transparent hover:dark:from-rose-900/40 hover:dark:to-slate-800/40 transition-all duration-300 border-2 border-rose-200 shadow-soft hover:shadow-lg transition-shadow text-center flex flex-col items-center group transform sm:-translate-y-2">
-          <div className="absolute -top-3 bg-linear-to-r from-rose-500 to-rose-400 text-white px-3 py-1 text-[10px] font-bold uppercase rounded-full shadow-soft tracking-wider">
+          <div className="absolute -top-3 bg-gradient-to-r from-rose-500 to-rose-400 text-white px-3 py-1 text-[10px] font-bold uppercase rounded-full shadow-soft tracking-wider">
             Most Important
           </div>
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-rose-200 to-rose-100 flex items-center justify-center shadow-inner border border-white mb-4 mt-2 group-hover:scale-105 transition-transform overflow-hidden p-1">
