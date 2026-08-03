@@ -204,7 +204,7 @@ export const BirthDetailsForm: React.FC = () => {
     };
 
     // console.log('Sending birth data to API:', apiPayload);
-    navigate('/generating');
+    navigate('/generating', { state: { fromForm: true } });
 
     const minLoadingTime = new Promise(resolve => setTimeout(resolve, 6000));
     let apiResponseData = null;

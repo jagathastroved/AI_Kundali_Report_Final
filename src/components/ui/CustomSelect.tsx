@@ -87,22 +87,22 @@ export default function CustomSelect({
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="opacity-0 absolute inset-0 w-full h-full z-10 md:hidden cursor-pointer"
+          className="opacity-0 absolute inset-0 w-full h-full z-10 md:hidden cursor-pointer text-gray-900 bg-white"
           disabled={disabled}
         >
-          <option value="" disabled>{placeholder}</option>
+          <option value="" disabled className="text-gray-500 bg-white">{placeholder}</option>
           {formattedOptions.map(opt => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
+            <option key={opt.value} value={opt.value} className="text-gray-900 bg-white">{opt.label}</option>
           ))}
         </select>
       )}
 
       {/* Hidden select for form submission / required validation */}
       {required && (
-        <select value={value} onChange={() => { }} className={`opacity-0 absolute inset-0 w-full h-full -z-10 ${!searchable ? 'hidden md:block' : ''}`} required aria-hidden="true" tabIndex={-1}>
-          <option value="" disabled>{placeholder}</option>
+        <select value={value} onChange={() => { }} className={`opacity-0 absolute inset-0 w-full h-full -z-10 text-gray-900 bg-white ${!searchable ? 'hidden md:block' : ''}`} required aria-hidden="true" tabIndex={-1}>
+          <option value="" disabled className="text-gray-500 bg-white">{placeholder}</option>
           {formattedOptions.map(opt => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
+            <option key={opt.value} value={opt.value} className="text-gray-900 bg-white">{opt.label}</option>
           ))}
         </select>
       )}

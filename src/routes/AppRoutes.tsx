@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { useReport } from '../context/ReportContext';
 import { LandingScreen } from '../pages/LandingScreen';
 import { LoadingScreen } from '../components/ui/LoadingScreen';
@@ -17,6 +17,7 @@ const PageWrapper: React.FC<{ component: React.ComponentType<{ pageIdx: number, 
 export const AppRoutes: React.FC = () => {
   const { error, resetReport } = useReport();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRetry = () => {
     resetReport();
@@ -26,7 +27,7 @@ export const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingScreen />} />
-      <Route path="/generating" element={error ? <Navigate to="/error" replace /> : <LoadingScreen />} />
+      <Route path="/generating" element={error ? <Navigate to="/error" replace /> : (location.state?.fromForm ? <LoadingScreen /> : <Navigate to="/" replace />)} />
       <Route path="/error" element={<ErrorScreen errorMsg={error || undefined} onRetry={handleRetry} />} />
       <Route path="/report" element={<KundliReportBook />}>
         <Route path="welcome" element={<PageWrapper component={Pages.WelcomePage} pageIdx={0} />} />
