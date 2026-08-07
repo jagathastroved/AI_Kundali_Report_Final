@@ -10,7 +10,7 @@ import { useReport } from "../context/ReportContext";
 import { LandingScreen } from "../pages/LandingScreen";
 import { LoadingScreen } from "../components/ui/LoadingScreen";
 import { ErrorScreen } from "../components/ui/ErrorScreen";
-import { kundaliReportBook } from "../components/report/kundaliReportBook";
+import { KundaliReportBook } from "../components/report/KundliReportBook";
 import * as Pages from "../pages";
 
 const PageWrapper: React.FC<{
@@ -57,7 +57,7 @@ export const AppRoutes: React.FC = () => {
           <ErrorScreen errorMsg={error || undefined} onRetry={handleRetry} />
         }
       />
-      <Route path="/report" element={<kundaliReportBook />}>
+      <Route path="/report" element={<KundaliReportBook />}>
         <Route
           path="welcome"
           element={<PageWrapper component={Pages.WelcomePage} pageIdx={0} />}

@@ -174,7 +174,7 @@ const BookletMockup: React.FC = () => {
   );
 };
 
-export const kundaliReportBook: React.FC = () => {
+export const KundaliReportBook: React.FC = () => {
   const { reportData, resetReport } = useReport();
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
