@@ -1,18 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { useReport } from '../../context/ReportContext';
-import { useTheme } from '../../context/ThemeContext';
-import { KundliReportData, PlanetPosition } from '../../types';
-import { ArrowLeft, ArrowRight, BookOpen, Compass, RefreshCw, Moon, Sun, Monitor, Download } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useParams, useNavigate, Navigate, Outlet, useLocation } from 'react-router-dom';
-import { PAGE_TITLES } from '../ui/SharedElements';
-import DownloadPdfButton from '../ui/DownloadPdfButton';
-import * as Pages from '../../pages';
-
-
+import React, { useState, useEffect } from "react";
+import { useReport } from "../../context/ReportContext";
+import { useTheme } from "../../context/ThemeContext";
+import { kundaliReportData, PlanetPosition } from "../../types";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Compass,
+  RefreshCw,
+  Moon,
+  Sun,
+  Monitor,
+  Download,
+} from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  useParams,
+  useNavigate,
+  Navigate,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
+import { PAGE_TITLES } from "../ui/SharedElements";
+import DownloadPdfButton from "../ui/DownloadPdfButton";
+import * as Pages from "../../pages";
 
 // Pie Chart component for representing elements ratio perfectly matching Screenshot 4
-const PieChartComponent: React.FC<{ ratios: { name: string; percentage: number }[] }> = ({ ratios }) => {
+const PieChartComponent: React.FC<{
+  ratios: { name: string; percentage: number }[];
+}> = ({ ratios }) => {
   const { resolvedTheme } = useTheme();
   let accumulatedAngle = 0;
   const radius = 64;
@@ -23,25 +39,30 @@ const PieChartComponent: React.FC<{ ratios: { name: string; percentage: number }
   const total = ratios.reduce((sum, r) => sum + r.percentage, 0) || 100;
 
   const bgColors: { [key: string]: string } = {
-    Ether: '#9333EA', // purple-600
-    Air: '#FEF08A',   // soft yellow (amber-200)
-    Water: '#3B82F6', // blue-500
-    Fire: '#EF4444',  // red-500
-    Earth: '#10B981', // green-500
+    Ether: "#9333EA", // purple-600
+    Air: "#FEF08A", // soft yellow (amber-200)
+    Water: "#3B82F6", // blue-500
+    Fire: "#EF4444", // red-500
+    Earth: "#10B981", // green-500
   };
 
   const textColors: { [key: string]: string } = {
-    Ether: 'text-purple-600',
-    Air: 'text-yellow-700',
-    Water: 'text-blue-600',
-    Fire: 'text-red-700',
-    Earth: 'text-green-600',
+    Ether: "text-purple-600",
+    Air: "text-yellow-700",
+    Water: "text-blue-600",
+    Fire: "text-red-700",
+    Earth: "text-green-600",
   };
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 bg-amber-500/[0.02] border border-light p-5 rounded-3xl">
       <div className="relative w-40 h-40">
-        <svg width="160" height="160" viewBox="0 0 160 160" className="transform -rotate-90">
+        <svg
+          width="160"
+          height="160"
+          viewBox="0 0 160 160"
+          className="transform -rotate-90"
+        >
           {ratios.map((element, idx) => {
             const val = element.percentage;
             if (val <= 0) return null;
@@ -59,14 +80,14 @@ const PieChartComponent: React.FC<{ ratios: { name: string; percentage: number }
 
             const largeArcFlag = sliceAngle > 180 ? 1 : 0;
             const pathData = `M ${cx} ${cy} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2} Z`;
-            const color = bgColors[element.name] || '#64748B';
+            const color = bgColors[element.name] || "#64748B";
 
             return (
               <motion.path
                 key={idx}
                 d={pathData}
                 fill={color}
-                stroke={resolvedTheme === 'dark' ? '#0F172A' : '#FCFAF5'}
+                stroke={resolvedTheme === "dark" ? "#0F172A" : "#FCFAF5"}
                 strokeWidth="1.5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -76,19 +97,34 @@ const PieChartComponent: React.FC<{ ratios: { name: string; percentage: number }
             );
           })}
           {/* Inner hole for warm donut booklet feel */}
-          <circle cx="80" cy="80" r="32" fill={resolvedTheme === 'dark' ? '#0F172A' : '#FCFAF2'} />
+          <circle
+            cx="80"
+            cy="80"
+            r="32"
+            fill={resolvedTheme === "dark" ? "#0F172A" : "#FCFAF2"}
+          />
         </svg>
       </div>
 
       {/* Legend list matching Screenshot 4 */}
       <div className="space-y-1.5 flex-1 min-w-[120px]">
         {ratios.map((element, idx) => {
-          const color = bgColors[element.name] || '#64748B';
+          const color = bgColors[element.name] || "#64748B";
           return (
-            <div key={idx} className="flex items-center text-xs font-normal page-text">
-              <span className="w-3.5 h-3.5 rounded-md mr-2.5 transition-colors" style={{ backgroundColor: color }} />
+            <div
+              key={idx}
+              className="flex items-center text-xs font-normal page-text"
+            >
+              <span
+                className="w-3.5 h-3.5 rounded-md mr-2.5 transition-colors"
+                style={{ backgroundColor: color }}
+              />
               <span className="min-w-[50px]">{element.name}:</span>
-              <span className={`ml-2 font-mono font-normal ${textColors[element.name] || 'text-slate-500'}`}>{element.percentage}%</span>
+              <span
+                className={`ml-2 font-mono font-normal ${textColors[element.name] || "text-slate-500"}`}
+              >
+                {element.percentage}%
+              </span>
             </div>
           );
         })}
@@ -117,7 +153,7 @@ const BookletMockup: React.FC = () => {
             Your Personalised
           </div>
           <div className="text-[12px] font-normal tracking-widest text-[#FCAE3B] uppercase bg-white/5 py-1 px-1.5 rounded border border-white/5 drop-shadow">
-            Vedic Kundli
+            Vedic kundali
           </div>
           <div className="text-[6.5px] text-indigo-200 font-normal tracking-wider uppercase">
             145+ Pages Report
@@ -126,44 +162,49 @@ const BookletMockup: React.FC = () => {
 
         {/* Footer Pt. Rishiraj */}
         <div className="text-center pt-1.5 border-t border-white/10 z-10">
-          <span className="text-[6px] text-slate-300 block font-normal">Compiled by</span>
-          <span className="text-[7px] text-[#F96D6D] font-normal uppercase tracking-widest">Pt. Rishiraj</span>
+          <span className="text-[6px] text-slate-300 block font-normal">
+            Compiled by
+          </span>
+          <span className="text-[7px] text-[#F96D6D] font-normal uppercase tracking-widest">
+            Pt. Rishiraj
+          </span>
         </div>
       </div>
     </div>
   );
 };
 
-export const KundliReportBook: React.FC = () => {
+export const kundaliReportBook: React.FC = () => {
   const { reportData, resetReport } = useReport();
   const { theme, setTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
   const routes = [
-    'welcome',
-    'birth-star',
-    'core-personality',
-    'influential-signs',
-    'dominant-element',
-    'lagna-chart',
-    'why-get-report',
-    'karmic-chakra',
-    'planetary-strengths',
-    'planetary-profiles',
-    'atmakaraka',
-    'dasha-timeline',
-    'premium-deliverables'
+    "welcome",
+    "birth-star",
+    "core-personality",
+    "influential-signs",
+    "dominant-element",
+    "lagna-chart",
+    "why-get-report",
+    "karmic-chakra",
+    "planetary-strengths",
+    "planetary-profiles",
+    "atmakaraka",
+    "dasha-timeline",
+    "premium-deliverables",
   ];
 
-  const currentPath = location.pathname.split('/').pop() || 'welcome';
+  const currentPath = location.pathname.split("/").pop() || "welcome";
   const currentPage = Math.max(0, routes.indexOf(currentPath));
 
   const setPage = (idx: number) => {
     navigate(`/report/${routes[idx]}`);
   };
   const nextPage = () => {
-    if (currentPage < routes.length - 1) navigate(`/report/${routes[currentPage + 1]}`);
+    if (currentPage < routes.length - 1)
+      navigate(`/report/${routes[currentPage + 1]}`);
   };
   const prevPage = () => {
     if (currentPage > 0) navigate(`/report/${routes[currentPage - 1]}`);
@@ -171,26 +212,28 @@ export const KundliReportBook: React.FC = () => {
 
   const handleResetReport = () => {
     resetReport();
-    navigate('/');
+    navigate("/");
   };
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [chartType, setChartType] = useState<'north' | 'south'>('north');
+  const [chartType, setChartType] = useState<"north" | "south">("north");
 
   // Track scroll details within page container
   const handleScrollToTop = () => {
-    const el = document.getElementById('report-page-scroller');
+    const el = document.getElementById("report-page-scroller");
     if (el) {
-      el.scrollTo({ top: 0, behavior: 'smooth' });
+      el.scrollTo({ top: 0, behavior: "smooth" });
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
     handleScrollToTop();
-    const sidebarItem = document.getElementById(`sidebar-nav-item-${currentPage}`);
+    const sidebarItem = document.getElementById(
+      `sidebar-nav-item-${currentPage}`,
+    );
     if (sidebarItem) {
-      sidebarItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      sidebarItem.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   }, [location.pathname, currentPage]);
 
@@ -203,17 +246,21 @@ export const KundliReportBook: React.FC = () => {
 
       {/* Mobile Drawer Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 bg-slate-900/40 z-40 transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
+        className={`lg:hidden fixed inset-0 bg-slate-900/40 z-40 transition-opacity duration-300 ${
+          isSidebarOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
         onClick={() => setIsSidebarOpen(false)}
       />
 
       {/* Modern Collapsible Table of Contents Navigation Drawer */}
       <aside
-        className={`fixed lg:relative inset-y-0 left-0 h-screen z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out ${isSidebarOpen
-          ? 'translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100'
-          : '-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden'
-          }`}
+        className={`fixed lg:relative inset-y-0 left-0 h-screen z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out ${
+          isSidebarOpen
+            ? "translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100"
+            : "-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden"
+        }`}
       >
         <div className="p-5 border-b border-default sidebar-header-bg flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -224,11 +271,11 @@ export const KundliReportBook: React.FC = () => {
           </div>
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="lg:hidden flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-indigo-900/30 text-indigo-600 dark:text-yellow-400 hover:scale-110 active:scale-95 transition-all duration-300 shadow-sm border border-indigo-100 dark:border-slate-700/60"
               title="Toggle Theme"
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
             </button>
             <button
               onClick={() => setIsSidebarOpen(false)}
@@ -255,23 +302,32 @@ export const KundliReportBook: React.FC = () => {
                     setIsSidebarOpen(false);
                   }
                 }}
-                className={`w-full flex items-center px-4 py-2.5 rounded-xl text-left text-xs font-normal transition-all group ${isActive
-                  ? 'bg-[#FE7950] text-white shadow-md shadow-[#FE7950]/15'
-                  : 'sidebar-item-text sidebar-item-hover'
-                  }`}
+                className={`w-full flex items-center px-4 py-2.5 rounded-xl text-left text-xs font-normal transition-all group ${
+                  isActive
+                    ? "bg-[#FE7950] text-white shadow-md shadow-[#FE7950]/15"
+                    : "sidebar-item-text sidebar-item-hover"
+                }`}
               >
-                <div className={`w-5 h-5 rounded-full mr-3 text-[10px] flex items-center justify-center font-bold border transition-colors ${isActive
-                  ? 'border-white/40 bg-white/20 text-white'
-                  : isCompleted
-                    ? 'border-emerald-200 bg-emerald-50 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400'
-                    : 'border-slate-300 dark:border-slate-600 bg-transparent text-slate-400 group-hover:border-slate-400 dark:group-hover:border-slate-500 font-normal'
-                  }`}>
+                <div
+                  className={`w-5 h-5 rounded-full mr-3 text-[10px] flex items-center justify-center font-bold border transition-colors ${
+                    isActive
+                      ? "border-white/40 bg-white/20 text-white"
+                      : isCompleted
+                        ? "border-emerald-200 bg-emerald-50 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400"
+                        : "border-slate-300 dark:border-slate-600 bg-transparent text-slate-400 group-hover:border-slate-400 dark:group-hover:border-slate-500 font-normal"
+                  }`}
+                >
                   {idx + 1}
                 </div>
                 <span className="flex-1 truncate">{title}</span>
                 {idx === PAGE_TITLES.length - 1 && (
-                  <span className={`px-1.5 py-0.5 rounded text-[8px] uppercase font-normal font-mono ml-2 tracking-wider ${isActive ? 'bg-orange-500 text-white' : 'bg-orange-500 text-white animate-pulse'
-                    }`}>
+                  <span
+                    className={`px-1.5 py-0.5 rounded text-[8px] uppercase font-normal font-mono ml-2 tracking-wider ${
+                      isActive
+                        ? "bg-orange-500 text-white"
+                        : "bg-orange-500 text-white animate-pulse"
+                    }`}
+                  >
                     PRO
                   </span>
                 )}
@@ -283,8 +339,11 @@ export const KundliReportBook: React.FC = () => {
         {/* Sidebar Actions */}
         <div className="p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
           <DownloadPdfButton
-            filename="Kundli_Report.pdf"
-            targetIds={Array.from({ length: PAGE_TITLES.length }, (_, i) => `pdf-page-${i}`)}
+            filename="kundali_Report.pdf"
+            targetIds={Array.from(
+              { length: PAGE_TITLES.length },
+              (_, i) => `pdf-page-${i}`,
+            )}
           />
 
           <button
@@ -314,23 +373,25 @@ export const KundliReportBook: React.FC = () => {
 
         {/* Floating Theme Toggle Button */}
         <button
-          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="hidden lg:flex absolute top-4 right-4 md:right-8 z-50 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-[0_0_15px_rgba(250,204,21,0.15)] rounded-full transition-all duration-500 hover:scale-110 group items-center justify-center overflow-hidden"
           title="Toggle Theme"
         >
           <div className="relative flex items-center justify-center w-6 h-6">
             <Moon
-              className={`absolute transition-all duration-500 text-indigo-600 ${theme === 'light'
-                ? 'opacity-100 rotate-0 scale-100 group-hover:-rotate-12'
-                : 'opacity-0 rotate-90 scale-50'
-                }`}
+              className={`absolute transition-all duration-500 text-indigo-600 ${
+                theme === "light"
+                  ? "opacity-100 rotate-0 scale-100 group-hover:-rotate-12"
+                  : "opacity-0 rotate-90 scale-50"
+              }`}
               size={22}
             />
             <Sun
-              className={`absolute transition-all duration-500 text-yellow-400 ${theme === 'light'
-                ? 'opacity-0 -rotate-90 scale-50'
-                : 'opacity-100 rotate-0 scale-100 group-hover:rotate-45'
-                }`}
+              className={`absolute transition-all duration-500 text-yellow-400 ${
+                theme === "light"
+                  ? "opacity-0 -rotate-90 scale-50"
+                  : "opacity-100 rotate-0 scale-100 group-hover:rotate-45"
+              }`}
               size={22}
             />
           </div>
@@ -343,14 +404,15 @@ export const KundliReportBook: React.FC = () => {
         >
           {/* Virtual Booklet Frame centering */}
           <div className="w-full max-w-2xl page-bg border border-default shadow-book rounded-3xl md:rounded-[2rem] flex flex-col p-6 md:p-10 relative select-text min-h-[580px] justify-between page-text overflow-hidden">
-
             {/* Dynamic Header Progress Bar */}
             <div className="absolute top-0 left-0 right-0 h-2 bg-slate-200/60">
               <motion.div
                 className="h-full bg-emerald-500 rounded-r-full"
                 initial={{ width: 0 }}
-                animate={{ width: `${((currentPage + 1) / PAGE_TITLES.length) * 100}%` }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
+                animate={{
+                  width: `${((currentPage + 1) / PAGE_TITLES.length) * 100}%`,
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
               />
             </div>
 
@@ -360,7 +422,10 @@ export const KundliReportBook: React.FC = () => {
                 {/* Left Logo */}
                 <div className="flex-1 flex justify-start">
                   <button
-                    onClick={() => { setPage(0); handleScrollToTop(); }}
+                    onClick={() => {
+                      setPage(0);
+                      handleScrollToTop();
+                    }}
                     className="cursor-pointer focus:outline-none hover:opacity-80 transition-opacity"
                   >
                     <img
@@ -375,7 +440,11 @@ export const KundliReportBook: React.FC = () => {
                 <div className="flex-[2] sm:flex-none flex flex-col items-center justify-center text-center px-2">
                   <div className="flex items-center space-x-3 text-slate-400">
                     <div className="hidden sm:block w-6 h-px bg-gradient-to-r from-transparent to-[#FE7950] mr-2"></div>
-                    <Compass size={14} className="animate-spin" style={{ animationDuration: '25s' }} />
+                    <Compass
+                      size={14}
+                      className="animate-spin"
+                      style={{ animationDuration: "25s" }}
+                    />
                     <div className="hidden sm:block w-6 h-px bg-gradient-to-l from-transparent to-[#FE7950] ml-2"></div>
                   </div>
                   <span className="text-[10px] sm:text-xs font-semibold page-text tracking-[0.15em] sm:tracking-[0.2em] uppercase text-center break-words">
@@ -394,7 +463,7 @@ export const KundliReportBook: React.FC = () => {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   className="space-y-6 page-text leading-relaxed text-sm md:text-base font-normal selection:bg-orange-100 selection:text-slate-900"
                 >
                   <Outlet />
@@ -429,7 +498,6 @@ export const KundliReportBook: React.FC = () => {
                 </button>
               )}
             </footer>
-
           </div>
         </section>
       </main>
@@ -451,16 +519,29 @@ export const KundliReportBook: React.FC = () => {
           { Component: Pages.DashaWheelPage, title: PAGE_TITLES[11] },
           { Component: Pages.PremiumDeliverablesPage, title: PAGE_TITLES[12] },
         ].map((Page, index) => (
-          <div key={index} id={`pdf-page-${index}`} className="w-full bg-[#FFFFFF] p-10 select-text text-slate-900 border border-slate-100 mb-8" style={{ minHeight: '1122px' }}>
+          <div
+            key={index}
+            id={`pdf-page-${index}`}
+            className="w-full bg-[#FFFFFF] p-10 select-text text-slate-900 border border-slate-100 mb-8"
+            style={{ minHeight: "1122px" }}
+          >
             {/* Header inside the booklet page */}
             <div className="flex items-center justify-between pb-4 mb-6 border-b border-slate-100 relative">
               <div className="flex-1 flex justify-start">
-                <img src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg" alt="Astroved-logo" className="h-8 w-auto object-contain" />
+                <img
+                  src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg"
+                  alt="Astroved-logo"
+                  className="h-8 w-auto object-contain"
+                />
               </div>
               <div className="flex-[2] sm:flex-none flex flex-col items-center justify-center text-center px-2">
                 <div className="flex items-center mb-1 text-orange-500 opacity-80">
                   <div className="w-6 h-px bg-gradient-to-r from-transparent to-orange-500 mr-2"></div>
-                  <Compass size={14} className="animate-spin" style={{ animationDuration: '25s' }} />
+                  <Compass
+                    size={14}
+                    className="animate-spin"
+                    style={{ animationDuration: "25s" }}
+                  />
                   <div className="w-6 h-px bg-gradient-to-l from-transparent to-orange-500 ml-2"></div>
                 </div>
                 <span className="text-xs font-black text-slate-800 tracking-[0.2em] uppercase text-center break-words">
@@ -471,7 +552,7 @@ export const KundliReportBook: React.FC = () => {
             </div>
 
             <div className="space-y-6 text-slate-800 leading-relaxed text-base font-normal">
-              <Page.Component pageIdx={index} setPage={() => { }} isPdf={true} />
+              <Page.Component pageIdx={index} setPage={() => {}} isPdf={true} />
             </div>
           </div>
         ))}

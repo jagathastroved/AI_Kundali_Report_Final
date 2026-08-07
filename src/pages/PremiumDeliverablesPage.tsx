@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useReport } from '../context/ReportContext';
-import { Loader2, Sparkles, CheckCircle2, Lock, FileText } from 'lucide-react';
-import bookImage from '../assets/Kundali_Report_book.png';
+import React, { useEffect, useState } from "react";
+import { useReport } from "../context/ReportContext";
+import { Loader2, Sparkles, CheckCircle2, Lock, FileText } from "lucide-react";
+import bookImage from "../assets/Kundali_Report_book.png";
 
+import {
+  getCountryCode,
+  getCurrencyInfo,
+} from "../utils/locationCurrencyUtils";
 
-import { getCountryCode, getCurrencyInfo } from '../utils/locationCurrencyUtils';
-
-export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx: number) => void }> = () => {
+export const PremiumDeliverablesPage: React.FC<{
+  pageIdx: number;
+  setPage: (idx: number) => void;
+}> = () => {
   const { birthDetails } = useReport();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [priceDetails, setPriceDetails] = useState({ symbol: '₹', price: 999 });
+  const [priceDetails, setPriceDetails] = useState({ symbol: "₹", price: 999 });
 
   const currentPrice = priceDetails.price;
   const currentSymbol = priceDetails.symbol;
@@ -21,30 +26,54 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
     const currencyInfo = getCurrencyInfo(countryCode);
     setPriceDetails({
       symbol: currencyInfo.currencySymbol,
-      price: currencyInfo.price || 30
+      price: currencyInfo.price || 30,
     });
   }, []);
 
-
-  const name = birthDetails?.name || 'You';
+  const name = birthDetails?.name || "You";
   const featureItems = [
-    { title: "Birth Star Analysis", desc: "Discover the celestial forces that shaped your destiny at the exact moment of your birth." },
-    { title: "Core Personality", desc: "Uncover your true inner self, revealing hidden strengths and profound potentials." },
-    { title: "Dasha Wheel", desc: "Navigate life timelines with precise predictions for upcoming planetary periods." },
-    { title: "Dominant Element", desc: "Understand the fundamental natural forces driving your temperament and energy." },
-    { title: "Influential Signs", desc: "Learn how specific zodiac signs profoundly impact your decisions and relationships." },
-    { title: "Karmic Chakra", desc: "Explore the past-life karmic patterns influencing your present challenges." },
-    { title: "Kundali Chart", desc: "Get a meticulously detailed map of the heavens customized perfectly for you." },
-    { title: "Planetary Profiles", desc: "Dive deep into how each planet uniquely shapes your wealth, health, and love life." },
-    { title: "Planetary Strength", desc: "Analyze the exact power of planets to find your greatest advantages in life." }
+    {
+      title: "Birth Star Analysis",
+      desc: "Discover the celestial forces that shaped your destiny at the exact moment of your birth.",
+    },
+    {
+      title: "Core Personality",
+      desc: "Uncover your true inner self, revealing hidden strengths and profound potentials.",
+    },
+    {
+      title: "Dasha Wheel",
+      desc: "Navigate life timelines with precise predictions for upcoming planetary periods.",
+    },
+    {
+      title: "Dominant Element",
+      desc: "Understand the fundamental natural forces driving your temperament and energy.",
+    },
+    {
+      title: "Influential Signs",
+      desc: "Learn how specific zodiac signs profoundly impact your decisions and relationships.",
+    },
+    {
+      title: "Karmic Chakra",
+      desc: "Explore the past-life karmic patterns influencing your present challenges.",
+    },
+    {
+      title: "Kundali Chart",
+      desc: "Get a meticulously detailed map of the heavens customized perfectly for you.",
+    },
+    {
+      title: "Planetary Profiles",
+      desc: "Dive deep into how each planet uniquely shapes your wealth, health, and love life.",
+    },
+    {
+      title: "Planetary Strength",
+      desc: "Analyze the exact power of planets to find your greatest advantages in life.",
+    },
   ];
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 pb-12 font-sans px-2 sm:px-0">
-
       {/* Hero Section */}
       <div className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 border border-indigo-500/30 shadow-[0_20px_50px_rgba(30,27,75,0.4)] p-8 sm:p-12 flex flex-col sm:flex-row items-center gap-8 sm:gap-12 group">
-
         {/* Background glow effects */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px] pointer-events-none" />
@@ -74,7 +103,10 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
           </h2>
 
           <p className="text-[14px] sm:text-base text-indigo-200/90 leading-relaxed font-medium max-w-md mx-auto sm:mx-0">
-            {name[0].toUpperCase() + name.slice(1).toLowerCase()}, we have successfully analyzed your birth data and compiled your comprehensive life guide. Everything you need to understand your life's purpose is waiting for you.
+            {name[0].toUpperCase() + name.slice(1).toLowerCase()}, we have
+            successfully analyzed your birth data and compiled your
+            comprehensive life guide. Everything you need to understand your
+            life's purpose is waiting for you.
           </p>
         </div>
       </div>
@@ -91,7 +123,10 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {featureItems?.map((item: any, idx: number) => (
-            <div key={idx} className="group card-bg rounded-3xl p-6 border border-light shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-indigo-100 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex gap-4 items-start">
+            <div
+              key={idx}
+              className="group card-bg rounded-3xl p-6 border border-light shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-xl hover:border-indigo-100 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex gap-4 items-start"
+            >
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 dark:bg-indigo-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -mr-10 -mt-10 pointer-events-none" />
 
               <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-indigo-50/80 flex items-center justify-center text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-100 transition-all duration-300 shadow-soft border border-indigo-100/50">
@@ -99,8 +134,12 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
               </div>
 
               <div className="flex-1 space-y-1.5 relative z-10">
-                <h4 className="text-[15px] font-bold page-text leading-tight group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors tracking-tight">{item?.title}</h4>
-                <p className="text-[13px] text-muted leading-relaxed font-medium">{item?.desc}</p>
+                <h4 className="text-[15px] font-bold page-text leading-tight group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors tracking-tight">
+                  {item?.title}
+                </h4>
+                <p className="text-[13px] text-muted leading-relaxed font-medium">
+                  {item?.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -136,10 +175,12 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
         </div>
 
         {/* CTA Button */}
-        <a href='https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report' target='_blank' className="block">
-          <button
-            className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50"
-          >
+        <a
+          href="https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report"
+          target="_blank"
+          className="block"
+        >
+          <button className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50">
             <div className="absolute inset-0 opacity-20 mix-blend-overlay"></div>
             {isProcessing ? (
               <>
@@ -150,7 +191,8 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
               <>
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
                 <span className="relative z-10">
-                  Unlock Complete Report for {currentSymbol} {currentPrice.toFixed(2)}
+                  Unlock Complete Report for {currentSymbol}{" "}
+                  {currentPrice.toFixed(2)}
                 </span>
               </>
             )}
@@ -158,7 +200,7 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
         </a>
         {/* View Sample Report Button */}
         <a
-          href="https://www.astroved.com/reacthome/reports/Sample%20Detailed%20Kundli%20Premium%20Report.pdf"
+          href="https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full py-3 sm:py-4 bg-white/50 hover:bg-white text-indigo-600 font-bold text-sm sm:text-base tracking-wide rounded-xl border border-indigo-200 hover:border-indigo-300 transition-all duration-300 flex items-center justify-center gap-2 mt-3"
@@ -171,7 +213,6 @@ export const PremiumDeliverablesPage: React.FC<{ pageIdx: number, setPage: (idx:
           <Lock className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> 100% Secure Checkout
         </p>
       </div>
-
     </div>
   );
 };

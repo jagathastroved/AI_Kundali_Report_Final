@@ -61,8 +61,8 @@
             }
         },
         "page5_kundali_chart": {
-            "page_type": "kundli_chart",
-            "title": "Here's your kundli chart",
+            "page_type": "kundali_chart",
+            "title": "Here's your kundali chart",
             "chart_type": "D1",
             "chart": {
                 "Aries": [
@@ -197,9 +197,9 @@
             "page_number": 10,
             "page_type": "kundali_chart_stellium",
             "lagnaChart": {
-                "title": "Your Lagna Kundli Chart",
+                "title": "Your Lagna kundali Chart",
                 "stelliumQuestion": "What repeating pattern of your nature does Vedic Astrology reveal?",
-                "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your Kundli. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
+                "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your kundali. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
                 "chart": {
                     "type": "north_indian",
                     "lagna_sign": "Aries",
@@ -457,7 +457,7 @@
                     "planets": [
                         "Mars"
                     ],
-                    "content": "Yogakaraka planets in your kundli are Mars. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life."
+                    "content": "Yogakaraka planets in your kundali are Mars. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life."
                 },
                 "benefics": {
                     "title": "Benefic",
@@ -467,7 +467,7 @@
                         "Mars",
                         "Jupiter"
                     ],
-                    "content": "Favorable planets in your kundli are Sun, Moon, Mars, Jupiter. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life."
+                    "content": "Favorable planets in your kundali are Sun, Moon, Mars, Jupiter. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life."
                 },
                 "malefics": {
                     "title": "Malefic",
@@ -477,7 +477,7 @@
                         "Rahu",
                         "Ketu"
                     ],
-                    "content": "On the other hand, malefic planets in your kundli are Mercury, Venus, Rahu, Ketu. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life."
+                    "content": "On the other hand, malefic planets in your kundali are Mercury, Venus, Rahu, Ketu. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life."
                 }
             }
         },

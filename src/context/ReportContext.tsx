@@ -1,32 +1,38 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { BirthDetails, KundliReportData } from '../types';
-import fallbackReport from '../mocks/fallBackReport.json';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { BirthDetails, kundaliReportData } from "../types";
+import fallbackReport from "../mocks/fallBackReport.json";
 
 interface ReportContextType {
   birthDetails: BirthDetails | null;
-  reportData: KundliReportData | null;
+  reportData: kundaliReportData | null;
   isLoading: boolean;
   isGenerated: boolean;
   error: string | null;
-  submitBirthDetails: (details: BirthDetails, apiData?: any, apiError?: any) => Promise<void>;
+  submitBirthDetails: (
+    details: BirthDetails,
+    apiData?: any,
+    apiError?: any,
+  ) => Promise<void>;
   resetReport: () => void;
 }
 
 const ReportContext = createContext<ReportContextType | undefined>(undefined);
 
-export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [birthDetails, setBirthDetails] = useState<BirthDetails | null>(() => {
-    const saved = localStorage.getItem('astro_birth_details');
+    const saved = localStorage.getItem("astro_birth_details");
     return saved ? JSON.parse(saved) : null;
   });
 
-  const [reportData, setReportData] = useState<KundliReportData | null>(() => {
-    const saved = localStorage.getItem('astro_report_data');
+  const [reportData, setReportData] = useState<kundaliReportData | null>(() => {
+    const saved = localStorage.getItem("astro_report_data");
     return saved ? JSON.parse(saved) : null;
   });
 
   const [isGenerated, setIsGenerated] = useState<boolean>(() => {
-    return !!localStorage.getItem('astro_report_data');
+    return !!localStorage.getItem("astro_report_data");
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -34,23 +40,27 @@ export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     if (birthDetails) {
-      localStorage.setItem('astro_birth_details', JSON.stringify(birthDetails));
+      localStorage.setItem("astro_birth_details", JSON.stringify(birthDetails));
     } else {
-      localStorage.removeItem('astro_birth_details');
+      localStorage.removeItem("astro_birth_details");
     }
   }, [birthDetails]);
 
   useEffect(() => {
     if (reportData) {
-      localStorage.setItem('astro_report_data', JSON.stringify(reportData));
+      localStorage.setItem("astro_report_data", JSON.stringify(reportData));
       setIsGenerated(true);
     } else {
-      localStorage.removeItem('astro_report_data');
+      localStorage.removeItem("astro_report_data");
       setIsGenerated(false);
     }
   }, [reportData]);
 
-  const submitBirthDetails = async (details: BirthDetails, apiData?: any, apiError?: any) => {
+  const submitBirthDetails = async (
+    details: BirthDetails,
+    apiData?: any,
+    apiError?: any,
+  ) => {
     setIsLoading(true);
     setError(null);
     setBirthDetails(details);
@@ -64,14 +74,16 @@ export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       localData.birthStar.description = `Hello, ${details.name}! Based on your birth details of ${details.day}/${details.month}/${details.year} in ${details.city}, ${localData.birthStar.description}`;
 
       // Simulate network delay for UI consistency
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
       const finalData = apiData ? { ...localData, ...apiData } : localData;
 
       setReportData(finalData);
     } catch (err: any) {
-      console.error('Error generating report:', err);
-      setError(err?.message || 'An error occurred while generating the report.');
+      console.error("Error generating report:", err);
+      setError(
+        err?.message || "An error occurred while generating the report.",
+      );
     } finally {
       setIsLoading(false);
     }
@@ -81,8 +93,8 @@ export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setBirthDetails(null);
     setReportData(null);
     setError(null);
-    localStorage.removeItem('astro_birth_details');
-    localStorage.removeItem('astro_report_data');
+    localStorage.removeItem("astro_birth_details");
+    localStorage.removeItem("astro_report_data");
   };
 
   return (
@@ -105,7 +117,7 @@ export const ReportProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 export const useReport = () => {
   const context = useContext(ReportContext);
   if (context === undefined) {
-    throw new Error('useReport must be used within a ReportProvider');
+    throw new Error("useReport must be used within a ReportProvider");
   }
   return context;
 };

@@ -307,7 +307,7 @@
     },
     "page7_chart_stellium": {
         "stelliumQuestion": "What repeating pattern of your nature does Vedic Astrology reveal?",
-        "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your Kundli. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
+        "stelliumDesc1": "A stellium happens when three or more planets gather in one house of your kundali. If a stellium is present in your birth chart, the house it's in becomes the most active and influential part of your life.",
         "stelliumDesc2": "With your stellium in the 9 house, your life is deeply enriched by themes of dharma, higher learning, and spiritual beliefs. The presence of the Sun illuminates your path as a spiritual seeker and teacher, while Venus enhances your appreciation for beauty and harmony in philosophical pursuits. Ketu adds a layer of depth, encouraging you to delve into transformative experiences that expand your understanding of life. Together, these energies create a powerful drive for long journeys, both physically and intellectually, as you strive to embody the wisdom of a philosopher.",
         "stelliumDesc3": "You naturally excel at guiding others on their spiritual journeys and have a talent for sharing profound insights that inspire growth. Pay attention to opportunities for higher education and spiritual practices that resonate with your soul, as these will enhance your sense of purpose. Embrace your role as a teacher and seeker, for your unique gift lies in the ability to connect deeply with others through shared wisdom and transformative experiences."
     },
@@ -323,7 +323,7 @@
     "page9_yogakaraka": {
         "planetaryStrengths": {
             "benefics": {
-                "content": "Favorable planets in your kundli are Mercury, Venus. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life.",
+                "content": "Favorable planets in your kundali are Mercury, Venus. The positions of these planets are considered beneficial for you, indicating positive influences and potential prosperity in various aspects of your life.",
                 "planets": [
                     "Mercury",
                     "Venus"
@@ -331,7 +331,7 @@
                 "title": "Benefic"
             },
             "malefics": {
-                "content": "On the other hand, malefic planets in your kundli are Mars, Moon, Jupiter. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life.",
+                "content": "On the other hand, malefic planets in your kundali are Mars, Moon, Jupiter. The placements of these planets are perceived as unfavourable, suggesting potential challenges and negative influences in specific areas of your life.",
                 "planets": [
                     "Mars",
                     "Moon",
@@ -340,7 +340,7 @@
                 "title": "Malefic"
             },
             "yogaKaraka": {
-                "content": "Yogakaraka planets in your kundli are Mercury. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life.",
+                "content": "Yogakaraka planets in your kundali are Mercury. Their positions in your chart play a beneficial role, indicating overall positive influences and potential for growth in various aspects of your life.",
                 "planets": [
                     "Mercury"
                 ],

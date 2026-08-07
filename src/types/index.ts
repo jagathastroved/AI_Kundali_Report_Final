@@ -11,7 +11,7 @@ export interface BirthDetails {
   city: string;
   latitude?: number;
   longitude?: number;
-  language: 'english' | 'hindi';
+  language: "english" | "hindi";
   focusArea?: string;
 }
 
@@ -26,7 +26,7 @@ export interface NakshatraDetails {
 }
 
 export interface ElementRatio {
-  name: 'Fire' | 'Earth' | 'Air' | 'Water' | 'Ether';
+  name: "Fire" | "Earth" | "Air" | "Water" | "Ether";
   percentage: number;
   description: string;
 }
@@ -39,16 +39,23 @@ export interface KarmaProfile {
 }
 
 export interface ChakraDetails {
-  name: 'Muladhara' | 'Svadhishthana' | 'Manipura' | 'Anahata' | 'Vishuddha' | 'Ajna' | 'Sahasrara';
+  name:
+    | "Muladhara"
+    | "Svadhishthana"
+    | "Manipura"
+    | "Anahata"
+    | "Vishuddha"
+    | "Ajna"
+    | "Sahasrara";
   sanskritName: string;
   percentage: number;
-  status: 'Balanced' | 'Imbalanced' | 'Underactive' | 'Hyperactive';
+  status: "Balanced" | "Imbalanced" | "Underactive" | "Hyperactive";
   description: string;
   remedy: string;
 }
 
 export interface DoshaRatio {
-  name: 'Vata' | 'Pitta' | 'Kapha';
+  name: "Vata" | "Pitta" | "Kapha";
   percentage: number;
   description: string;
   symptoms: string[];
@@ -62,26 +69,31 @@ export interface PlanetPosition {
   house: number;
   nakshatra: string;
   isBenefic: boolean;
-  status: 'Yogakaraka' | 'Benefic' | 'Malefic' | 'Neutral';
+  status: "Yogakaraka" | "Benefic" | "Malefic" | "Neutral";
   description: string;
   remediation: string;
 }
 
 export interface DashaPeriod {
-  levelName: 'Maha Dasha' | 'Antar Dasha' | 'Pratyantar Dasha' | 'Sookshma Dasha' | 'Prana Dasha';
+  levelName:
+    | "Maha Dasha"
+    | "Antar Dasha"
+    | "Pratyantar Dasha"
+    | "Sookshma Dasha"
+    | "Prana Dasha";
   planetName: string;
   startDate: string;
   endDate: string;
 }
 
 export interface DailyPrediction {
-  category: 'Career' | 'Wealth' | 'Health' | 'Relationships' | 'Spirituality';
+  category: "Career" | "Wealth" | "Health" | "Relationships" | "Spirituality";
   score: number;
   text: string;
   remedy: string;
 }
 
-export interface KundliReportData {
+export interface kundaliReportData {
   [key: string]: any; // Allow dynamic API response keys
   birthDetails: BirthDetails;
   birthStar: NakshatraDetails;
