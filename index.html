@@ -32,14 +32,14 @@
     <!-- Canonical URL -->
     <link
       rel="canonical"
-      href="https://astropedia-ai.astroved.com/kundali-report/"
+      href="https://www.astroved.com/kundali-report/"
     />
 
     <!-- Open Graph (OG) Title, Description, and Image -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://astropedia-ai.astroved.com/kundali-report/"
+      content="https://www.astroved.com/kundali-report/"
     />
     <meta
       property="og:title"
@@ -51,7 +51,7 @@
     />
     <meta
       property="og:image"
-      content="https://astropedia-ai.astroved.com/images/kundali-og-image.jpg"
+      content="https://www.astroved.com/images/assets/kundali-og-image.jpg"
     />
     <meta property="og:site_name" content="AstroVed" />
 
@@ -59,7 +59,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:url"
-      content="https://astropedia-ai.astroved.com/kundali-report/"
+      content="https://www.astroved.com/kundali-report/"
     />
     <meta
       name="twitter:title"
@@ -71,7 +71,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://astropedia-ai.astroved.com/images/kundali-og-image.jpg"
+      content="https://www.astroved.com/images/kundali-og-image.jpg"
     />
 
     <!-- Structured Data (Schema) -->
@@ -81,23 +81,51 @@
         "@type": "WebPage",
         "name": "Kundali Report - Detailed Astrological Analysis",
         "description": "Get your personalized, accurate Kundali report online. Discover detailed marriage predictions, matching services, and complete astrological analysis.",
-        "url": "https://astropedia-ai.astroved.com/kundali-report/",
+        "url": "https://www.astroved.com/kundali-report/",
         "publisher": {
           "@type": "Organization",
           "name": "AstroVed",
-          "url": "https://astropedia-ai.astroved.com"
+          "url": "https://www.astroved.com"
         }
       }
     </script>
+    <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l !== 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TRS65PJ');
+  </script>
+  <!-- End Google Tag Manager -->
 
-    <!-- Google Tag Manager / Analytics Placeholder -->
-    <!-- Uncomment and replace GTM-XXXXXXX with your actual GTM ID
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  -->
+  <!-- GA4 DataLayer Push -->
+  <script>
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+      return match ? match[2] : null;
+    }
+
+    var cId = getCookie("C_Id");
+    var pageLanguage = "en-US";
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "page_view",
+      page_name: document.title || "",
+      page_url: window.location.href,
+      user_id: cId || 0,
+      language: pageLanguage
+    });
+  </script>
 
     <script>
       (() => {
@@ -112,13 +140,15 @@
   </head>
 
   <body>
-    <!-- Google Tag Manager (noscript) Placeholder -->
-    <!-- Uncomment and replace GTM-XXXXXXX with your actual GTM ID
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRS65PJ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </body>
 </html>
