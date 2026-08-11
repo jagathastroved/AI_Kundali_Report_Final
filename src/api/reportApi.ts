@@ -11,8 +11,9 @@ export interface ReportApiRequest {
   country: string;
   latitude: number;
   longitude: number;
-  ayanamsa: string
+  ayanamsa: string;
   house_system: string;
+  promo?: string;
 }
 
 export const fetchReportFull = async (payload: ReportApiRequest) => {

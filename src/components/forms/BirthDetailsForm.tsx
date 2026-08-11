@@ -3,7 +3,7 @@ import { BirthDetails } from '../../types';
 import { useReport } from '../../context/ReportContext';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchReportFull, ReportApiRequest } from '../../api/reportApi';
 import fallBackReport from '../../mocks/fallBackReport.json';
 
@@ -29,6 +29,8 @@ const MONTHS = [
 export const BirthDetailsForm: React.FC = () => {
   const { submitBirthDetails, isLoading } = useReport();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const promoCode = searchParams.get("promo") || "empty";
 
   // Form local states
   const [name, setName] = useState('');
@@ -200,7 +202,8 @@ export const BirthDetailsForm: React.FC = () => {
       latitude: latitude,
       longitude: longitude,
       ayanamsa: 'LAHIRI',
-      house_system: 'WHOLE_SIGN'
+      house_system: 'WHOLE_SIGN',
+      promo: promoCode,
     };
 
     // console.log('Sending birth data to API:', apiPayload);

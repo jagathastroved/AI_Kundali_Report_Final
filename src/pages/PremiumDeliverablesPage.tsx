@@ -14,20 +14,40 @@ export const PremiumDeliverablesPage: React.FC<{
 }> = () => {
   const { birthDetails } = useReport();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [priceDetails, setPriceDetails] = useState({ symbol: "₹", price: 999 });
-
-  const currentPrice = priceDetails.price;
-  const currentSymbol = priceDetails.symbol;
-  const strikeoutPrice = currentPrice === 999 ? 1999 : currentPrice * 2;
-  const saveAmount = strikeoutPrice - currentPrice;
+  const [priceDetails, setPriceDetails] = useState({
+    symbol: "₹",
+    price: "399.00",
+    strikeout: "999.00",
+    savings: "600.00",
+  });
 
   useEffect(() => {
     const countryCode = getCountryCode();
     const currencyInfo = getCurrencyInfo(countryCode);
-    setPriceDetails({
-      symbol: currencyInfo.currencySymbol,
-      price: currencyInfo.price || 30,
-    });
+    const currency = (currencyInfo.currencyCode || "").toUpperCase();
+
+    if (currency === "MYR") {
+      setPriceDetails({
+        symbol: "MYR",
+        price: "75",
+        strikeout: "188",
+        savings: "113",
+      });
+    } else if (currency === "USD" || currency === "US") {
+      setPriceDetails({
+        symbol: "$",
+        price: "25",
+        strikeout: "63",
+        savings: "38",
+      });
+    } else {
+      setPriceDetails({
+        symbol: "₹",
+        price: "399.00",
+        strikeout: "999.00",
+        savings: "600.00",
+      });
+    }
   }, []);
 
   const name = birthDetails?.name || "You";
@@ -158,19 +178,19 @@ export const PremiumDeliverablesPage: React.FC<{
             <div className="flex flex-col gap-0.5">
               <div className="flex items-baseline gap-2">
                 <span className="text-[#8FBC8F] line-through text-base sm:text-lg font-bold decoration-[#8FBC8F]/50 decoration-2">
-                  {currentSymbol} {strikeoutPrice.toFixed(2)}
+                  {priceDetails.symbol} {priceDetails.strikeout}
                 </span>
                 <span className="text-[#00C950] text-sm sm:text-base font-bold">
-                  You Save: {currentSymbol} {saveAmount.toFixed(2)} (50%)
+                  You Save: {priceDetails.symbol} {priceDetails.savings}
                 </span>
               </div>
               <span className="text-2xl sm:text-3xl font-black text-[#006400] tracking-tight">
-                {currentSymbol} {currentPrice.toFixed(2)}
+                {priceDetails.symbol} {priceDetails.price}
               </span>
             </div>
           </div>
           <div className="bg-[#00C950] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 sm:px-3 py-1.5 rounded-full shadow-soft whitespace-nowrap flex-shrink-0 text-center">
-            SAVE 50% TODAY
+            SAVE TODAY
           </div>
         </div>
 
@@ -191,8 +211,8 @@ export const PremiumDeliverablesPage: React.FC<{
               <>
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
                 <span className="relative z-10">
-                  Unlock Complete Report for {currentSymbol}{" "}
-                  {currentPrice.toFixed(2)}
+                  Unlock Complete Report for {priceDetails.symbol}{" "}
+                  {priceDetails.price}
                 </span>
               </>
             )}
