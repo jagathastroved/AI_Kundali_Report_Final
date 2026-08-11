@@ -17,11 +17,11 @@
   <meta name="keywords"
     content="Kundali report generation, Kundali analysis online, Best Kundali generator, Free Kundali report, Kundali marriage prediction, Kundali matching service, Detailed Kundali reading, Kundali predictions accuracy, Instant Kundali report, Complete Kundali analysis" />
 
-  <!-- Meta Robots (index, follow) -->
-  <meta name="robots" content="index, follow" />
+  <!-- Meta Robots -->
+  <meta id="meta-robots" name="robots" content="index, follow" />
   <script>
-    if (new URLSearchParams(window.location.search).get('promo')) {
-      document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, follow');
+    if (window.location.search && window.location.search.length > 1) {
+      document.getElementById("meta-robots").setAttribute("content", "noindex, follow");
     }
   </script>
 
