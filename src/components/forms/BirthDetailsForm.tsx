@@ -88,7 +88,9 @@ export const BirthDetailsForm: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!country || !city || city.length < 3) {
+    const trimmedCountry = country.trim();
+    const trimmedCity = city.trim();
+    if (!trimmedCountry || !trimmedCity || trimmedCity.length < 3) {
       setApiCities([]);
       return;
     }
@@ -96,7 +98,7 @@ export const BirthDetailsForm: React.FC = () => {
     const timer = setTimeout(async () => {
       setIsSearching(true);
       try {
-        const results = await searchLocation(city, country);
+        const results = await searchLocation(trimmedCity, trimmedCountry);
         if (!results || results.length === 0) {
           setApiCities([]);
           return;
