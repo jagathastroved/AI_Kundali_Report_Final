@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useReport } from '../context/ReportContext';
+import { FullReportOfferModal } from '../components/FullReportOfferModal';
 
 import { Star, Compass, Sparkles, Globe2, Clock, RefreshCw } from 'lucide-react';
 export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => void, isPdf?: boolean }> = ({ isPdf }) => {
   const { reportData: data } = useReport();
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const hasSeenModal = sessionStorage.getItem('hasSeenOfferModal');
+    if (!hasSeenModal) {
+      const timer = setTimeout(() => {
+        setShowModal(true);
+        sessionStorage.setItem('hasSeenOfferModal', 'true');
+      }, 8000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   if (!data) return null;
 
   return (
     <div className="space-y-10 text-center pb-6 font-sans mt-4">
-
+      {!isPdf && <FullReportOfferModal isOpen={showModal} onClose={() => setShowModal(false)} />}
 
       {/* Title Section */}
       <div className="space-y-4 relative">
