@@ -9,7 +9,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/kundali-report",
       "destination": "/index.html"
     }
   ]
