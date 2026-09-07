@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/kundali-report/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/:match*",
