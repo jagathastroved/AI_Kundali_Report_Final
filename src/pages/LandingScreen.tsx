@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Sun, Star, ChevronDown, Compass, User, Clock, Infinity, Globe, Sparkles, Home, Moon, ArrowRight, Heart, Calendar, Book, Diamond, Droplet } from 'lucide-react';
+import { Sun, Star, ChevronDown, Sparkles, CheckCircle } from 'lucide-react';
 import { BirthDetailsForm } from '../components/forms/BirthDetailsForm';
-import KundliIllustration from '../assets/signs/birth_star_pooja.jpg';
-import KundaliMatchingImg from '../assets/signs/kundali_matching.jpg';
-import AstrologyWheelImg from '../assets/signs/astrology_wheel.jpg';
+import BirthChartImg from '../assets/tools/birth_chart.jpg';
+import horoscopeMatching from '../assets/tools/horoscope.jpg';
+import MoonSignImg from '../assets/tools/moon_sign.jpg';
+import MarriageCompatibilityImg from '../assets/tools/marriage_compatibility.jpg';
+import LagnaCalculatorImg from '../assets/tools/lagna_calculator.jpg';
+import kundaliFeatureImg from '../assets/images/kundali_feature_graphic.jpg';
 
 const faqs = [
   { q: "What is a Kundali and how is it calculated?", a: "A Kundali is your Vedic birth chart, calculated using your exact date, time, and place of birth to map planetary positions at the moment you were born." },
@@ -25,28 +28,28 @@ const faqs = [
  */
 const FaqItem = ({ question, answer, index, isOpen, onToggle }: { question: string, answer: string, index: number, isOpen: boolean, onToggle: () => void }) => {
   return (
-    <div className={`w-full border rounded-xl overflow-hidden bg-white transition-colors duration-300 group ${isOpen ? 'border-[#EBE6F3] shadow-md relative' : 'border-slate-100 hover:border-[#EBE6F3] hover:shadow-sm relative'}`}>
+    <div className={`w-full border rounded-xl overflow-hidden transition-colors duration-300 group ${isOpen ? 'bg-[#1A1D36] border-[#2E2459] shadow-md relative' : 'bg-[#12152B] border-white/5 hover:border-white/10 hover:bg-[#161930] relative'}`}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B40C3]/40 cursor-pointer"
+        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/40 cursor-pointer"
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
-          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] transition-colors ${isOpen ? 'bg-[#6B40C3] text-white' : 'bg-[#F5F2F9] text-[#6B40C3] group-hover:bg-[#EAE4F2]'}`}>
+          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] transition-colors ${isOpen ? 'bg-amber-400 text-[#0F1226]' : 'bg-white/5 text-amber-400/80 group-hover:bg-white/10'}`}>
             {index + 1}
           </div>
-          <span className={`flex-1 min-w-0 text-[13.5px] sm:text-[15px] font-medium transition-colors leading-snug break-words ${isOpen ? 'text-[#2E2459]' : 'text-slate-600 group-hover:text-slate-900'}`}>
+          <span className={`flex-1 min-w-0 text-[13.5px] sm:text-[15px] font-medium transition-colors leading-snug break-words ${isOpen ? 'text-amber-400' : 'text-gray-300 group-hover:text-white'}`}>
             {question}
           </span>
         </div>
-        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#6B40C3]' : 'text-[#A297BD]'}`}>
+        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-amber-400' : 'text-gray-500 group-hover:text-gray-400'}`}>
           <ChevronDown size={18} />
         </div>
       </button>
       <div
         className={`px-4 sm:px-5 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <p className="text-slate-600 leading-relaxed pl-10 sm:pl-11 text-[13.5px] sm:text-[14px]">{answer}</p>
+        <p className="text-gray-400 leading-relaxed pl-10 sm:pl-11 text-[13.5px] sm:text-[14px]">{answer}</p>
       </div>
     </div>
   );
@@ -83,26 +86,27 @@ export const LandingScreen: React.FC = () => {
                 Discover Your True Path Through Kundali
               </h1>
               <p className="text-slate-300 text-[14.5px] sm:text-base leading-relaxed mb-5 relative z-10 max-w-xl">
-                Unlock the hidden meanings of your birth chart and discover the cosmic blueprint that guides your journey. Explore how planetary alignments at your exact moment of birth shape your relationships, career path, and spiritual growth, giving you the clarity to navigate life's challenges.
+                Unlock the hidden meanings of your birth chart. Gain deep insights into your personality, destiny, and life's true purpose.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-x-6 gap-y-5 lg:gap-y-6 mt-4 md:mt-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 lg:gap-y-8 mt-6 md:mt-6">
               {[
-                { title: "Personalized Kundali Chart", desc: "Access your detailed birth chart based on precise birth details.", Icon: Compass, color: "text-emerald-400", bg: "bg-emerald-900/30", border: "border-emerald-700/50" },
-                { title: "Core Personality", desc: "Reveal your strengths, challenges, talents, and true life potential.", Icon: User, color: "text-amber-400", bg: "bg-amber-900/30", border: "border-amber-700/50" },
-                { title: "Dasha Timeline", desc: "Understand current and future planetary periods shaping your journey.", Icon: Clock, color: "text-purple-400", bg: "bg-purple-900/30", border: "border-purple-700/50" },
-                { title: "Karmic Chakra Analysis", desc: "Uncover karmic patterns and the spiritual lessons guiding your growth.", Icon: Infinity, color: "text-rose-400", bg: "bg-rose-900/30", border: "border-rose-700/50" },
-                { title: "Planetary Profiles", desc: "Gain insights into how each planet influences different areas of life.", Icon: Globe, color: "text-blue-400", bg: "bg-blue-900/30", border: "border-blue-700/50" },
-                { title: "Influential Signs", desc: "Learn how key zodiac signs affect your personality and life path.", Icon: Sparkles, color: "text-orange-400", bg: "bg-orange-900/30", border: "border-orange-700/50" }
+                { title: "Personalized Kundali Chart", desc: "Access your detailed birth chart based on precise birth details." },
+                { title: "Core Personality", desc: "Reveal your strengths, challenges, talents, and true life potential." },
+                { title: "Dasha Timeline", desc: "Understand current and future planetary periods shaping your journey." },
+                { title: "Karmic Chakra Analysis", desc: "Uncover karmic patterns and the spiritual lessons guiding your growth." },
+                { title: "Planetary Profiles", desc: "Gain insights into how each planet influences different areas of life." },
+                { title: "Influential Signs", desc: "Learn how key zodiac signs affect your personality and life path." }
               ].map((item, idx) => (
-                <div key={idx} className="flex items-start sm:items-center group">
-                  <div className={`mr-3.5 sm:mr-4 flex-shrink-0 rounded-full p-2 border ${item.bg} ${item.border} transition-colors duration-300 group-hover:bg-opacity-50`}>
-                    <item.Icon className={`w-5 h-5 ${item.color}`} />
+                <div key={idx} className="flex items-start group">
+                  <div className="mr-4 mt-0.5 flex-shrink-0 rounded-full p-1.5 border border-indigo-500/30 bg-indigo-500/10 transition-colors duration-300 group-hover:bg-indigo-500/20">
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-400" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-indigo-200/90 text-[13.5px] sm:text-[15px] leading-relaxed">
-                      <strong className="text-white font-medium">{item.title}</strong> — {item.desc}
+                    <h3 className="text-white font-bold text-[15px] sm:text-[16px] mb-1.5">{item.title}</h3>
+                    <p className="text-indigo-200/80 text-[13.5px] sm:text-[14px] leading-relaxed pr-2">
+                      {item.desc}
                     </p>
                   </div>
                 </div>
@@ -111,320 +115,247 @@ export const LandingScreen: React.FC = () => {
           </div>
 
           {/* Right Side - Form */}
-          <div className="w-full md:col-span-5 h-full flex justify-center md:justify-end mt-2 md:mt-0">
-            <div className="w-full max-w-md md:max-w-none md:sticky md:top-8">
+          <div className="w-full md:col-span-5 h-full flex flex-col justify-center items-center md:items-end mt-2 md:mt-0">
+            <div className="w-full max-w-md md:max-w-none">
               <BirthDetailsForm />
             </div>
           </div>
         </div>
       </div>
 
-      {/* ============ ABOUT KUNDLI — LIGHT SECTION ============ */}
-      <div className="w-full bg-white border-y border-slate-100 shadow-sm">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pt-12 pb-10 lg:pt-20 lg:pb-16 text-slate-700">
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center md:items-stretch">
-
-            {/* Image */}
-            <div className="w-full order-1 md:order-none relative rounded-2xl overflow-hidden border border-slate-200 shadow-[0_8px_30px_rgba(0,0,0,0.06)] group aspect-[16/10] sm:aspect-[4/3] md:aspect-auto md:min-h-[340px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-              <img
-                src={KundliIllustration}
-                alt="Vedic Kundli Chart Illustration"
-                className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-
-            {/* Text */}
-            <div className="flex flex-col justify-center order-2 md:order-none md:py-4">
-              <h2 className="text-[26px] sm:text-3xl lg:text-4xl font-serif font-bold text-[#2E2459] mb-5 lg:mb-6 tracking-tight">What Is a Kundli or Birth Chart?</h2>
-              <div className="w-16 h-1 bg-amber-400 mb-5 lg:mb-6 rounded-full"></div>
-              <p className="mb-5 leading-relaxed text-[14.5px] sm:text-[15px] lg:text-[16px] text-slate-700">
-                A Kundli, or <a href="https://www.astroved.com/blogs/how-to-read-birth-chart-vedic-guide" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium hover:underline">Birth Chart</a>, is a snapshot of the sky at the exact time and place you were born.
+      {/* ============ ARTICLE SECTION 1 — LIGHT ============ */}
+      <div className="w-full bg-slate-50 relative overflow-hidden py-12 lg:py-16 border-t border-slate-200">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
+          <div>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-6 tracking-tight">What Is a Kundli or Birth Chart?</h2>
+            <div className="space-y-6 text-slate-700 text-[15px] sm:text-[16px] leading-[1.8]">
+              <p>
+                A Kundli, or <a href="https://www.astroved.com/blogs/how-to-read-birth-chart-vedic-guide" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Birth Chart</a>, is a snapshot of the sky at the exact time and place you were born.
               </p>
-              <p className="mb-6 leading-relaxed text-[14.5px] sm:text-[15px] lg:text-[16px] text-slate-700">
-                It shows your <a href="https://www.astroved.com/astropedia/en/freetools/lagna-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium hover:underline">Lagna</a>, planets, Houses, <a href="https://www.astroved.com/blogs/what-is-rasi-and-nakshatra" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium hover:underline">Nakshatras</a>, Yogas, Doshas, and <a href="https://www.astroved.com/astropedia/en/freetools/dasa-bhukti-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium hover:underline">Dashas</a>, that are believed to influence different areas of your life — such as personality, career, relationships, finances, and well-being. You can discover what may support you, where extra awareness may help, and which life periods could bring important changes through your birth chart.
+              <p>
+                It shows your <a href="https://www.astroved.com/astropedia/en/freetools/lagna-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Lagna</a>, planets, Houses, <a href="https://www.astroved.com/blogs/what-is-rasi-and-nakshatra" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Nakshatras</a>, Yogas, Doshas, and <a href="https://www.astroved.com/astropedia/en/freetools/dasa-bhukti-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Dashas</a>, that are believed to influence different areas of your life - such as personality, career, relationships, finances, and well-being. You can discover what may support you, where extra awareness may help, and which life periods could bring important changes through your birth chart.
               </p>
-              <p className="leading-relaxed text-[14.5px] sm:text-[15px] lg:text-[16px] text-slate-800 font-medium bg-[#F8F6FA] p-5 sm:p-6 rounded-xl border border-purple-50">
-                Think of your Kundali as a personal astrological guide — one that helps you understand yourself better and make more informed choices along the way.
+              <p>
+                Think of your Kundali as a personal astrological guide - one that helps you understand yourself better and make more informed choices along the way.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ============ KEY ELEMENTS — DARK SECTION ============ */}
-      <div className="w-full bg-[radial-gradient(120%_120%_at_85%_90%,#1b1440_0%,#0f1226_45%,#0b0e1c_100%)] shadow-sm relative overflow-hidden py-12 lg:py-16">
-        <div className="absolute top-1/2 left-6 -translate-y-1/2 opacity-10 pointer-events-none select-none text-indigo-400 hidden md:block">
-          <Compass size={260} strokeWidth={0.5} />
-        </div>
-        <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-center">
+      {/* ============ ARTICLE SECTION 2 — DARK ============ */}
+      <div className="w-full bg-[#0F1226] relative overflow-hidden py-12 lg:py-16">
+        {/* Subtle Background Glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-[100px] translate-x-1/4 pointer-events-none"></div>
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
 
-          <div className="text-center mb-8 px-2">
-            <h4 className="text-[10px] md:text-[11px] font-bold text-amber-300/90 uppercase tracking-[0.2em] mb-3">See What Your Kundali Says About You</h4>
-            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-serif font-bold text-white tracking-tight mb-4">Key Elements of Your Kundali</h2>
-            <div className="w-24 h-[1px] bg-amber-200/60 mx-auto relative flex items-center justify-start">
-              <div className="w-[5px] h-[5px] bg-amber-400 rotate-45 -ml-0.5"></div>
-            </div>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-10 lg:gap-x-16 gap-y-8 items-center lg:items-start">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 w-full mb-6">
-            {[
-              { Icon: Star, bg: "#7C4EE4", title: "Lagna & Nakshatra", desc: "The foundational pillars of your astrological identity and emotional nature." },
-              { Icon: Globe, bg: "#52C48E", title: "Planetary Placements", desc: "Understand how your unique planetary placements influence decisions." },
-              { Icon: Home, bg: "#F4A7C9", title: "The 12 Houses", desc: "Explore the 12 houses linked to career, love, money, and well-being." },
-              { Icon: Clock, bg: "#4A7DFF", title: "Planetary Periods", desc: "Favorable and challenging periods (Dashas) that will influence your journey." },
-            ].map((card, idx) => (
-              <div key={idx} className="bg-white/[0.06] backdrop-blur-sm rounded-[20px] p-6 lg:p-8 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-white/10 hover:-translate-y-1 hover:bg-white/[0.09] transition-all duration-300">
-                <div className="w-[52px] h-[52px] rounded-full flex items-center justify-center text-white mb-5 shadow-sm" style={{ backgroundColor: card.bg, boxShadow: `0 6px 16px ${card.bg}55` }}>
-                  <card.Icon size={22} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-white font-bold text-[15px] lg:text-[16px] mb-2.5">{card.title}</h3>
-                <p className="text-indigo-200/80 text-[13px] leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="w-full bg-white/[0.08] border border-white/10 rounded-xl py-3.5 px-5 sm:px-6 flex items-center justify-center gap-3 text-center">
-            <User className="text-amber-300 flex-shrink-0" size={18} />
-            <p className="text-indigo-100 font-medium text-[13.5px] sm:text-[14px]">
-              Get a more personal view of your chart and what it means for you.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ============ HOW TO READ (light, with embedded dark CTA) ============ */}
-      <div className="w-full bg-[#FCFBF8] border-b border-slate-200 shadow-sm relative overflow-hidden py-16 lg:py-24">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-amber-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
-
-        <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-center">
-
-          <div className="text-center mb-12 lg:mb-16 px-2">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-8 h-[1px] bg-amber-300 relative"><div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-1 bg-amber-400 rotate-45"></div></div>
-              <h4 className="text-[10px] md:text-[11px] font-bold text-slate-500 uppercase tracking-[0.2em]">How to Read Your Kundli</h4>
-              <div className="w-8 h-[1px] bg-amber-300 relative"><div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-1 bg-amber-400 rotate-45"></div></div>
-            </div>
-            <h2 className="text-[24px] sm:text-[28px] md:text-4xl font-serif text-slate-800 tracking-tight">
-              A Simple Guide to <span className="text-[#C58320] font-bold">Understanding Your Birth Chart</span>
+            {/* 1. Title */}
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#FDE047] tracking-tight lg:col-start-1 lg:row-start-1 lg:mb-2 lg:self-end">
+              See What Your Kundali Says About You
             </h2>
-          </div>
 
-          {/* 5 Steps — grid on mobile/tablet, row on desktop */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row items-start justify-between w-full gap-x-4 gap-y-10 md:gap-4 mb-16 relative">
-            {[
-              { n: "01", Icon: Sun, title: "Identify your Lagna (Ascendant)", desc: "The foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure.", fill: false },
-              { n: "02", Icon: Moon, title: "Check your Moon Sign and Nakshatra", desc: "These reveal your emotional nature, instincts, and inner responses.", fill: true },
-              { n: "03", Icon: Home, title: "Explore the 12 Houses", desc: "Each one governs a life area: family, education, career, relationships, finances, health, and growth.", fill: false },
-              { n: "04", Icon: Globe, title: "Study your planetary placements", desc: "The sign and house a planet sits in shows where its energy plays out.", fill: false },
-              { n: "05", Icon: Sparkles, title: "Look for Yogas, Doshas, and Dashas", desc: "These highlight opportunities, challenges, and key life phases.", fill: false },
-            ].map((step, idx, arr) => (
-              <div key={idx} className="flex flex-col items-center text-center w-full md:w-1/5 relative group last:col-span-2 sm:last:col-span-1">
-                <span className="text-[#C58320] font-serif font-bold text-xl mb-4">{step.n}</span>
-                <div className="w-[56px] h-[56px] sm:w-[60px] sm:h-[60px] rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 mb-5 shadow-sm group-hover:scale-110 transition-transform">
-                  <step.Icon size={24} strokeWidth={1.5} className={step.fill ? "fill-slate-900" : ""} />
-                </div>
-                <h3 className="text-slate-900 font-bold text-[13.5px] sm:text-[14px] mb-3 leading-snug px-1">{step.title}</h3>
-                <p className="text-slate-500 text-[11.5px] sm:text-[12px] leading-relaxed px-1 sm:px-2">{step.desc}</p>
-                {idx < arr.length - 1 && (
-                  <div className="hidden md:block absolute top-[74px] -right-6 text-amber-300">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                  </div>
-                )}
+            {/* 2. Image (Between Title and Content on Mobile, Right Column on Desktop) */}
+            <div className="relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] mx-auto lg:ml-auto lg:mr-0">
+                <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-purple-500/20 rounded-2xl blur-xl mix-blend-screen"></div>
+                <img src={kundaliFeatureImg} alt="Kundali Birth Chart" className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10 object-cover" />
               </div>
-            ))}
-          </div>
-
-          {/* Quote Box */}
-          <div className="w-full max-w-4xl bg-[#FFFBF5] border border-amber-200/60 rounded-xl p-6 md:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 shadow-sm mb-16 relative overflow-hidden">
-            <div className="hidden sm:flex w-16 h-16 rounded-full border border-amber-300 items-center justify-center flex-shrink-0 text-amber-500 bg-white z-10">
-              <Compass size={32} strokeWidth={1} />
             </div>
-            <div className="hidden sm:block w-1 h-16 bg-amber-400 rounded-full z-10"></div>
-            <div className="flex-1 relative z-10">
-              <p className="text-slate-600 text-[14px] sm:text-[15px] leading-relaxed mb-1">
-                A meaningful reading comes from connecting all five — not from fixating on one planet or placement in isolation.
+
+            {/* 3. Content */}
+            <div className="space-y-6 text-[#D1D5DB] text-[15px] sm:text-[16px] leading-[1.8] lg:col-start-1 lg:row-start-2 lg:self-start">
+              <p>
+                No two birth charts are the same. Your free Kundli report is created from your birth details and helps you discover:
               </p>
-              <p className="text-slate-900 font-bold text-[15px] sm:text-[16px]">
-                Think of your chart as one integrated story, not a set of separate predictions.
+              <ul className="list-disc pl-6 space-y-3 marker:text-[#FDE047]">
+                <li>Your Lagna, Rasi, and Nakshatra</li>
+                <li>Your unique <a href="https://www.astroved.com/blogs/how-planets-influence-daily-life" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors">planetary placements</a></li>
+                <li>Significant Yogas and Doshas</li>
+                <li><a href="https://www.astroved.com/blogs/effects-of-planets-in-different-houses" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors">12 Houses</a> and Patterns linked to career, love, money, and well-being</li>
+                <li>Important planetary periods that may influence your journey</li>
+              </ul>
+              <p className="font-semibold text-white pt-2">
+                Get a more personal view of your chart - and what it may mean for you.
               </p>
             </div>
-            <div className="absolute right-4 sm:right-6 bottom-2 sm:bottom-4 text-amber-500/10 font-serif text-6xl sm:text-8xl leading-none font-bold select-none pointer-events-none">”</div>
+
           </div>
 
-          {/* CTA Banner — light gold theme, keeps this section fully light */}
-          <div className="w-full bg-gradient-to-br from-[#FFF6E0] via-[#FFEFD1] to-[#FDE6BE] rounded-2xl p-8 sm:p-10 md:p-12 relative overflow-hidden shadow-[0_10px_40px_rgba(197,131,32,0.15)] border border-amber-200/70">
-            <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-amber-300/20 blur-2xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-1/4 w-24 h-24 rounded-full bg-white/40 blur-2xl pointer-events-none"></div>
-            <Compass size={140} strokeWidth={0.6} className="hidden sm:block absolute -right-4 -bottom-6 text-amber-500/15 pointer-events-none" />
+        </div>
+      </div>
 
-            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-              <div className="text-left max-w-lg">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#3B2C6E] mb-3">Want a deeper read?</h3>
-                <p className="text-[#6B5A8C] text-[14px] sm:text-[15px] leading-relaxed">
-                  Book a consultation or get instant insights above.
-                </p>
-              </div>
-              <button className="flex-shrink-0 bg-[#3B2C6E] hover:bg-[#2E2459] text-white font-bold py-3.5 px-6 rounded-lg transition-colors flex items-center gap-2 text-[14px] sm:text-[15px] shadow-lg shadow-[#3B2C6E]/20">
-                <Compass size={18} strokeWidth={2} /> Get Your Kundali Reading <ArrowRight size={18} />
-              </button>
+      {/* ============ ARTICLE SECTION 3 — LIGHT ============ */}
+      <div className="w-full bg-slate-50 relative overflow-hidden py-12 lg:py-16">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
+          <div>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-6 tracking-tight">How to Read Your Kundli: A Simple Guide to Understanding Your Birth Chart</h2>
+            <div className="space-y-6 text-slate-700 text-[15px] sm:text-[16px] leading-[1.8]">
+              <p>
+                Your Kundli is more than a set of planetary positions - it's a symbolic map of your personality, patterns, strengths, and potential. You don't need to decode everything at once. Start with these five essentials:
+              </p>
+              <ul className="list-decimal pl-6 space-y-4 marker:text-[#6B40C3] marker:font-bold">
+                <li><strong className="text-slate-900">Identify your Lagna (Ascendant)</strong> - the foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure - which is why exact birth time matters so much.</li>
+                <li><strong className="text-slate-900">Check your Moon Sign and Nakshatra</strong> - these reveal your emotional nature, instincts, and inner responses.</li>
+                <li><strong className="text-slate-900">Explore the 12 Houses</strong> - each one governs a life area: family, education, career, relationships, finances, health, and growth.</li>
+                <li><strong className="text-slate-900">Study your planetary placements</strong> - the sign and house a planet sits in shows where its energy plays out.</li>
+                <li><strong className="text-slate-900">Look for Yogas, Doshas, and Dashas</strong> - these highlight opportunities, challenges, and key life phases.</li>
+              </ul>
+              <p className="pt-2">
+                A meaningful reading comes from connecting all five - not from fixating on one planet or placement in isolation. Think of your chart as one integrated story, not a set of separate predictions.
+              </p>
+              <p className="font-semibold text-slate-900">
+                Want a deeper read? <a href="#" className="text-[#6B40C3] underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Book a consultation</a> or get instant insights above.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ============ MATCHING & DOSHAS — DARK SECTION ============ */}
-      <div className="w-full bg-[radial-gradient(120%_120%_at_15%_15%,#1b1440_0%,#0f1226_45%,#0b0e1c_100%)] relative overflow-hidden py-16 shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
-        <div className="absolute bottom-0 right-0 w-72 h-72 opacity-10 pointer-events-none select-none text-orange-300 hidden md:block translate-x-1/4 translate-y-1/4">
-          <Star size={280} strokeWidth={0.5} />
-        </div>
-        <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-center">
-
-          <section className="w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12 mb-16 md:mb-20 border-b border-white/10 pb-14 md:pb-16">
-            <div className="flex-1 md:pr-8 text-left order-2 md:order-none">
-              <h2 className="text-[24px] sm:text-3xl md:text-4xl font-serif font-bold text-white mb-4">Kundali Matching for Marriage (Kundli Milan)</h2>
-              <div className="w-12 h-1 bg-amber-400 mb-6 rounded-full"></div>
-              <p className="mb-6 leading-relaxed text-indigo-200/90 text-[14.5px] sm:text-[15px]">
-                Kundli Milan is the process of comparing two birth charts to check compatibility for marriage. It goes beyond basic zodiac matching — studying Guna matching, emotional compatibility, health, family life, prosperity, and long-term harmony between two souls.
+      {/* ============ ARTICLE SECTION 4 — DARK ============ */}
+      <div className="w-full bg-[#0F1226] relative overflow-hidden py-12 lg:py-16">
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
+          <div>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#FDE047] mb-6 tracking-tight">Kundali Matching for Marriage (Kundli Milan)</h2>
+            <div className="space-y-6 text-[#D1D5DB] text-[15px] sm:text-[16px] leading-[1.8]">
+              <p>
+                <a href="https://www.astroved.com/astropedia/en/freetools/kundali-matching" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-4 decoration-white/50 hover:decoration-white transition-colors">Kundli Milan</a> is the process of comparing two birth charts to check compatibility for marriage. It goes beyond basic zodiac matching - studying Guna matching, emotional compatibility, health, family life, prosperity, and long-term harmony between two charts.
               </p>
-              <a href="https://www.astroved.com/astropedia/en/freetools/kundali-matching" target="_blank" rel="noopener noreferrer" className="text-amber-300 font-bold text-[14.5px] sm:text-[15px] hover:text-amber-200 transition-colors flex items-center gap-1 group w-max">
-                Learn more <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+              <p>
+                A good match isn't about chasing a "perfect" score. It's about understanding where the relationship flows naturally, where adjustments may be needed, and how both charts support a life together.
+              </p>
             </div>
-            <div className="flex-1 flex justify-center md:justify-end w-full order-1 md:order-none">
-              <div className="w-full max-w-[280px] sm:max-w-[360px] aspect-square rounded-full bg-gradient-to-br from-[#FFF6E0] to-[#FDE6BE] shadow-[0_10px_40px_rgba(0,0,0,0.35)] relative flex items-center justify-center p-3">
-                <img src={KundaliMatchingImg} alt="Kundali Matching" className="w-full h-full object-cover object-center rounded-full shadow-lg border-4 border-white" />
-                <Star size={16} className="absolute top-6 left-6 sm:top-8 sm:left-8 text-white fill-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)] animate-pulse" />
-                <Star size={12} className="absolute bottom-10 right-4 sm:bottom-12 sm:right-6 text-amber-200 fill-amber-200 drop-shadow-[0_0_6px_rgba(252,211,77,0.8)] animate-pulse" />
-              </div>
-            </div>
-          </section>
-
-          <section className="w-full text-left">
-            <h2 className="text-[24px] sm:text-3xl md:text-4xl font-serif font-bold text-white mb-2">Important Doshas in Kundali and Their Remedies</h2>
-            <p className="mb-8 sm:mb-10 text-sm text-indigo-300/70 italic">Reviewed by Astrologer Names, 20+ years of Vedic astrology practice</p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 w-full">
-              {[
-                { Icon: Star, title: "Mangal Dosha", sub: "(Manglik)", desc: "Mars in the 1st, 4th, 7th, 8th, or 12th house from Ascendant, Moon, or Venus.", remedy: "Hanuman Chalisa, Mangal puja, charity on Tuesdays.", link: "https://www.astroved.com/instant-pooja/mars-pooja" },
-                { Icon: Moon, title: "Kaal Sarp Dosha", sub: "", desc: "All seven planets lie between Rahu and Ketu.", remedy: "Kaal Sarp Puja, Rudrabhishek, Naga pratishta.", link: "https://www.astroved.com/us/specials/kala-sarpa-dosha" },
-                { Icon: User, title: "Pitru Dosha", sub: "", desc: "Seen through the Sun touched by Rahu, Ketu, or Saturn near the 9th house.", remedy: "Tarpan, Pitru puja, charity, Shraddha rituals.", link: "https://www.astroved.com/us/specials/tarpanam-ritual-package" },
-                { Icon: Infinity, title: "Nadi Dosha", sub: "", desc: "Same Nadi between partners, weighted in matching.", remedy: "Nadi puja, donation, chanting for harmony.", link: "https://www.astroved.com/nadi/nadi-astrology" },
-              ].map((card, idx) => (
-                <div key={idx} className="bg-white/[0.06] backdrop-blur-sm rounded-2xl p-6 shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-white/10 flex flex-col items-start h-full hover:bg-white/[0.09] transition-colors">
-                  <div className="flex items-center gap-4 mb-4 w-full">
-                    <div className="w-[42px] h-[42px] rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-amber-300 flex-shrink-0">
-                      <card.Icon size={20} strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-white font-bold text-[15px] leading-snug">{card.title}{card.sub && <><br /><span className="text-indigo-300 font-normal">{card.sub}</span></>}</h3>
-                  </div>
-                  <p className="text-indigo-200/80 text-[13px] leading-relaxed mb-4 flex-grow">{card.desc}</p>
-                  <div className="mb-4">
-                    <span className="text-white font-bold text-[13px] block mb-1">Remedies:</span>
-                    <p className="text-indigo-200/80 text-[13px]">{card.remedy}</p>
-                  </div>
-                  <a href={card.link} target="_blank" rel="noopener noreferrer" className="text-amber-300 font-medium text-[14px] hover:text-amber-200 transition-colors flex items-center gap-1 group mt-auto pt-2 border-t border-white/10 w-full">
-                    Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              ))}
-            </div>
-          </section>
+          </div>
         </div>
       </div>
 
-      {/* ============ FOOTER SECTIONS — LIGHT ============ */}
-      <div className="w-full bg-[#F8F6FA] relative overflow-hidden pt-16 pb-20 sm:pt-20 sm:pb-24">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-100/30 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+      {/* ============ ARTICLE SECTION 5 — LIGHT ============ */}
+      <div className="w-full bg-slate-50 relative overflow-hidden py-12 lg:py-16">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
+          <div>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-2 tracking-tight">Important Doshas in Kundali and Their Remedies</h2>
+            <p className="text-slate-500 text-sm italic mb-8">Reviewed by [Astrologer Name], X+ years in Vedic astrology practice</p>
 
-        <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-center">
+            <div className="space-y-6 text-slate-700 text-[15px] sm:text-[16px] leading-[1.8]">
+              <p className="mb-6">
+                A Dosha isn't a verdict - it's a gentle nudge from your chart. Our tradition pairs every Dosha with a path to relief, and none should be read alone.
+              </p>
 
-          <section className="w-full flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-24 mb-16 lg:mb-24">
-            <div className="flex-1 text-left order-2 md:order-none">
-              <h2 className="text-[26px] sm:text-4xl md:text-[42px] font-serif font-bold text-[#2E2459] mb-4 leading-tight">
-                What Makes AstroVed's Kundali Report Different?
-              </h2>
-              <div className="flex items-center gap-2 mb-6 sm:mb-8">
-                <div className="w-2 h-2 rotate-45 bg-amber-400"></div>
-                <div className="w-32 h-[1px] bg-amber-200"></div>
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-[18px] sm:text-[20px] font-bold text-[#2E2459] mb-2">Mangal Dosha (Manglik)</h3>
+                  <p className="mb-2">Mars in the 1st, 4th, 7th, 8th, or 12th house from Ascendant, Moon, or Venus. Closer to half of all charts carry it, which is why our sages left gentle exceptions - Mars in its own sign, blessed by Jupiter, or both partners sharing it.</p>
+                  <p className="mb-2"><strong className="text-slate-900">Remedies:</strong> <a href="https://www.astroved.com/instant-pooja/mars-pooja" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Instant poojas</a> like Kumbh Vivah, red coral (with guidance), Hanuman Chalisa on Tuesdays.</p>
+                  <p><a href="#" className="text-[#6B40C3] font-semibold hover:text-[#4F2D96] transition-colors">→ Calculate Mangal Dosha</a></p>
+                </div>
+
+                <div>
+                  <h3 className="text-[18px] sm:text-[20px] font-bold text-[#2E2459] mb-2">Kaal Sarp Dosha</h3>
+                  <p className="mb-2">All seven planets between Rahu and Ketu. A later addition to our texts, weighed differently across traditions.</p>
+                  <p className="mb-2"><strong className="text-slate-900">Remedy:</strong> <a href="https://www.astroved.com/us/specials/kala-sarpa-dosha" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Kaal Sarp Puja</a> at Trimbakeshwar, a silver Naga pendant.</p>
+                  <p><a href="#" className="text-[#6B40C3] font-semibold hover:text-[#4F2D96] transition-colors">→ Calculate Kaal Sarp Dosha</a></p>
+                </div>
+
+                <div>
+                  <h3 className="text-[18px] sm:text-[20px] font-bold text-[#2E2459] mb-2">Pitru Dosha</h3>
+                  <p className="mb-2">Seen through the Sun touched by Rahu, Ketu, or Saturn near the 9th house - our bond with those who came before.</p>
+                  <p className="mb-2"><strong className="text-slate-900">True remedy:</strong> <a href="https://www.astroved.com/us/specials/tarpanam-ritual-package" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Tarpan</a>, a simple offering of water and sesame.</p>
+                  <p><a href="#" className="text-[#6B40C3] font-semibold hover:text-[#4F2D96] transition-colors">→ Check Pitru Dosha</a></p>
+                </div>
+
+                <div>
+                  <h3 className="text-[18px] sm:text-[20px] font-bold text-[#2E2459] mb-2">Nadi Dosha</h3>
+                  <p className="mb-2">Same Nadi between partners, weighted heaviest in matching (8 of 36 points). Often eased when the Moon sign differs, even if <a href="https://www.astroved.com/nadi/nadi-astrology" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-medium underline underline-offset-4 decoration-[#6B40C3]/30 hover:decoration-[#6B40C3] transition-colors">Nadi</a> matches.</p>
+                  <p><a href="#" className="text-[#6B40C3] font-semibold hover:text-[#4F2D96] transition-colors">→ Calculate Nadi Dosha</a></p>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <p className="mb-5 leading-relaxed text-slate-700 text-[14.5px] sm:text-[15px]">
-                Most Kundali reports are generated instantly by software — enter a birth date, get a PDF.
-                AstroVed's paid report is different: it's personally drafted by a qualified astrologer with{' '}
-                <strong className="text-[#5B438E] font-bold">10+ years of experience</strong>, not an algorithm.
+      {/* ============ ARTICLE SECTION 6 — DARK ============ */}
+      <div className="w-full bg-[#0F1226] relative overflow-hidden py-12 lg:py-16">
+        <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-gradient-to-tl from-indigo-500/10 via-purple-500/5 to-transparent rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
+          <div>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#FDE047] mb-6 tracking-tight">What Makes AstroVed's Kundali Report Different?</h2>
+            <div className="space-y-6 text-[#D1D5DB] text-[15px] sm:text-[16px] leading-[1.8]">
+              <p>
+                Most Kundali reports are generated instantly by software - enter a birth date, get a PDF. AstroVed's paid report is different: it's personally drafted by a qualified astrologer with <strong className="text-white">10+ years of experience</strong>, not an algorithm.
               </p>
-              <p className="mb-5 leading-relaxed text-slate-700 text-[14.5px] sm:text-[15px]">
-                That means your Ascendant, Moon Sign, Birth Star, Dashas, and planetary placements aren't just listed — they're read together, the way a real astrologer reads a chart, before being written into guidance you can act on.
+              <p>
+                That means your Ascendant, Moon Sign, Birth Star, Doshas, and planetary placements aren't just listed - they're read together, the way a real astrologer reads a chart, before being written into guidance you can act on.
               </p>
-              <p className="mb-6 leading-relaxed text-slate-700 text-[14.5px] sm:text-[15px]">
-                And when a Dosha calls for a remedy, we go further: a consultation with an astrologer like Vijayalakshmi, or a pūjā performed on your behalf by our temple priests.
+              <p>
+                And when a Dosha calls for a remedy, we go further: a consultation with an astrologer like Vijayalakshmi, or a puja performed on your behalf by our temple priests.
               </p>
-              <p className="leading-relaxed font-bold text-[#5B438E] text-[14.5px] sm:text-[15px]">
-                From a human hand to yours — not a template.
+              <p className="font-bold text-[#FDE047]">
+                From a human hand to yours - not a template.
               </p>
             </div>
-            <div className="flex-1 flex justify-center md:justify-end w-full relative order-1 md:order-none">
-              <div className="w-full max-w-[300px] sm:max-w-[450px] aspect-square rounded-full mix-blend-multiply opacity-80 relative flex items-center justify-center">
-                <img src={AstrologyWheelImg} alt="Astrology Wheel" className="w-[110%] h-[110%] object-cover object-center" />
-              </div>
-            </div>
-          </section>
+          </div>
+        </div>
+      </div>
+
+      {/* ============ TOOLS SECTION ============ */}
+      <div className="w-full bg-white relative overflow-hidden py-12 lg:py-16 border-t border-slate-200">
+
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
 
           {/* Try other tools */}
-          <section className="w-full bg-white rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-slate-100 p-6 sm:p-10 md:p-12 mb-12">
+          <section className="w-full mb-12">
             <div className="flex items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
-              <div className="w-10 sm:w-16 h-[1px] bg-amber-200"></div>
-              <div className="w-2 h-2 rotate-45 border border-amber-400"></div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-[#2E2459] text-center">Try other tools</h2>
-              <div className="w-2 h-2 rotate-45 border border-amber-400"></div>
-              <div className="w-10 sm:w-16 h-[1px] bg-amber-200"></div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-6 md:gap-8 lg:gap-10">
               {[
-                { name: 'Kundali Matching', icon: <Heart size={22} />, from: '#FDE8F1', to: '#FBD5E8', text: '#C23B7C' },
-                { name: 'Panchang', icon: <Globe size={22} />, from: '#E4F7EE', to: '#C9EFDC', text: '#1F9D63' },
-                { name: 'Daily Horoscope', icon: <Droplet size={22} />, from: '#E3F1FF', to: '#C9E5FF', text: '#2568C9' },
-                { name: 'Gemstone Finder', icon: <Diamond size={22} />, from: '#FDF0E0', to: '#FBE0BC', text: '#C5761F' },
-                { name: 'Auspicious Dates', icon: <Calendar size={22} />, from: '#F1E9FD', to: '#E1CDFA', text: '#7433C4' },
-                { name: 'Astrology Blog', icon: <Book size={22} />, from: '#FFF3D6', to: '#FCE4A8', text: '#B8860B' }
+                { name: 'Birth Chart', image: BirthChartImg, url: 'https://www.astroved.com/astropedia/en/freetools/birth-chart' },
+                { name: 'Horoscope Matching', image: horoscopeMatching, url: 'https://www.astroved.com/astropedia/en/freetools/horoscope-matching' },
+                { name: 'Moon Sign Calculator', image: MoonSignImg, url: 'https://www.astroved.com/astropedia/en/freetools/moon-sign-calculator' },
+                { name: 'Nakshatra Porutham', image: MarriageCompatibilityImg, url: 'https://www.astroved.com/astropedia/en/freetools/nakshatra-porutham' },
+                { name: 'Lagna Calculator', image: LagnaCalculatorImg, url: 'https://www.astroved.com/astropedia/en/freetools/lagna-calculator' }
               ].map((tool, idx) => (
-                <div
+                <a
                   key={idx}
-                  className="flex flex-col items-center text-center group cursor-pointer rounded-2xl p-4 sm:p-5 border border-slate-100 hover:border-transparent hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-300"
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center text-center group cursor-pointer"
                 >
                   <div
-                    className="w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] rounded-2xl flex items-center justify-center mb-3 sm:mb-4 shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300"
-                    style={{ background: `linear-gradient(135deg, ${tool.from}, ${tool.to})`, color: tool.text }}
+                    className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] group-hover:scale-105 group-hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden"
                   >
-                    {tool.icon}
+                    <img src={tool.image} alt={tool.name} className="w-full h-full object-cover" />
                   </div>
-                  <h4 className="text-[#2E2459] font-bold text-[12px] sm:text-[13px] md:text-[14px] flex items-center gap-1 group-hover:text-[#6B40C3] transition-colors">
-                    {tool.name} <span className="text-amber-400 text-[16px] leading-none block translate-y-[1px] group-hover:translate-x-0.5 transition-transform">›</span>
+                  <h4 className="text-[#2E2459] font-semibold text-[13px] sm:text-[14px] md:text-[15px] group-hover:text-[#6B40C3] transition-colors leading-tight max-w-[140px]">
+                    {tool.name}
                   </h4>
-                </div>
+                </a>
 
               ))}
             </div>
           </section>
 
           {/* FAQs — single-open accordion, forced single column on mobile */}
-          <section className="w-full bg-white rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.02)] border border-slate-100 p-6 sm:p-10 md:p-12 relative overflow-hidden">
+        </div>
+      </div>
+
+      {/* ============ FAQ SECTION — DARK ============ */}
+      <div className="w-full bg-[#0F1226] relative overflow-hidden py-12 lg:py-16">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
+          <section className="w-full relative overflow-hidden py-12">
             <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5 pointer-events-none">
-              <Sun className="w-full h-full text-[#6B40C3]" />
+              <Sun className="w-full h-full text-amber-400" />
             </div>
 
             <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 relative z-10 text-center">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <div className="w-10 sm:w-16 h-[1px] bg-amber-200"></div>
-                <div className="w-2 h-2 rotate-45 bg-amber-300"></div>
-                <div className="w-10 sm:w-16 h-[1px] bg-amber-200"></div>
-              </div>
-              <h2 className="text-[22px] sm:text-3xl md:text-[34px] font-serif font-bold text-[#2E2459] leading-tight">
-                Frequently Asked Questions<br /><span className="text-[#6B40C3]">About Kundali</span>
+
+              <h2 className="text-[22px] sm:text-3xl md:text-[34px] font-serif font-bold text-white leading-tight">
+                Frequently Asked Questions<br /><span className="text-[#FDE047]">About Kundali</span>
               </h2>
             </div>
 
