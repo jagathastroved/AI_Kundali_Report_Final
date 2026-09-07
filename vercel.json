@@ -1,16 +1,24 @@
 {
   "rewrites": [
     {
-      "source": "/kundali-report",
-      "destination": "/kundali-report/index.html"
+      "source": "/api/:match*",
+      "destination": "https://astropedia-ai.astroved.com/kundali-report/api/:match*"
     },
     {
-      "source": "/kundali-report/",
-      "destination": "/kundali-report/index.html"
+      "source": "/kundali-report/assets/:path*",
+      "destination": "/assets/:path*"
     },
     {
       "source": "/kundali-report/:path*",
-      "destination": "/kundali-report/index.html"
+      "destination": "/index.html"
+    },
+    {
+      "source": "/kundali-report",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
