@@ -262,7 +262,7 @@ export const KundaliReportBook: React.FC = () => {
   if (!reportData) return <Navigate to="/" replace />;
 
   return (
-    <div className="w-full bg-transparent flex flex-col lg:flex-row relative">
+    <div className="min-h-screen bg-transparent flex flex-col lg:flex-row overflow-hidden relative">
       <FullReportOfferModal isOpen={showOfferModal} onClose={() => setShowOfferModal(false)} />
 
       {/* Decorative celestial background sparkles */}
@@ -379,7 +379,7 @@ export const KundaliReportBook: React.FC = () => {
       </aside>
 
       {/* Main Booklet container view */}
-      <main className="flex-1 flex flex-col relative min-h-screen">
+      <main className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative">
 
         {/* Unified Talk to Astrologer Banner (Navbar on Mobile, Floating on Desktop) */}
         <div className="fixed top-0 left-0 right-0 w-full bg-[#F1F5FF] border-b border-black/5 dark:border-white/10 shadow-sm p-3 px-4 z-30 xl:z-40 flex items-center justify-between gap-3 xl:gap-8 xl:top-1/2 xl:-translate-y-1/2 xl:right-6 xl:left-auto xl:w-[160px] xl:rounded-2xl xl:border xl:flex-col xl:py-8 xl:px-4 xl:bg-[#F1F5FF] xl:backdrop-blur-md xl:shadow-2xl transition-all">
@@ -438,7 +438,7 @@ export const KundaliReportBook: React.FC = () => {
         {/* Outer PDF Page Body Grid */}
         <section
           id="report-page-scroller"
-          className="flex-1 px-4 md:px-12 pb-8 pt-20 md:pt-8 lg:pt-12 xl:pb-8 md:pb-32 flex flex-col items-center relative"
+          className="flex-1 overflow-y-auto px-4 md:px-12 pb-8 pt-20 lg:pt-8 flex items-start justify-center custom-scrollbar"
         >
           {/* Virtual Booklet Frame centering */}
           <div className="w-full max-w-2xl page-bg border border-default shadow-book rounded-3xl md:rounded-[2rem] flex flex-col p-6 md:p-10 relative select-text min-h-[580px] justify-between page-text overflow-hidden">
