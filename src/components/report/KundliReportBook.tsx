@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useReport } from "../../context/ReportContext";
 import { useTheme } from "../../context/ThemeContext";
-import { kundaliReportData, PlanetPosition } from "../../types";
 import {
   ArrowLeft,
   ArrowRight,
@@ -10,9 +9,8 @@ import {
   RefreshCw,
   Moon,
   Sun,
-  Monitor,
-  Download,
   MessageCircle,
+  X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -264,7 +262,7 @@ export const KundaliReportBook: React.FC = () => {
   if (!reportData) return <Navigate to="/" replace />;
 
   return (
-    <div className="min-h-screen bg-transparent flex flex-col lg:flex-row overflow-hidden relative">
+    <div className="w-full bg-transparent flex flex-col lg:flex-row relative">
       <FullReportOfferModal isOpen={showOfferModal} onClose={() => setShowOfferModal(false)} />
 
       {/* Decorative celestial background sparkles */}
@@ -281,7 +279,7 @@ export const KundaliReportBook: React.FC = () => {
 
       {/* Modern Collapsible Table of Contents Navigation Drawer */}
       <aside
-        className={`fixed lg:relative inset-y-0 left-0 h-screen z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out ${isSidebarOpen
+        className={`fixed lg:sticky lg:top-0 inset-y-0 left-0 h-screen z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out ${isSidebarOpen
           ? "translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100"
           : "-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden"
           }`}
@@ -303,9 +301,10 @@ export const KundaliReportBook: React.FC = () => {
             </button>
             <button
               onClick={() => setIsSidebarOpen(false)}
-              className="text-muted hover:text-slate-800 dark:hover:text-slate-200 p-1 transition-colors"
+              className="flex items-center justify-center w-8 h-8 rounded-xl bg-red-50 dark:bg-red-500/10 text-red-500 hover:bg-red-100 dark:hover:bg-red-500/20 hover:scale-110 active:scale-95 transition-all duration-300 shadow-sm border border-red-100 dark:border-red-500/30"
+              title="Close Menu"
             >
-              <ArrowLeft size={18} />
+              <X size={18} />
             </button>
           </div>
         </div>
@@ -359,13 +358,13 @@ export const KundaliReportBook: React.FC = () => {
 
         {/* Sidebar Actions */}
         <div className="p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
-          <DownloadPdfButton
+          {/* <DownloadPdfButton
             filename="kundali_Report.pdf"
             targetIds={Array.from(
               { length: PAGE_TITLES.length },
               (_, i) => `pdf-page-${i}`,
             )}
-          />
+          /> */}
 
           <button
             onClick={handleResetReport}
@@ -380,12 +379,30 @@ export const KundaliReportBook: React.FC = () => {
       </aside>
 
       {/* Main Booklet container view */}
-      <main className="flex-1 flex flex-col h-[100dvh] overflow-hidden relative">
+      <main className="flex-1 flex flex-col relative min-h-screen">
+
+        {/* Unified Talk to Astrologer Banner (Navbar on Mobile, Floating on Desktop) */}
+        <div className="fixed top-0 left-0 right-0 w-full bg-[#F1F5FF] border-b border-black/5 dark:border-white/10 shadow-sm p-3 px-4 z-30 xl:z-40 flex items-center justify-between gap-3 xl:gap-8 xl:top-1/2 xl:-translate-y-1/2 xl:right-6 xl:left-auto xl:w-[160px] xl:rounded-2xl xl:border xl:flex-col xl:py-8 xl:px-4 xl:bg-[#F1F5FF] xl:backdrop-blur-md xl:shadow-2xl transition-all">
+          <div className="flex flex-row xl:flex-col items-center gap-3 relative z-10 w-full">
+            <div className="xl:hidden w-10 h-10 shrink-0 bg-indigo-100 rounded-full flex items-center justify-center shadow-md shadow-emerald-500/20">
+              <MessageCircle className="text-indigo-600 w-5 h-5" />
+            </div>
+            <div className="flex flex-col text-left xl:text-center w-full">
+              <span className="text-slate-800 font-bold text-[13px] sm:text-sm xl:text-[14px] leading-snug tracking-wide">
+                Kundli feeling like a puzzle?
+              </span>
+            </div>
+          </div>
+          <button className="relative z-10 shrink-0 w-auto xl:w-full bg-emerald-500 hover:bg-emerald-600 text-white text-[11px] xl:text-[12px] font-bold py-2 xl:py-2.5 px-4 xl:px-2 rounded-lg shadow-lg transition-colors active:scale-95 text-center leading-tight">
+            Talk to an<br className="hidden xl:block" /> Astrologer
+          </button>
+        </div>
+
         {/* Floating Show Index Button when Sidebar is closed */}
         {!isSidebarOpen && (
           <button
             onClick={() => setIsSidebarOpen(true)}
-            className="absolute top-4 left-4 z-30 p-2 px-3 bg-[#FE7950] hover:bg-[#eb6a42] text-white text-xs font-normal rounded-lg transition-colors flex items-center shadow-lg"
+            className="fixed top-[76px] xl:top-4 left-4 z-40 p-2 px-3 bg-[#FE7950] hover:bg-[#eb6a42] text-white text-xs font-normal rounded-lg transition-colors flex items-center shadow-lg"
           >
             <BookOpen size={13} className="mr-1.5" />
             <span>Show Index</span>
@@ -395,7 +412,7 @@ export const KundaliReportBook: React.FC = () => {
         {/* Floating Theme Toggle Button */}
         <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="hidden lg:flex absolute top-4 right-4 md:right-8 z-50 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-[0_0_15px_rgba(250,204,21,0.15)] rounded-full transition-all duration-500 hover:scale-110 group items-center justify-center overflow-hidden"
+          className="hidden lg:flex fixed top-[76px] xl:top-4 right-4 md:right-8 z-40 p-3 bg-white/90 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-[0_0_15px_rgba(250,204,21,0.15)] rounded-full transition-all duration-500 hover:scale-110 group items-center justify-center overflow-hidden"
           title="Toggle Theme"
         >
           <div className="relative flex items-center justify-center w-6 h-6">
@@ -416,35 +433,12 @@ export const KundaliReportBook: React.FC = () => {
           </div>
         </button>
 
-        {/* Unified Talk to Astrologer Banner (Sticky Bottom Bar) */}
-        <div className="absolute bottom-20 md:bottom-8 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-2xl z-40">
-          <div className="bg-slate-900/85 backdrop-blur-xl rounded-2xl md:rounded-[2rem] p-3 md:p-4 border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] flex items-center justify-between gap-3 overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/10"></div>
 
-            <div className="flex items-center gap-3 relative z-10">
-              <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center shadow-md shadow-orange-500/20">
-                <MessageCircle className="text-white fill-white/20" size={20} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-xs sm:text-sm md:text-base leading-tight">
-                  Kundli feeling like a puzzle?
-                </span>
-                <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent font-extrabold uppercase tracking-widest text-[10px] sm:text-[11px] md:text-xs mt-0.5 md:mt-1 drop-shadow-sm">
-                  Talk to an Astrologer
-                </span>
-              </div>
-            </div>
-
-            <button className="relative z-10 shrink-0 bg-gradient-to-r from-[#FE7950] to-[#ff5924] hover:from-[#ff8a66] hover:to-[#ff6b3b] text-white text-[11px] sm:text-xs md:text-sm font-bold py-2.5 md:py-3 px-3 sm:px-5 md:px-6 rounded-xl shadow-lg transition-transform active:scale-95">
-              Talk Now
-            </button>
-          </div>
-        </div>
 
         {/* Outer PDF Page Body Grid */}
         <section
           id="report-page-scroller"
-          className="flex-1 overflow-y-auto px-4 md:px-12 py-8 pb-36 md:pb-32 flex items-start justify-center custom-scrollbar"
+          className="flex-1 px-4 md:px-12 pb-8 pt-20 md:pt-8 lg:pt-12 xl:pb-8 md:pb-32 flex flex-col items-center relative"
         >
           {/* Virtual Booklet Frame centering */}
           <div className="w-full max-w-2xl page-bg border border-default shadow-book rounded-3xl md:rounded-[2rem] flex flex-col p-6 md:p-10 relative select-text min-h-[580px] justify-between page-text overflow-hidden">

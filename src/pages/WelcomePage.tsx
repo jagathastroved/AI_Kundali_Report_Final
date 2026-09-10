@@ -13,7 +13,7 @@ export const WelcomePage: React.FC<{ pageIdx: number, setPage: (idx: number) => 
       const timer = setTimeout(() => {
         setShowModal(true);
         sessionStorage.setItem('hasSeenOfferModal', 'true');
-      }, 8000);
+      }, 10000);
       return () => clearTimeout(timer);
     }
   }, []);

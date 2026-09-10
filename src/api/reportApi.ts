@@ -1,5 +1,4 @@
 import axios from 'axios';
-import fallbackReport from '../mocks/fallBackReport.json';
 
 export interface ReportApiRequest {
   name: string;

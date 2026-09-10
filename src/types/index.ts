@@ -40,13 +40,13 @@ export interface KarmaProfile {
 
 export interface ChakraDetails {
   name:
-    | "Muladhara"
-    | "Svadhishthana"
-    | "Manipura"
-    | "Anahata"
-    | "Vishuddha"
-    | "Ajna"
-    | "Sahasrara";
+  | "Muladhara"
+  | "Svadhishthana"
+  | "Manipura"
+  | "Anahata"
+  | "Vishuddha"
+  | "Ajna"
+  | "Sahasrara";
   sanskritName: string;
   percentage: number;
   status: "Balanced" | "Imbalanced" | "Underactive" | "Hyperactive";
@@ -76,11 +76,11 @@ export interface PlanetPosition {
 
 export interface DashaPeriod {
   levelName:
-    | "Maha Dasha"
-    | "Antar Dasha"
-    | "Pratyantar Dasha"
-    | "Sookshma Dasha"
-    | "Prana Dasha";
+  | "Maha Dasha"
+  | "Antar Dasha"
+  | "Pratyantar Dasha"
+  | "Sookshma Dasha"
+  | "Prana Dasha";
   planetName: string;
   startDate: string;
   endDate: string;

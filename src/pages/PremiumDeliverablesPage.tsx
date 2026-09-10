@@ -6,49 +6,55 @@ import bookImage from "../assets/Kundali_Report_book.png";
 import {
   getCountryCode,
   getCurrencyInfo,
+  getCookie,
 } from "../utils/locationCurrencyUtils";
+import { usePrice } from "../context/PriceContext";
 
 export const PremiumDeliverablesPage: React.FC<{
   pageIdx: number;
   setPage: (idx: number) => void;
 }> = () => {
   const { birthDetails } = useReport();
+  const { prices } = usePrice();
   const [isProcessing, setIsProcessing] = useState(false);
-  const [priceDetails, setPriceDetails] = useState({
-    symbol: "₹",
-    price: "399.00",
-    strikeout: "999.00",
-    savings: "600.00",
-  });
+  const [priceDetails, setPriceDetails] = useState<{
+    symbol: string;
+    price: string;
+    strikeout: string;
+    savings: string;
+  } | null>(null);
 
   useEffect(() => {
-    const countryCode = getCountryCode();
-    const currencyInfo = getCurrencyInfo(countryCode);
-    const currency = (currencyInfo.currencyCode || "").toUpperCase();
+    let targetCurrencyCode = (getCookie("currentcurrency") || "").toUpperCase();
+    if (!targetCurrencyCode) {
+      const countryCode = getCountryCode();
+      const currencyInfo = getCurrencyInfo(countryCode);
+      targetCurrencyCode = (currencyInfo.currencyCode || "").toUpperCase();
+    }
 
-    if (currency === "MYR") {
+    let matchedPrice = null;
+    if (prices && prices.length > 0 && prices[0].ProductPriceList) {
+      matchedPrice = prices[0].ProductPriceList.find((p: any) => p.CurrencyCode === targetCurrencyCode);
+      if (!matchedPrice) {
+        matchedPrice = prices[0].ProductPriceList.find((p: any) => p.CurrencyCode === "USD");
+      }
+    }
+
+    if (matchedPrice) {
+      let symbol = "₹";
+      if (matchedPrice.CurrencyCode === "USD") symbol = "$";
+      else if (matchedPrice.CurrencyCode === "MYR") symbol = "MYR";
+
+      // console.log("Matched API Price Data for PremiumDeliverablesPage:", matchedPrice);
+
       setPriceDetails({
-        symbol: "MYR",
-        price: "75",
-        strikeout: "188",
-        savings: "113",
-      });
-    } else if (currency === "USD" || currency === "US") {
-      setPriceDetails({
-        symbol: "$",
-        price: "25",
-        strikeout: "63",
-        savings: "38",
-      });
-    } else {
-      setPriceDetails({
-        symbol: "₹",
-        price: "399.00",
-        strikeout: "999.00",
-        savings: "600.00",
+        symbol,
+        price: String(matchedPrice.SellingPrice),
+        strikeout: String(matchedPrice.ListPrice),
+        savings: String(matchedPrice.Yousave || (matchedPrice.ListPrice - matchedPrice.SellingPrice)),
       });
     }
-  }, []);
+  }, [prices]);
 
   const name = birthDetails?.name || "You";
   const featureItems = [
@@ -167,72 +173,78 @@ export const PremiumDeliverablesPage: React.FC<{
       </div>
 
       {/* Bottom Pricing & Action Section */}
-      <div className="pt-8 space-y-4 max-w-2xl mx-auto">
-        {/* Pricing Box */}
-        <div className="bg-[#EFFFF6] border border-[#C6F1D6] rounded-xl p-3 sm:p-4 flex flex-row flex-wrap sm:flex-nowrap justify-between items-center gap-2 sm:gap-2">
-          <div className="flex flex-col relative z-10 min-w-0 flex-1">
-            <span className="text-[10px] sm:text-[11px] font-black text-[#2E8B57] uppercase tracking-widest mb-1 flex items-center gap-1.5 truncate">
-              <Lock className="w-3 h-3 shrink-0" />
-              <span className="truncate">Total Order Price</span>
-            </span>
-            <div className="flex flex-col gap-0.5">
-              <div className="flex items-baseline gap-2">
-                <span className="text-[#8FBC8F] line-through text-base sm:text-lg font-bold decoration-[#8FBC8F]/50 decoration-2">
-                  {priceDetails.symbol} {priceDetails.strikeout}
-                </span>
-                <span className="text-[#00C950] text-sm sm:text-base font-bold">
-                  You Save: {priceDetails.symbol} {priceDetails.savings}
+      {priceDetails && (
+        <div className="pt-8 space-y-4 max-w-2xl mx-auto">
+          {/* Pricing Box */}
+          <div className="bg-[#EFFFF6] border border-[#C6F1D6] rounded-xl p-3 sm:p-4 flex flex-row flex-wrap sm:flex-nowrap justify-between items-center gap-2 sm:gap-2">
+            <div className="flex flex-col relative z-10 min-w-0 flex-1">
+              <span className="text-[10px] sm:text-[11px] font-black text-[#2E8B57] uppercase tracking-widest mb-1 flex items-center gap-1.5 truncate">
+                <Lock className="w-3 h-3 shrink-0" />
+                <span className="truncate">Total Order Price</span>
+              </span>
+              <div className="flex flex-col gap-0.5">
+                {priceDetails.strikeout !== priceDetails.price && (
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-[#8FBC8F] line-through text-base sm:text-lg font-bold decoration-[#8FBC8F]/50 decoration-2">
+                      {priceDetails.symbol} {priceDetails.strikeout}
+                    </span>
+                    <span className="text-[#00C950] text-sm sm:text-base font-bold">
+                      You Save: {priceDetails.symbol} {priceDetails.savings}
+                    </span>
+                  </div>
+                )}
+                <span className="text-2xl sm:text-3xl font-black text-[#006400] tracking-tight">
+                  {priceDetails.symbol} {priceDetails.price}
                 </span>
               </div>
-              <span className="text-2xl sm:text-3xl font-black text-[#006400] tracking-tight">
-                {priceDetails.symbol} {priceDetails.price}
-              </span>
             </div>
-          </div>
-          <div className="bg-[#00C950] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 sm:px-3 py-1.5 rounded-full shadow-soft whitespace-nowrap flex-shrink-0 text-center">
-            SAVE TODAY
-          </div>
-        </div>
-
-        {/* CTA Button */}
-        <a
-          href="https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report"
-          target="_blank"
-          className="block"
-        >
-          <button className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50">
-            <div className="absolute inset-0 opacity-20 mix-blend-overlay"></div>
-            {isProcessing ? (
-              <>
-                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin text-white relative z-10" />
-                <span className="relative z-10">Processing...</span>
-              </>
-            ) : (
-              <>
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
-                <span className="relative z-10">
-                  Unlock Complete Report for {priceDetails.symbol}{" "}
-                  {priceDetails.price}
-                </span>
-              </>
+            {priceDetails.strikeout !== priceDetails.price && (
+              <div className="bg-[#00C950] text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2.5 sm:px-3 py-1.5 rounded-full shadow-soft whitespace-nowrap flex-shrink-0 text-center">
+                SAVE TODAY
+              </div>
             )}
-          </button>
-        </a>
-        {/* View Sample Report Button */}
-        <a
-          href="https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full py-3 sm:py-4 bg-white/50 hover:bg-white text-indigo-600 font-bold text-sm sm:text-base tracking-wide rounded-xl border border-indigo-200 hover:border-indigo-300 transition-all duration-300 flex items-center justify-center gap-2 mt-3"
-        >
-          <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-          View Sample Report
-        </a>
+          </div>
 
-        <p className="text-center text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1 sm:gap-1.5 mt-2 sm:mt-3">
-          <Lock className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> 100% Secure Checkout
-        </p>
-      </div>
+          {/* CTA Button */}
+          <a
+            href="https://www.astroved.com/prediction-services-personalized-kundali-report-P88426.aspx?promo=SL_Kundali_Report"
+            target="_blank"
+            className="block"
+          >
+            <button className="w-full py-3 sm:py-4 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-400 hover:to-rose-400 text-white font-black text-sm sm:text-lg tracking-wide rounded-xl shadow-[0_8px_20px_-10px_rgba(244,63,94,0.6)] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-2 sm:gap-3 relative overflow-hidden group border border-orange-400/50">
+              <div className="absolute inset-0 opacity-20 mix-blend-overlay"></div>
+              {isProcessing ? (
+                <>
+                  <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin text-white relative z-10" />
+                  <span className="relative z-10">Processing...</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transition-transform group-hover:scale-110" />
+                  <span className="relative z-10">
+                    Unlock Complete Report for {priceDetails.symbol}{" "}
+                    {priceDetails.price}
+                  </span>
+                </>
+              )}
+            </button>
+          </a>
+          {/* View Sample Report Button */}
+          <a
+            href="https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-3 sm:py-4 bg-white/50 hover:bg-white text-indigo-600 font-bold text-sm sm:text-base tracking-wide rounded-xl border border-indigo-200 hover:border-indigo-300 transition-all duration-300 flex items-center justify-center gap-2 mt-3"
+          >
+            <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
+            View Sample Report
+          </a>
+
+          <p className="text-center text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-1 sm:gap-1.5 mt-2 sm:mt-3">
+            <Lock className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> 100% Secure Checkout
+          </p>
+        </div>
+      )}
     </div>
   );
 };

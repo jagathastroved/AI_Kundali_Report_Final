@@ -1,15 +1,27 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { BirthDetails } from '../../types';
 import { useReport } from '../../context/ReportContext';
-
 import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchReportFull, ReportApiRequest } from '../../api/reportApi';
-import fallBackReport from '../../mocks/fallBackReport.json';
-
 import CustomSelect from '../ui/CustomSelect';
 import { fetchCountries, searchLocation } from '../../api/locationApi';
 import { getTimezoneCountryName } from '../../utils/locationCurrencyUtils';
+
+interface BirthDetails {
+  name: string;
+  email?: string;
+  gender: string;
+  day: number;
+  month: number;
+  year: number;
+  hour: number;
+  minute: number;
+  country: string;
+  city: string;
+  latitude?: number;
+  longitude?: number;
+  language: "english" | "hindi";
+}
 
 const MONTHS = [
   { name: 'Jan', val: '1' },
@@ -246,7 +258,7 @@ export const BirthDetailsForm: React.FC = () => {
       className="bg-white rounded-2xl shadow-2xl overflow-visible max-w-md w-full mx-auto lg:ml-auto lg:mr-0 flex flex-col max-h-full self-center"
     >
       <div className="bg-orange-500 py-3 text-center rounded-t-2xl">
-        <h3 className="text-white font-semibold text-[17px] tracking-wide uppercase">KUNDALI</h3>
+        <h3 className="text-white font-semibold text-[17px] tracking-wide uppercase">AI FREE KUNDALI REPORT</h3>
       </div>
 
       <div className="p-4 md:p-5 lg:p-6 space-y-3 lg:space-y-4 relative flex-1">
