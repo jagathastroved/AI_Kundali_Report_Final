@@ -21,28 +21,28 @@ const faqs = [
  */
 const FaqItem = ({ question, answer, index, isOpen, onToggle }: { question: string, answer: string, index: number, isOpen: boolean, onToggle: () => void }) => {
   return (
-    <div className={`w-full border rounded-xl overflow-hidden transition-all duration-300 group ${isOpen ? 'bg-[#554298] border-[#725bc7] shadow-lg relative' : 'bg-[#403075] border-[#554198] hover:border-[#6751b5] hover:bg-[#4a3987] relative'}`}>
+    <div className={`w-full border rounded-xl overflow-hidden transition-all duration-300 group ${isOpen ? 'bg-slate-50 border-slate-300 shadow-md relative' : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 relative'}`}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/50 cursor-pointer"
+        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2459]/50 cursor-pointer"
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
-          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] transition-colors ${isOpen ? 'bg-[#31225c] text-white' : 'bg-[#2b1e54] text-purple-300 group-hover:bg-[#3a286e] group-hover:text-purple-200'}`}>
+          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] transition-colors ${isOpen ? 'bg-[#2E2459] text-white' : 'bg-slate-100 text-[#2E2459] group-hover:bg-[#2E2459] group-hover:text-white'}`}>
             {index + 1}
           </div>
-          <span className={`flex-1 min-w-0 text-[14px] sm:text-[15.5px] font-semibold transition-colors leading-snug break-words ${isOpen ? 'text-white font-bold' : 'text-indigo-100 group-hover:text-white'}`}>
+          <span className={`flex-1 min-w-0 text-[14px] sm:text-[15.5px] font-semibold transition-colors leading-snug break-words ${isOpen ? 'text-[#2E2459] font-bold' : 'text-slate-700 group-hover:text-[#2E2459]'}`}>
             {question}
           </span>
         </div>
-        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-white' : 'text-indigo-300/60 group-hover:text-indigo-200'}`}>
+        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#2E2459]' : 'text-slate-400 group-hover:text-[#2E2459]'}`}>
           <ChevronDown size={18} />
         </div>
       </button>
       <div
         className={`px-4 sm:px-5 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <p className="text-indigo-100/90 font-medium leading-relaxed pl-10 sm:pl-11 text-[14px] sm:text-[14.5px]">{answer}</p>
+        <p className="text-slate-600 font-medium leading-relaxed pl-10 sm:pl-11 text-[14px] sm:text-[14.5px]">{answer}</p>
       </div>
     </div>
   );
@@ -56,6 +56,7 @@ export const LandingScreen: React.FC = () => {
 
       {/* ============ HERO — DARK SECTION ============ */}
       <div className="w-full flex flex-col items-center justify-center px-4 pt-8 pb-14 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20 md:px-8 lg:px-12 relative z-10 bg-[radial-gradient(120%_120%_at_15%_10%,#312563_0%,#241a4a_100%)]">
+
 
         {/* Decorative background — hidden on small screens so it never crowds the content */}
         <div className="hidden md:block absolute top-1/2 left-4 lg:left-10 -translate-y-1/2 opacity-20 pointer-events-none select-none text-indigo-500/10">
@@ -71,10 +72,15 @@ export const LandingScreen: React.FC = () => {
 
           {/* Left Side - Content */}
           <div className="flex flex-col text-left w-full md:col-span-7 relative justify-start md:pr-4">
+            <div className="mb-4 sm:mb-6">
+              <img
+                src="https://cdn.astroved.com/images/images-av/AstroVed-Logo.svg"
+                alt="AstroVed Logo"
+                className="h-7 sm:h-8 lg:h-9 w-auto object-contain "
+              />
+            </div>
             <div>
-              <span className="inline-flex items-center gap-2 text-amber-300/90 text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
-                <Sparkles size={14} /> Vedic Astrology, Simplified
-              </span>
+
               <h1 className="text-[28px] leading-[1.15] sm:text-3xl lg:text-4xl xl:text-[42px] font-bold text-white tracking-tight lg:leading-tight mb-5">
                 Discover Your True Path Through Kundali
               </h1>
@@ -117,7 +123,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 1 — LIGHT ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-slate-200">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">What Is a Kundli or Birth Chart?</h2>
@@ -137,7 +143,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 2 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         {/* Subtle Background Glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] translate-x-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
@@ -178,7 +184,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 3 — LIGHT ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-slate-200">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">How to Read Your Kundli: A Simple Guide to Understanding Your Birth Chart</h2>
@@ -205,7 +211,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 4 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
@@ -223,7 +229,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 5 — LIGHT ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-slate-200">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-2 tracking-tight">Important Doshas in Kundali and Their Remedies</h2>
@@ -262,7 +268,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 6 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
+      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
         <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-gradient-to-tl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
@@ -286,7 +292,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/*  TOOLS SECTION — RECOMMENDED CARD LAYOUT */}
-      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-10 lg:py-14 border-t border-slate-200">
+      <div className="w-full bg-white relative overflow-hidden py-10 lg:py-14">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
 
           <section className="w-full">
@@ -383,13 +389,13 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ FAQ SECTION — DARK ============ */}
-      <div className="w-full bg-[radial-gradient(120%_120%_at_15%_10%,#312563_0%,#241a4a_100%)] relative overflow-hidden py-8 lg:py-12 border-t border-[#46367a]">
+      <div className="w-full bg-white relative overflow-hidden py-8 lg:py-12 ">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
           <section className="w-full relative overflow-hidden py-4">
             <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 relative z-10 text-center">
 
-              <h2 className="text-[22px] sm:text-3xl md:text-[34px] font-serif font-bold text-white leading-tight">
-                Frequently Asked Questions<br /><span className="text-purple-300">About Kundali</span>
+              <h2 className="text-[22px] sm:text-3xl md:text-[34px] font-serif font-bold leading-tight">
+                Frequently Asked Questions<br /><span className="text-purple-900">About Kundali</span>
               </h2>
             </div>
 
