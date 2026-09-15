@@ -21,21 +21,21 @@ const faqs = [
  */
 const FaqItem = ({ question, answer, index, isOpen, onToggle }: { question: string, answer: string, index: number, isOpen: boolean, onToggle: () => void }) => {
   return (
-    <div className={`w-full border rounded-xl overflow-hidden transition-all duration-300 group ${isOpen ? 'bg-slate-50 border-slate-300 shadow-md relative' : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 relative'}`}>
+    <div className={`w-full border rounded-xl overflow-hidden transition-all duration-300 group ${isOpen ? 'bg-slate-100 border-slate-300 shadow-md relative' : 'bg-slate-100 border-slate-200 hover:border-slate-300 relative'}`}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2E2459]/50 cursor-pointer"
+        className="w-full flex items-start sm:items-center justify-between gap-3 px-4 sm:px-5 py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-800/50 cursor-pointer"
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0 flex-1">
-          <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] transition-colors ${isOpen ? 'bg-[#2E2459] text-white' : 'bg-slate-100 text-[#2E2459] group-hover:bg-[#2E2459] group-hover:text-white'}`}>
+          <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-[13px] bg-[#2E2459] text-white transition-colors">
             {index + 1}
           </div>
-          <span className={`flex-1 min-w-0 text-[14px] sm:text-[15.5px] font-semibold transition-colors leading-snug break-words ${isOpen ? 'text-[#2E2459] font-bold' : 'text-slate-700 group-hover:text-[#2E2459]'}`}>
+          <span className="flex-1 min-w-0 text-[14px] sm:text-[15.5px] font-bold text-slate-900 leading-snug break-words transition-colors">
             {question}
           </span>
         </div>
-        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#2E2459]' : 'text-slate-400 group-hover:text-[#2E2459]'}`}>
+        <div className={`flex-shrink-0 mt-0.5 sm:mt-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''} text-slate-900`}>
           <ChevronDown size={18} />
         </div>
       </button>
@@ -123,7 +123,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 1 — LIGHT ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">What Is a Kundli or Birth Chart?</h2>
@@ -143,9 +143,9 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 2 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
         {/* Subtle Background Glow */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] translate-x-1/4 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px] translate-x-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-10 lg:gap-x-16 gap-y-6 items-center lg:items-start">
@@ -184,7 +184,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 3 — LIGHT ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">How to Read Your Kundli: A Simple Guide to Understanding Your Birth Chart</h2>
@@ -211,7 +211,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 4 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
@@ -229,7 +229,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 5 — LIGHT ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-2 tracking-tight">Important Doshas in Kundali and Their Remedies</h2>
@@ -268,8 +268,8 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 6 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-6 lg:py-8">
-        <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-gradient-to-tl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+      <div className="w-full relative overflow-hidden py-6 lg:py-8">
+        <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">What Makes AstroVed's Kundali Report Different?</h2>

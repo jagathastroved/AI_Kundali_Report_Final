@@ -360,13 +360,13 @@ export const KundaliReportBook: React.FC = () => {
 
         {/* Sidebar Actions */}
         <div className="p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
-          {/* <DownloadPdfButton
+          <DownloadPdfButton
             filename="kundali_Report.pdf"
             targetIds={Array.from(
               { length: PAGE_TITLES.length },
               (_, i) => `pdf-page-${i}`,
             )}
-          /> */}
+          />
 
           {/* <button
             onClick={() => window.open("https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf", "_blank")}
