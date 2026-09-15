@@ -11,6 +11,8 @@ import {
   Sun,
   MessageCircle,
   X,
+  Download,
+  File,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -365,6 +367,15 @@ export const KundaliReportBook: React.FC = () => {
               (_, i) => `pdf-page-${i}`,
             )}
           /> */}
+          <button
+            onClick={() => window.open("https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf", "_blank")}
+            className="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-700 hover:to-green-800 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <File size={16} />
+            <span className="text-[11px] font-extrabold tracking-widest uppercase">
+              View Sample Report
+            </span>
+          </button>
 
           <button
             onClick={handleResetReport}

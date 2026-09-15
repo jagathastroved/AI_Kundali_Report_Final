@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, ArrowRight, ScrollText } from 'lucide-react';
+import { X, ArrowRight, ScrollText, ShieldCheck, User, Lock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import bookImage from '../assets/Kundali_Report_book.png';
 import { getCountryCode, getCurrencyInfo, getCookie } from "../utils/locationCurrencyUtils";
@@ -11,9 +11,9 @@ interface FullReportOfferModalProps {
 }
 
 const reportFeatures = [
-  "Future partner and married life",
-  "Doshas and simple remedies",
-  "Key years for money, health, and life changes"
+  "Your personality & hidden strengths",
+  "Your most powerfull planets",
+  "Dasha predictions for career, money, relationships & health"
 ];
 
 export const FullReportOfferModal: React.FC<FullReportOfferModalProps> = ({ isOpen, onClose }) => {
@@ -86,12 +86,13 @@ export const FullReportOfferModal: React.FC<FullReportOfferModalProps> = ({ isOp
 
           {/* Text Content */}
           <div className="relative z-10 w-[65%] sm:w-[68%] pr-1">
-            <h3 className="text-amber-400 text-[11px] sm:text-[12px] font-bold tracking-widest uppercase mb-1">
-              Your Birth Chart Has More To Reveal
-            </h3>
-            <h2 className="text-white text-[18px] sm:text-[20px] font-bold leading-tight">
-              Get your personalized <span className="text-amber-400">Kundali</span> and see what it says about your life ahead.
+            <h2 className="text-white text-[20px] sm:text-[24px] font-black leading-tight uppercase">
+              YOUR BIRTH CHART <br/>
+              <span className="text-amber-400">HAS MORE TO REVEAL</span>
             </h2>
+            <p className="text-white text-[13px] sm:text-[14px] mt-1.5 leading-snug font-medium">
+              Get your personalized Kundali and see what it says about your life ahead.
+            </p>
           </div>
 
           {/* Book Image - scaled down to fit compact header */}
@@ -107,38 +108,29 @@ export const FullReportOfferModal: React.FC<FullReportOfferModalProps> = ({ isOp
         {/* Content Area - ultra compact paddings/margins */}
         <div className="px-4 sm:px-5 py-3 sm:py-4 bg-white dark:bg-slate-900 rounded-b-2xl sm:rounded-b-3xl flex flex-col justify-between">
 
-          <ul className="space-y-1.5 sm:space-y-2 mb-3 text-[14px] sm:text-[15px] font-medium text-slate-700 dark:text-slate-200 text-left">
+          <ul className="space-y-2 sm:space-y-3 mb-4 text-[13px] sm:text-[14px] font-bold text-slate-800 dark:text-slate-200 text-left">
             {reportFeatures.map((feature, index) => (
-              <li key={index} className="flex items-start gap-2 text-left">
-                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 dark:bg-amber-500/20 flex items-center justify-center mt-0.5">
-                  <ArrowRight size={10} className="text-amber-600 dark:text-amber-400 stroke-[2.5]" />
+              <li key={index} className="flex items-start gap-3 text-left">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center">
+                  <Lock size={12} className="text-purple-600 dark:text-purple-400 stroke-[2.5]" />
                 </div>
                 <span className="leading-tight mt-0.5 text-left">{feature}</span>
               </li>
             ))}
           </ul>
 
-          {/* Trust Elements - stacked very tightly */}
-          <div className="space-y-1.5 mb-4">
-            <div className="bg-slate-50 dark:bg-slate-800/50 py-1.5 px-3 rounded-lg flex items-center justify-left gap-2 border border-slate-100 dark:border-slate-700/50">
-              <div className="flex -space-x-2">
-                <img className="w-5 h-5 rounded-full border border-white dark:border-slate-800 object-cover" src="https://randomuser.me/api/portraits/women/57.jpg" alt="User" />
-                <img className="w-5 h-5 rounded-full border border-white dark:border-slate-800 object-cover" src="https://randomuser.me/api/portraits/men/53.jpg" alt="User" />
-                <img className="w-5 h-5 rounded-full border border-white dark:border-slate-800 object-cover" src="https://randomuser.me/api/portraits/women/71.jpg" alt="User" />
-                <img className="w-5 h-5 rounded-full border border-white dark:border-slate-800 object-cover" src="https://randomuser.me/api/portraits/men/73.jpg" alt="User" />
+          <div className="flex flex-col gap-2 mb-3">
+            <div className="flex items-center gap-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[12px] sm:text-[13px] font-bold px-3 py-2 rounded-lg">
+              <div className="bg-green-500 text-white rounded-full p-0.5">
+                <ShieldCheck size={14} className="stroke-[2.5]" />
               </div>
-              <span className="text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-300">
-                Trusted by 7M+ people worldwide
-              </span>
+              Backed by 25+ Years of Astrology Expertise
             </div>
-
-            <div className="bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-500/20 py-1.5 px-2.5 rounded-lg flex items-center gap-2">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center">
-                <ScrollText size={14} className="text-orange-600 dark:text-orange-400" />
+            <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 text-amber-800 dark:text-amber-500 text-[12px] sm:text-[13px] font-bold px-3 py-2 rounded-lg">
+              <div className="text-amber-700 dark:text-amber-500">
+                <User size={16} className="fill-current stroke-[2.5]" />
               </div>
-              <p className="text-[12px] sm:text-[13px] font-medium text-orange-800 dark:text-orange-300 leading-tight text-left">
-                Written by a real astrologer with 10+ years of experience. Not AI-generated.
-              </p>
+              Written by a real astrologer. Not AI-generated.
             </div>
           </div>
 
