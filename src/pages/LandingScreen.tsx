@@ -192,7 +192,7 @@ export const LandingScreen: React.FC = () => {
               <p>
                 Your Kundli is more than a set of planetary positions - it's a symbolic map of your personality, patterns, strengths, and potential. You don't need to decode everything at once. Start with these five essentials:
               </p>
-              <ul className="list-decimal pl-6 space-y-3 marker:text-[#6B40C3] marker:font-bold">
+              <ul className="list-decimal pl-6 space-y-3 font-bold">
                 <li><strong className="text-slate-900 font-bold">Identify your Lagna (Ascendant)</strong> - the foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure - which is why exact birth time matters so much.</li>
                 <li><strong className="text-slate-900 font-bold">Check your Moon Sign and Nakshatra</strong> - these reveal your emotional nature, instincts, and inner responses.</li>
                 <li><strong className="text-slate-900 font-bold">Explore the 12 Houses</strong> - each one governs a life area: family, education, career, relationships, finances, health, and growth.</li>
@@ -292,7 +292,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/*  TOOLS SECTION — RECOMMENDED CARD LAYOUT */}
-      <div className="w-full bg-white relative overflow-hidden py-10 lg:py-14">
+      <div className="w-full relative overflow-hidden py-10 lg:py-14">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
 
           <section className="w-full">
@@ -389,7 +389,7 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ FAQ SECTION — DARK ============ */}
-      <div className="w-full bg-white relative overflow-hidden py-8 lg:py-12 ">
+      <div className="w-full relative overflow-hidden py-8 lg:py-12 ">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 flex flex-col items-center">
           <section className="w-full relative overflow-hidden py-4">
             <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 relative z-10 text-center">
