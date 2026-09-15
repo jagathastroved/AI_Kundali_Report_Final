@@ -137,13 +137,13 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 2 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-gray-100 relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
+      <div className="w-full bg-[#f8f7f4] relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
         {/* Subtle Background Glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] translate-x-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
 
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_1fr] gap-x-10 lg:gap-x-16 gap-y-6 items-center lg:items-start">
-
+            <h1>color Code : f8f7f4</h1>
             {/* 1. Title */}
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] tracking-tight lg:col-start-1 lg:row-start-1 lg:mb-2 lg:self-end">
               See What Your Kundali Says About You
@@ -206,10 +206,11 @@ export const LandingScreen: React.FC = () => {
       </div>
 
       {/* ============ ARTICLE SECTION 4 — LIGHT (CREAM) ============ */}
-      <div className="w-full bg-gray-100 relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
+      <div className="w-full bg-[#fffdfb] relative overflow-hidden py-6 lg:py-8 border-t border-purple-200/50">
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
+            <h1>Color Code : #fffdfb</h1>
             <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">Kundali Matching for Marriage (Kundli Milan)</h2>
             <div className="space-y-4 text-slate-900 text-[15px] sm:text-[16px] leading-[1.8]">
               <p>

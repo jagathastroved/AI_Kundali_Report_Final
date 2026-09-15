@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, ArrowRight, ScrollText, ShieldCheck, User, Lock } from 'lucide-react';
+import { X, ArrowRight, ScrollText, ShieldCheck, User, Lock, Unlock, UnlockKeyhole, UnlockIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import bookImage from '../assets/Kundali_Report_book.png';
 import { getCountryCode, getCurrencyInfo, getCookie } from "../utils/locationCurrencyUtils";
@@ -87,7 +87,7 @@ export const FullReportOfferModal: React.FC<FullReportOfferModalProps> = ({ isOp
           {/* Text Content */}
           <div className="relative z-10 w-[65%] sm:w-[68%] pr-1">
             <h2 className="text-white text-[20px] sm:text-[24px] font-black leading-tight uppercase">
-              YOUR BIRTH CHART <br/>
+              YOUR BIRTH CHART <br />
               <span className="text-amber-400">HAS MORE TO REVEAL</span>
             </h2>
             <p className="text-white text-[13px] sm:text-[14px] mt-1.5 leading-snug font-medium">
@@ -112,7 +112,7 @@ export const FullReportOfferModal: React.FC<FullReportOfferModalProps> = ({ isOp
             {reportFeatures.map((feature, index) => (
               <li key={index} className="flex items-start gap-3 text-left">
                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center">
-                  <Lock size={12} className="text-purple-600 dark:text-purple-400 stroke-[2.5]" />
+                  <UnlockKeyhole size={12} className="text-purple-600 dark:text-purple-400 stroke-[2.5]" />
                 </div>
                 <span className="leading-tight mt-0.5 text-left">{feature}</span>
               </li>
