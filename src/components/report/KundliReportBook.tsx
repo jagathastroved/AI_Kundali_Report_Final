@@ -294,7 +294,7 @@ export const KundaliReportBook: React.FC = () => {
 
       {/* Modern Collapsible Table of Contents Navigation Drawer */}
       <aside
-        className={`fixed lg:sticky lg:top-0 top-0 left-0 z-50 lg:z-20 border-r border-default sidebar-bg flex-shrink-0 transition-all duration-300 ease-in-out grid grid-rows-[auto_1fr_auto] h-[100dvh] overscroll-contain ${isSidebarOpen
+        className={`fixed lg:sticky lg:top-0 top-0 bottom-0 lg:bottom-auto left-0 z-50 lg:z-20 border-r border-default sidebar-bg flex-shrink-0 transition-all duration-300 ease-in-out grid grid-rows-[auto_1fr_auto] lg:h-[100dvh] overscroll-contain ${isSidebarOpen
           ? "translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100"
           : "-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden"
           }`}
@@ -325,7 +325,7 @@ export const KundaliReportBook: React.FC = () => {
         </div>
 
         {/* Scrollable container for checklist */}
-        <div className="overflow-y-auto custom-scrollbar overscroll-contain">
+        <div className="overflow-y-auto custom-scrollbar overscroll-contain min-h-0">
           <div className="px-3 py-4 space-y-1">
             {PAGE_TITLES.map((title, idx) => {
               const isActive = idx === currentPage;
@@ -375,15 +375,15 @@ export const KundaliReportBook: React.FC = () => {
 
         {/* Sidebar Actions */}
         <div className="shrink-0 p-4 pb-8 lg:pb-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
-            <DownloadPdfButton
-              filename="kundali_Report.pdf"
-              targetIds={Array.from(
-                { length: PAGE_TITLES.length },
-                (_, i) => `pdf-page-${i}`,
-              )}
-            />
+          <DownloadPdfButton
+            filename="kundali_Report.pdf"
+            targetIds={Array.from(
+              { length: PAGE_TITLES.length },
+              (_, i) => `pdf-page-${i}`,
+            )}
+          />
 
-            {/* <button
+          {/* <button
             onClick={() => window.open("https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf", "_blank")}
             className="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-700 hover:to-green-800 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
           >
@@ -393,16 +393,16 @@ export const KundaliReportBook: React.FC = () => {
             </span>
           </button> */}
 
-            <button
-              onClick={handleResetReport}
-              className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              <RefreshCw size={16} />
-              <span className="text-[11px] font-extrabold tracking-widest uppercase">
-                Enter Different Details
-              </span>
-            </button>
-          </div>
+          <button
+            onClick={handleResetReport}
+            className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <RefreshCw size={16} />
+            <span className="text-[11px] font-extrabold tracking-widest uppercase">
+              Enter Different Details
+            </span>
+          </button>
+        </div>
       </aside>
 
       {/* Main Booklet container view */}
