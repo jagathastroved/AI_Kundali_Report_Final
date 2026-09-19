@@ -419,7 +419,7 @@ export const KundaliReportBook: React.FC = () => {
             </div>
             <div className="flex flex-col text-left xl:text-center w-full">
               <span className="text-slate-800 font-bold text-[13px] sm:text-sm xl:text-[14px] leading-snug tracking-wide">
-                Kundli feeling like a puzzle?
+                Kundali feeling like a puzzle?
               </span>
             </div>
           </div>

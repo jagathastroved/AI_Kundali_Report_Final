@@ -7,7 +7,7 @@ import LagnaCalculatorImg from '../assets/tools/lagna_calculator.jpg';
 
 const faqs = [
   { q: "What is a Kundali and how is it calculated?", a: "A Kundali is your Vedic birth chart, calculated using your exact date, time, and place of birth to map planetary positions at the moment you were born." },
-  { q: "What details do I need to generate my Janam Kundli?", a: "You need your date of birth, exact birth time, and birthplace. Accurate details help create a more precise birth chart." },
+  { q: "What details do I need to generate my Janam Kundali?", a: "You need your date of birth, exact birth time, and birthplace. Accurate details help create a more precise birth chart." },
   { q: "Is an online Kundali accurate?", a: "The chart calculation largely depends on the accuracy of the birth details you enter. Even a small difference in birth time can affect factors such as the Ascendant and house positions." },
   { q: "What if I don't know my exact birth time?", a: "You can still explore limited astrological information, but an exact birth time is important for a detailed Kundali. An astrologer may also help with birth-time rectification." },
   { q: "Can a Kundali tell me about my future?", a: "A Kundali is traditionally used to understand planetary patterns, strengths, challenges, and significant life periods rather than treating the future as fixed." },
@@ -126,10 +126,10 @@ export const LandingScreen: React.FC = () => {
       <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
-            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">What Is a Kundli or Birth Chart?</h2>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">What Is a Kundali or Birth Chart?</h2>
             <div className="space-y-4 text-slate-900 text-[15px] sm:text-[16px] leading-[1.8]">
               <p>
-                A Kundli, or <a href="https://www.astroved.com/blogs/how-to-read-birth-chart-vedic-guide" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Birth Chart</a>, is a snapshot of the sky at the exact time and place you were born.
+                A Kundali, or <a href="https://www.astroved.com/blogs/how-to-read-birth-chart-vedic-guide" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Birth Chart</a>, is a snapshot of the sky at the exact time and place you were born.
               </p>
               <p>
                 It shows your <a href="https://www.astroved.com/astropedia/en/freetools/lagna-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Lagna</a>, planets, Houses, <a href="https://www.astroved.com/blogs/what-is-rasi-and-nakshatra" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Nakshatras</a>, Yogas, Doshas, and <a href="https://www.astroved.com/astropedia/en/freetools/dasa-bhukti-calculator" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Dashas</a>, that are believed to influence different areas of your life - such as personality, career, relationships, finances, and well-being. You can discover what may support you, where extra awareness may help, and which life periods could bring important changes through your birth chart.
@@ -164,7 +164,7 @@ export const LandingScreen: React.FC = () => {
             {/* 3. Content */}
             <div className="space-y-4 text-slate-900 text-[15px] sm:text-[16px] leading-[1.8] lg:col-start-1 lg:row-start-2 lg:self-start">
               <p>
-                No two birth charts are the same. Your free Kundli report is created from your birth details and helps you discover:
+                No two birth charts are the same. Your free Kundali report is created from your birth details and helps you discover:
               </p>
               <ul className="list-disc pl-6 space-y-2.5 marker:text-[#6B40C3] marker:font-bold">
                 <li>Your Lagna, Rasi, and Nakshatra</li>
@@ -187,10 +187,10 @@ export const LandingScreen: React.FC = () => {
       <div className="w-full relative overflow-hidden py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
-            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">How to Read Your Kundli: A Simple Guide to Understanding Your Birth Chart</h2>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">How to Read Your Kundali: A Simple Guide to Understanding Your Birth Chart</h2>
             <div className="space-y-4 text-slate-900 text-[15px] sm:text-[16px] leading-[1.8]">
               <p>
-                Your Kundli is more than a set of planetary positions - it's a symbolic map of your personality, patterns, strengths, and potential. You don't need to decode everything at once. Start with these five essentials:
+                Your Kundali is more than a set of planetary positions - it's a symbolic map of your personality, patterns, strengths, and potential. You don't need to decode everything at once. Start with these five essentials:
               </p>
               <ul className="list-decimal pl-6 space-y-3">
                 <li><strong className="text-slate-900">Identify your Lagna (Ascendant)</strong> - the foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure - which is why exact birth time matters so much.</li>
@@ -215,10 +215,10 @@ export const LandingScreen: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-purple-200/30 via-indigo-100/20 to-transparent rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4 pointer-events-none"></div>
         <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10 text-left">
           <div>
-            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">Kundali Matching for Marriage (Kundli Milan)</h2>
+            <h2 className="text-[24px] sm:text-[28px] md:text-3xl font-bold text-[#2E2459] mb-4 tracking-tight">Kundali Matching for Marriage (Kundali Milan)</h2>
             <div className="space-y-4 text-slate-900 text-[15px] sm:text-[16px] leading-[1.8]">
               <p>
-                <a href="https://www.astroved.com/astropedia/en/freetools/kundali-matching" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Kundli Milan</a> is the process of comparing two birth charts to check compatibility for marriage. It goes beyond basic zodiac matching - studying Guna matching, emotional compatibility, health, family life, prosperity, and long-term harmony between two charts.
+                <a href="https://www.astroved.com/astropedia/en/freetools/kundali-matching" target="_blank" rel="noopener noreferrer" className="text-[#6B40C3] font-semibold underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Kundali Milan</a> is the process of comparing two birth charts to check compatibility for marriage. It goes beyond basic zodiac matching - studying Guna matching, emotional compatibility, health, family life, prosperity, and long-term harmony between two charts.
               </p>
               <p>
                 A good match isn't about chasing a "perfect" score. It's about understanding where the relationship flows naturally, where adjustments may be needed, and how both charts support a life together.
