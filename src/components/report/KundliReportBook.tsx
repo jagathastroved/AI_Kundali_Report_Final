@@ -325,7 +325,7 @@ export const KundaliReportBook: React.FC = () => {
         </div>
 
         {/* Scrollable container for checklist and actions */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar">
+        <div className="overflow-y-auto custom-scrollbar min-h-0">
           <div className="px-3 py-4 space-y-1">
             {PAGE_TITLES.map((title, idx) => {
               const isActive = idx === currentPage;
