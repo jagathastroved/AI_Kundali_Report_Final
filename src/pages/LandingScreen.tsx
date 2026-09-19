@@ -55,7 +55,7 @@ export const LandingScreen: React.FC = () => {
     <div className="w-full bg-slate-50 text-slate-900 flex flex-col items-center justify-start relative overflow-hidden z-10">
 
       {/* ============ HERO — DARK SECTION ============ */}
-      <div className="w-full flex flex-col items-center justify-center px-4 pt-8 pb-14 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20 md:px-8 lg:px-12 relative z-10 bg-[radial-gradient(120%_120%_at_15%_10%,#312563_0%,#241a4a_100%)]">
+      <div className="w-full flex flex-col items-center justify-center px-4 pt-8 pb-14 sm:pt-10 sm:pb-16 lg:py-4 md:px-8 lg:px-12 relative z-10 bg-[radial-gradient(120%_120%_at_15%_10%,#312563_0%,#241a4a_100%)] lg:min-h-[100dvh]">
 
 
         {/* Decorative background — hidden on small screens so it never crowds the content */}
@@ -192,18 +192,18 @@ export const LandingScreen: React.FC = () => {
               <p>
                 Your Kundli is more than a set of planetary positions - it's a symbolic map of your personality, patterns, strengths, and potential. You don't need to decode everything at once. Start with these five essentials:
               </p>
-              <ul className="list-decimal pl-6 space-y-3 font-bold">
-                <li><strong className="text-slate-900 font-bold">Identify your Lagna (Ascendant)</strong> - the foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure - which is why exact birth time matters so much.</li>
-                <li><strong className="text-slate-900 font-bold">Check your Moon Sign and Nakshatra</strong> - these reveal your emotional nature, instincts, and inner responses.</li>
-                <li><strong className="text-slate-900 font-bold">Explore the 12 Houses</strong> - each one governs a life area: family, education, career, relationships, finances, health, and growth.</li>
-                <li><strong className="text-slate-900 font-bold">Study your planetary placements</strong> - the sign and house a planet sits in shows where its energy plays out.</li>
-                <li><strong className="text-slate-900 font-bold">Look for Yogas, Doshas, and Dashas</strong> - these highlight opportunities, challenges, and key life phases.</li>
+              <ul className="list-decimal pl-6 space-y-3">
+                <li><strong className="text-slate-900">Identify your Lagna (Ascendant)</strong> - the foundation of your chart. Even a 4-minute error in birth time can shift it into a different sign, changing your entire chart's house structure - which is why exact birth time matters so much.</li>
+                <li><strong className="text-slate-900">Check your Moon Sign and Nakshatra</strong> - these reveal your emotional nature, instincts, and inner responses.</li>
+                <li><strong className="text-slate-900">Explore the 12 Houses</strong> - each one governs a life area: family, education, career, relationships, finances, health, and growth.</li>
+                <li><strong className="text-slate-900">Study your planetary placements</strong> - the sign and house a planet sits in shows where its energy plays out.</li>
+                <li><strong className="text-slate-900">Look for Yogas, Doshas, and Dashas</strong> - these highlight opportunities, challenges, and key life phases.</li>
               </ul>
               <p className="pt-1">
                 A meaningful reading comes from connecting all five - not from fixating on one planet or placement in isolation. Think of your chart as one integrated story, not a set of separate predictions.
               </p>
               <p className="font-bold text-slate-900">
-                Want a deeper read? <a href="#" className="text-[#6B40C3] underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Book a consultation</a> or get instant insights above.
+                Want a deeper read? <a href="https://www.astroved.com/astrovedspeaks/" className="text-[#6B40C3] underline underline-offset-4 decoration-[#6B40C3]/40 hover:decoration-[#6B40C3] transition-colors">Book a consultation</a> or get instant insights above.
               </p>
             </div>
           </div>

@@ -306,7 +306,7 @@ export const BirthDetailsForm: React.FC = () => {
                   const val = e.target.value.replace(/[^a-zA-Z\s]/g, '');
                   setName(val);
                 }}
-                className="w-full px-4 py-3 text-sm text-gray-800 font-medium placeholder-gray-500 border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"
+                className="w-full px-4 py-3 text-[16px] md:text-sm text-gray-800 font-medium placeholder-gray-500 border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"
                 placeholder="Your Name"
               />
             </div>
@@ -349,7 +349,7 @@ export const BirthDetailsForm: React.FC = () => {
                   setEmail(e.target.value);
                   if (emailError) setEmailError('');
                 }}
-                className={`w-full px-4 py-3 text-sm text-gray-800 font-medium placeholder-gray-500 border ${emailError ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-indigo-400'} rounded-xl focus:outline-none focus:ring-1 focus:ring-indigo-400`}
+                className={`w-full px-4 py-3 text-[16px] md:text-sm text-gray-800 font-medium placeholder-gray-500 border ${emailError ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-indigo-400'} rounded-xl focus:outline-none focus:ring-1 focus:ring-indigo-400`}
                 placeholder="Your Email"
               />
               {emailError && <p className="text-[10px] text-red-500 absolute -bottom-4 left-2">{emailError}</p>}
@@ -520,7 +520,7 @@ export const BirthDetailsForm: React.FC = () => {
                   onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                   disabled={!country}
                   placeholder="Type your city"
-                  className="w-full pl-4 pr-8 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 cursor-text relative z-0 disabled:opacity-50"
+                  className="w-full pl-4 pr-8 py-3 text-[16px] md:text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400 cursor-text relative z-0 disabled:opacity-50"
                   autoComplete="off"
                 />
                 <AnimatePresence>

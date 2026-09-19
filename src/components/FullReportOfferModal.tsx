@@ -12,7 +12,7 @@ interface FullReportOfferModalProps {
 
 const reportFeatures = [
   "Your personality & hidden strengths",
-  "Your most powerfull planets",
+  "Your most powerful planets",
   "Dasha predictions for career, money, relationships & health"
 ];
 

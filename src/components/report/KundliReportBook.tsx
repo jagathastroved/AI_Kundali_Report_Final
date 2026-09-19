@@ -423,7 +423,7 @@ export const KundaliReportBook: React.FC = () => {
               </span>
             </div>
           </div>
-          <a href='https://www.astroved.com/AstrologerScheduler.aspx?id=115&promo=SL_MM_LAC' target="_blank" className="relative z-10 shrink-0 w-auto xl:w-full bg-emerald-500 hover:bg-emerald-600 text-white text-[11px] xl:text-[12px] font-bold py-2 xl:py-2.5 px-4 xl:px-2 rounded-lg shadow-lg transition-colors active:scale-95 text-center leading-tight">
+          <a href='https://www.astroved.com/astrovedspeaks/' target="_blank" className="relative z-10 shrink-0 w-auto xl:w-full bg-emerald-500 hover:bg-emerald-600 text-white text-[11px] xl:text-[12px] font-bold py-2 xl:py-2.5 px-4 xl:px-2 rounded-lg shadow-lg transition-colors active:scale-95 text-center leading-tight">
             Talk to an<br className="hidden xl:block" /> Astrologer
           </a>
         </div>
