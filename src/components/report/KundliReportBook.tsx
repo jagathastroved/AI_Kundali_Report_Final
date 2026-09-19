@@ -294,10 +294,13 @@ export const KundaliReportBook: React.FC = () => {
 
       {/* Modern Collapsible Table of Contents Navigation Drawer */}
       <aside
-        className={`fixed lg:sticky lg:top-0 top-0 bottom-0 lg:bottom-auto left-0 z-50 lg:z-20 border-r border-default sidebar-bg flex-shrink-0 transition-all duration-300 ease-in-out grid grid-rows-[auto_1fr_auto] lg:h-[100dvh] overscroll-contain ${isSidebarOpen
+        className={`fixed lg:sticky lg:top-0 top-0 left-0 z-50 lg:z-20 border-r border-default sidebar-bg flex-shrink-0 transition-all duration-300 ease-in-out flex flex-col overscroll-contain ${isSidebarOpen
           ? "translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100"
           : "-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden"
           }`}
+        style={{
+          height: window.innerWidth < 1024 ? window.innerHeight : "100vh"
+        }}
       >
         <div className="shrink-0 p-5 border-b border-default sidebar-header-bg flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -325,7 +328,7 @@ export const KundaliReportBook: React.FC = () => {
         </div>
 
         {/* Scrollable container for checklist */}
-        <div className="overflow-y-auto custom-scrollbar overscroll-contain min-h-0">
+        <div className="flex-1 overflow-y-auto custom-scrollbar overscroll-contain min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
           <div className="px-3 py-4 space-y-1">
             {PAGE_TITLES.map((title, idx) => {
               const isActive = idx === currentPage;
