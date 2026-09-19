@@ -261,6 +261,19 @@ export const KundaliReportBook: React.FC = () => {
     }
   }, [location.pathname, currentPage]);
 
+  useEffect(() => {
+    // Prevent background scrolling on mobile when sidebar is open
+    if (isSidebarOpen && window.innerWidth < 1024) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isSidebarOpen]);
+
   if (!reportData) return <Navigate to="/" replace />;
 
   return (
@@ -281,7 +294,7 @@ export const KundaliReportBook: React.FC = () => {
 
       {/* Modern Collapsible Table of Contents Navigation Drawer */}
       <aside
-        className={`fixed lg:sticky lg:top-0 inset-y-0 left-0 h-screen z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out ${isSidebarOpen
+        className={`fixed lg:sticky lg:top-0 top-0 left-0 z-50 lg:z-20 border-r border-default sidebar-bg flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out h-fit max-h-[100dvh] lg:h-[100dvh] lg:max-h-none ${isSidebarOpen
           ? "translate-x-0 w-[85vw] sm:w-80 shadow-2xl lg:shadow-none lg:w-80 opacity-100"
           : "-translate-x-full lg:translate-x-0 w-[85vw] sm:w-80 lg:w-0 lg:opacity-0 lg:overflow-hidden"
           }`}
@@ -311,64 +324,65 @@ export const KundaliReportBook: React.FC = () => {
           </div>
         </div>
 
-        {/* Scrollable checklist items */}
-        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1 custom-scrollbar">
-          {PAGE_TITLES.map((title, idx) => {
-            const isActive = idx === currentPage;
-            const isCompleted = idx < currentPage;
-            return (
-              <button
-                key={idx}
-                id={`sidebar-nav-item-${idx}`}
-                onClick={() => {
-                  setPage(idx);
-                  handleScrollToTop();
-                  if (window.innerWidth < 1024) {
-                    setIsSidebarOpen(false);
-                  }
-                }}
-                className={`w-full flex items-center px-4 py-2.5 rounded-xl text-left text-xs font-normal transition-all group ${isActive
-                  ? "bg-[#FE7950] text-white shadow-md shadow-[#FE7950]/15"
-                  : "sidebar-item-text sidebar-item-hover"
-                  }`}
-              >
-                <div
-                  className={`w-5 h-5 rounded-full mr-3 text-[10px] flex items-center justify-center font-bold border transition-colors ${isActive
-                    ? "border-white/40 bg-white/20 text-white"
-                    : isCompleted
-                      ? "border-emerald-200 bg-emerald-50 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400"
-                      : "border-slate-300 dark:border-slate-600 bg-transparent text-slate-400 group-hover:border-slate-400 dark:group-hover:border-slate-500 font-normal"
+        {/* Scrollable container for checklist and actions */}
+        <div className="flex-1 overflow-y-auto custom-scrollbar">
+          <div className="px-3 py-4 space-y-1">
+            {PAGE_TITLES.map((title, idx) => {
+              const isActive = idx === currentPage;
+              const isCompleted = idx < currentPage;
+              return (
+                <button
+                  key={idx}
+                  id={`sidebar-nav-item-${idx}`}
+                  onClick={() => {
+                    setPage(idx);
+                    handleScrollToTop();
+                    if (window.innerWidth < 1024) {
+                      setIsSidebarOpen(false);
+                    }
+                  }}
+                  className={`w-full flex items-center px-4 py-3 rounded-xl text-left text-sm font-medium transition-all group ${isActive
+                    ? "bg-[#FE7950] text-white shadow-md shadow-[#FE7950]/15"
+                    : "sidebar-item-text sidebar-item-hover"
                     }`}
                 >
-                  {idx + 1}
-                </div>
-                <span className="flex-1 truncate">{title}</span>
-                {idx === PAGE_TITLES.length - 1 && (
-                  <span
-                    className={`px-1.5 py-0.5 rounded text-[8px] uppercase font-normal font-mono ml-2 tracking-wider ${isActive
-                      ? "bg-orange-500 text-white"
-                      : "bg-orange-500 text-white animate-pulse"
+                  <div
+                    className={`w-6 h-6 shrink-0 rounded-full mr-3 text-xs flex items-center justify-center font-bold border transition-colors ${isActive
+                      ? "border-white/40 bg-white/20 text-white"
+                      : isCompleted
+                        ? "border-emerald-200 bg-emerald-50 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400"
+                        : "border-slate-300 dark:border-slate-600 bg-transparent text-slate-400 group-hover:border-slate-400 dark:group-hover:border-slate-500 font-normal"
                       }`}
                   >
-                    PRO
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
+                    {idx + 1}
+                  </div>
+                  <span className="flex-1 truncate">{title}</span>
+                  {idx === PAGE_TITLES.length - 1 && (
+                    <span
+                      className={`px-1.5 py-0.5 rounded text-[8px] uppercase font-normal font-mono ml-2 tracking-wider ${isActive
+                        ? "bg-orange-500 text-white"
+                        : "bg-orange-500 text-white animate-pulse"
+                        }`}
+                    >
+                      PRO
+                    </span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
 
-        {/* Sidebar Actions */}
-        <div className="p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
-          <DownloadPdfButton
-            filename="kundali_Report.pdf"
-            targetIds={Array.from(
-              { length: PAGE_TITLES.length },
-              (_, i) => `pdf-page-${i}`,
-            )}
-          />
+          {/* Sidebar Actions */}
+          <div className="p-4 pb-6 lg:pb-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
+            <DownloadPdfButton
+              filename="kundali_Report.pdf"
+              targetIds={Array.from(
+                { length: PAGE_TITLES.length },
+                (_, i) => `pdf-page-${i}`,
+              )}
+            />
 
-          {/* <button
+            {/* <button
             onClick={() => window.open("https://www.astroved.com/reacthome/reports/Sample%20Detailed%20kundali%20Premium%20Report.pdf", "_blank")}
             className="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-700 hover:to-green-800 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
           >
@@ -378,15 +392,16 @@ export const KundaliReportBook: React.FC = () => {
             </span>
           </button> */}
 
-          <button
-            onClick={handleResetReport}
-            className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <RefreshCw size={16} />
-            <span className="text-[11px] font-extrabold tracking-widest uppercase">
-              Enter Different Details
-            </span>
-          </button>
+            <button
+              onClick={handleResetReport}
+              className="w-full py-3.5 bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 text-white rounded-2xl shadow-[0_8px_20px_-6px_rgba(244,63,94,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(244,63,94,0.7)] transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <RefreshCw size={16} />
+              <span className="text-[11px] font-extrabold tracking-widest uppercase">
+                Enter Different Details
+              </span>
+            </button>
+          </div>
         </div>
       </aside>
 
