@@ -11,7 +11,7 @@ export default defineConfig(() => {
         targets: ['defaults', 'iOS >= 13', 'Safari >= 13'],
       }),
     ],
-    base: "/kundali-report/",
+    base: "/kundali-report",
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

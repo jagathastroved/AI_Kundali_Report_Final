@@ -4,6 +4,11 @@
       "source": "/",
       "destination": "/kundali-report/",
       "permanent": false
+    },
+    {
+      "source": "/kundali-report",
+      "destination": "/kundali-report/",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -17,10 +22,6 @@
     },
     {
       "source": "/kundali-report/:path*",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/kundali-report",
       "destination": "/index.html"
     },
     {
