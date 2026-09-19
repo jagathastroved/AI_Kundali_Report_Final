@@ -377,7 +377,7 @@ export const KundaliReportBook: React.FC = () => {
         </div>
 
         {/* Sidebar Actions */}
-        <div className="shrink-0 p-4 pb-8 lg:pb-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
+        <div className="shrink-0 p-4 border-t border-default sidebar-header-bg flex flex-col gap-3">
           <DownloadPdfButton
             filename="kundali_Report.pdf"
             targetIds={Array.from(
