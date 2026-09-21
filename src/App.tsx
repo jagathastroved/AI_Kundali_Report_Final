@@ -5,6 +5,7 @@ import { AppRoutes } from './routes/AppRoutes';
 export default function App() {
   return (
     <AppProviders>
+
       <main className="min-h-screen bg-indigo-900 text-slate-200 font-sans relative overflow-hidden">
         {/* Global Background from generating page */}
         <div className="absolute top-10 left-10 w-64 h-64 bg-indigo-500/10 rounded-full filter blur-3xl pointer-events-none" />
